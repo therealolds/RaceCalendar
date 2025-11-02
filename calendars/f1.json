@@ -1,0 +1,126 @@
+{
+  "championship": "Formula 1",
+  "year": 2025,
+  "races": [
+    {
+      "idtrack": "Albert_Park",
+      "name": "Australian Grand Prix",
+      "date": "2025-03-16",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-03-14", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2025-03-14", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2025-03-15", "time": "12:30" },
+          { "name": "Qualifying", "date": "2025-03-16", "time": "16:00" },
+          { "name": "Race", "date": "2025-03-16", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Shanghai_International_Circuit",
+      "name": "Chinese Grand Prix",
+      "date": "2025-03-23",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-03-21", "time": "11:30" },
+          { "name": "Sprint Qualifying", "date": "2025-03-21", "time": "15:30" },
+          { "name": "Sprint", "date": "2025-03-22", "time": "11:00" },
+          { "name": "Qualifying", "date": "2025-03-22", "time": "15:00" },
+          { "name": "Race", "date": "2025-03-23", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "COTA",
+      "name": "United States GP",
+      "date": "2025-10-26",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-10-17", "time": "12:30" },
+          { "name": "Sprint Qualifying", "date": "2025-10-17", "time": "16:30" },
+          { "name": "Sprint", "date": "2025-10-18", "time": "12:00" },
+          { "name": "Qualifying", "date": "2025-10-18", "time": "16:00" },
+          { "name": "Race", "date": "2025-10-19", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Autodromo_Hermanos_Rodriguez",
+      "name": "Gran Premio de la Ciudad de México",
+      "date": "2025-10-26",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-10-24", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2025-10-24", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2025-10-25", "time": "11:30" },
+          { "name": "Qualifying", "date": "2025-10-25", "time": "15:00" },
+          { "name": "Race", "date": "2025-10-26", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Autodromo_Jose_Carlos_Pace",
+      "name": "Sao Paulo GP",
+      "date": "2025-11-09",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-11-07", "time": "11:30" },
+          { "name": "Sprint Qualifying", "date": "2025-11-07", "time": "15:30" },
+          { "name": "Sprint", "date": "2025-11-08", "time": "11:00" },
+          { "name": "Qualifying", "date": "2025-11-08", "time": "15:00" },
+          { "name": "Race", "date": "2025-11-09", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Las_Vegas_Strip_Circuit",
+      "name": "Las Vegas Grand Prix",
+      "date": "2025-11-22",
+      "time": "20:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-11-20", "time": "16:30" },
+          { "name": "Free Practice 2", "date": "2025-11-20", "time": "20:00" },
+          { "name": "Free Practice 3", "date": "2025-11-21", "time": "16:30" },
+          { "name": "Qualifying", "date": "2025-11-21", "time": "20:00" },
+          { "name": "Race", "date": "2025-11-22", "time": "20:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Lusail_International_Circuit",
+      "name": "Qatar Grand Prix",
+      "date": "2025-11-30",
+      "time": "19:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-11-28", "time": "16:30" },
+          { "name": "Sprint Qualifying", "date": "2025-11-28", "time": "20:30" },
+          { "name": "Sprint", "date": "2025-11-29", "time": "17:00" },
+          { "name": "Qualifying", "date": "2025-11-29", "time": "21:00" },
+          { "name": "Race", "date": "2025-11-30", "time": "19:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Yas_Marina_Circuit",
+      "name": "Abu Dhabi Grand Prix",
+      "date": "2025-12-07",
+      "time": "17:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2025-12-05", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2025-12-05", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2025-12-06", "time": "14:30" },
+          { "name": "Qualifying", "date": "2025-12-06", "time": "18:00" },
+          { "name": "Race", "date": "2025-12-07", "time": "17:00" }
+        ]
+      }
+    }
+  ]
+}

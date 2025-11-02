@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racing Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="https://github.com/therealolds/RaceCalendar">RaceCalendar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home-grid">
+    <!-- TODAY -->
+    <section id="TODAY" class="section section--full">
+      <div class="center-container">
+        <h1>Racing Today</h1>
+        <div id="today-races" class="today-list series-grid">Loading...</div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section--full tag-section" id="section-featured">
+      <div class="center-container">
+        <h2>Featured</h2>
+        <div class="series-grid" id="grid-featured"></div>
+      </div>
+    </section>
+
+    <!-- Motorsport -->
+    <section class="section--full tag-section" id="section-motorsport">
+      <div class="center-container">
+        <h2>Motorsport</h2>
+        <div class="series-grid" id="grid-motorsport"></div>
+      </div>
+    </section>
+
+    <!-- Sailing and boats-->
+    <section class="section--full tag-section" id="section-nautical">
+      <div class="center-container">
+        <h2>Sailing & Nautical</h2>
+        <div class="series-grid" id="grid-nautical"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/series.js"></script>
+  <script src="scripts/render.js"></script>
+  <script src="scripts/calendar.js"></script>
+  <script src="scripts/home.js"></script>
+
+
+</body>
+
+</html>
