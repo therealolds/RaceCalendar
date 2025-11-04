@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WRC Calendar 2025</title>
+  <title>Grand Prix Off Shore</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -18,25 +18,24 @@
   </header>
 
   <main>
-    <section class="section tile bg-wrc">
+    <section class="section tile bg-gp_offshore">
       <div class="center-container">
-        <h2><a href="https://www.wrc.com/en" target="_blank" rel="noopener noreferrer">World Rally Championship</a></h2>
+        <h2><a href="https://www.grandprixoffshorecittadicervia.it/" target="_blank" rel="noopener noreferrer">Grand Prix Off Shore</a></h2>
         <span class="logo-panel">
-          <img src="../logos/WRC.svg" alt="WRC logo" loading="lazy" />
+          <img src="../logos/gp_offshore.png" alt="Grand Prix Off Shore logo" loading="lazy" />
         </span>
-        <div id="next-wrc" class="next-race next-race--overlay">Loading...</div>
+        <div id="next-gp_offshore" class="next-race next-race--overlay">Loading...</div>
       </div>
     </section>
-    <h1>World Rally Championship — 2025</h1>
+    <h1>Grand Prix Off Shore</h1>
     <div id="calendar" class="calendar-container">Loading races...</div>
-    <div id="race-details" class="accordion" style="display: none;"></div>
   </main>
 
   <script src="../scripts/render.js"></script>
   <script src="../scripts/calendar.js"></script>
   <script>
-    loadNextRace('../calendars/wrc.json', 'next-wrc', false);
-    loadFullCalendar('../calendars/wrc.json', 'calendar');
+    loadNextRace('../calendars/gp_offshore.json', 'next-gp_offshore', false);
+    loadFullCalendar('../calendars/gp_offshore.json', 'calendar');
   </script>
 </body>
 
