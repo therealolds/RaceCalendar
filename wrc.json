@@ -1,0 +1,82 @@
+{
+  "championship": "WRC",
+  "year": 2025,
+  "races": [
+    {
+      "idtrack": "",
+      "name": "Rally di Montecarlo",
+      "date": "2025-01-26",
+      "time": "06:39",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Shakedown", "date": "2025-01-22", "time": "16:01" },
+          { "name": "Day 1", "date": "2025-01-23", "time": "14:30" },
+          { "name": "Day 2", "date": "2025-01-24", "time": "09:31" },
+          { "name": "Day 3", "date": "2025-01-25", "time": "08:59" },
+          { "name": "Day 4", "date": "2025-01-26", "time": "06:39" }
+        ]
+      }
+    },
+    {
+      "idtrack": "",
+      "name": "Rally di Giappone",
+      "date": "2025-11-09",
+      "time": "14:15",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Day 1 - Shakedown", "date": "2025-11-06", "time": "09:00" },
+          { "name": "Day 1 - SS1 Kuragaike SSS", "date": "2025-11-06", "time": "16:05" },
+          { "name": "Day 1 - Opening Ceremony", "date": "2025-11-06", "time": "17:30" },
+          { "name": "Day 2 - SS2 Inabu Shitara SS", "date": "2025-11-07", "time": "07:11" },
+          { "name": "Day 2 - SS3 Shinshiro SS", "date": "2025-11-07", "time": "08:24" },
+          { "name": "Day 2 - SS4 Isegami Tunnel SS", "date": "2025-11-07", "time": "09:57" },
+          { "name": "Day 2 - SS5 Isegami Tunnel SS", "date": "2025-11-07", "time": "13:40" },
+          { "name": "Day 2 - SS6 Inabu Shitara SS", "date": "2025-11-07", "time": "15:03" },
+          { "name": "Day 2 - SS7 Shinshiro SS", "date": "2025-11-07", "time": "16:16" },
+          { "name": "Day 3 - SS8 Obara SS", "date": "2025-11-08", "time": "07:23" },
+          { "name": "Day 3 - SS9 Ena SS", "date": "2025-11-08", "time": "08:34" },
+          { "name": "Day 3 - SS10 Mt. Kasagiyama SS", "date": "2025-11-08", "time": "10:05" },
+          { "name": "Day 3 - SS11 Mt. Kasagiyama SS", "date": "2025-11-08", "time": "12:35" },
+          { "name": "Day 3 - SS12 Ena SS", "date": "2025-11-08", "time": "14:08" },
+          { "name": "Day 3 - SS13 Obara SS", "date": "2025-11-08", "time": "15:21" },
+          { "name": "Day 3 - SS14 Toyota City SSS", "date": "2025-11-08", "time": "17:35" },
+          { "name": "Day 4 - SS15 Nukata SS", "date": "2025-11-09", "time": "08:39" },
+          { "name": "Day 4 - SS16 Lake Mikawako SS", "date": "2025-11-09", "time": "09:35" },
+          { "name": "Day 4 - SS17 Okazaki SSS", "date": "2025-11-09", "time": "10:53" },
+          { "name": "Day 4 - SS18 Okazaki SSS", "date": "2025-11-09", "time": "11:04" },
+          { "name": "Day 4 - SS19 Nukata SS", "date": "2025-11-09", "time": "12:33" },
+          { "name": "Day 4 - SS20 (Wolf Power Stage)", "date": "2025-11-09", "time": "14:15" }
+        ]
+      }
+    },
+    {
+      "idtrack": "",
+      "name": "Rally Rally Saudi Arabia",
+      "date": "2025-11-29",
+      "time": "14:15",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Day 1 - WRC Welcome Corniche Parade", "date": "2025-11-25", "time": "20:00" },
+          { "name": "Day 2 - Shakedown", "date": "2025-11-26", "time": "11:01" },
+          { "name": "Day 2 - SSS1 Jameel Motorsport Super Special 1", "date": "2025-11-26", "time": "20:35" },
+          { "name": "Day 3 - SS2 Al Faisaliyah 1", "date": "2025-11-27", "time": "08:08" },
+          { "name": "Day 3 - SS3 Moon Stage 1", "date": "2025-11-27", "time": "09:06" },
+          { "name": "Day 3 - SS4 Kuhlais 1", "date": "2025-11-27", "time": "10:04" },
+          { "name": "Day 3 - SS5 Al Faisaliyah 2", "date": "2025-11-27", "time": "14:22" },
+          { "name": "Day 3 - SS6 Moon Stage 2", "date": "2025-11-27", "time": "15:20" },
+          { "name": "Day 3 - SS7 Kuhlais 2", "date": "2025-11-27", "time": "16:19" },
+          { "name": "Day 3 - SSS8 Jameel Motorsport Super Special 1", "date": "2025-11-27", "time": "20:23" },
+          { "name": "Day 4 - SS9 Alghulah 1", "date": "2025-11-28", "time": "08:26" },
+          { "name": "Day 4 - SS10 Um Al Jerem 1", "date": "2025-11-28", "time": "09:19" },
+          { "name": "Day 4 - SS11 Wadi Almatwi 1", "date": "2025-11-28", "time": "10:35" },
+          { "name": "Day 4 - SS12 Alghulah 2", "date": "2025-11-28", "time": "13:51" },
+          { "name": "Day 4 - SS13 Um Al Jerem 2", "date": "2025-11-28", "time": "14:47" },
+          { "name": "Day 4 - SS14 Wadi Almatwi 2", "date": "2025-11-28", "time": "16:05" },
+          { "name": "Day 5 - SS15 Thahban 1", "date": "2025-11-29", "time": "08:35" },
+          { "name": "Day 5 - SS16 Asfan", "date": "2025-11-29", "time": "10:01" },
+          { "name": "Day 5 - SS17 Thahban 2", "date": "2025-11-29", "time": "13:15" }
+        ]
+      }
+    }
+  ]
+}

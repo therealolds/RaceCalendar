@@ -1,0 +1,17 @@
+{
+  "championship": "America's Cup",
+  "races": [
+    {
+      "name": "Preliminary Regatta 1",
+      "date": "2025-11-02",
+      "time": "12:00",
+      "idtrack": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Practice", "date": "2025-05-08", "time": "12:00" },
+          { "name": "Racing", "date": "2025-11-02", "time": "12:00" }
+        ]
+      }
+    }
+  ]
+}
