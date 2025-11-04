@@ -3,13 +3,13 @@
   "races": [
     {
       "name": "WEC",
-      "date": "2025-11-02",
-      "time": "12:00",
+      "date": "2025-11-03",
+      "time": "12:50",
       "idtrack": "",
       "additionalInfo": {
         "sessions": [
           { "name": "Practice", "date": "2025-05-08", "time": "12:00" },
-          { "name": "Racing", "date": "2025-11-02", "time": "12:00" }
+          { "name": "Racing", "date": "2025-11-03", "time": "12:50" }
         ]
       }
     }
