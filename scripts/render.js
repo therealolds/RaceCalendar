@@ -1,11 +1,29 @@
 // === RENDER A RACE BOX ===
 // showDetails: true -> used on dedicated pages (e.g. f1.html, wrc.html)
 // showDetails: false -> used on main page (index.html)
+
+// Parse JSON date/time as UTC and let the browser display in local time
+function parseUtcDateTime(dateStr, timeStr) {
+  if (!dateStr) return new Date(NaN);
+  if (String(dateStr).includes('T')) {
+    // ISO string provided (e.g., 2025-03-16T15:00:00Z)
+    return new Date(dateStr);
+  }
+  const [y, m, d] = String(dateStr).split('-').map(Number);
+  const [hh, mm] = String(timeStr || '00:00').split(':').map(Number);
+  return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+}
+
+const rcDateFmt = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
+const rcTimeFmt = new Intl.DateTimeFormat(undefined, { timeStyle: 'short' });
+function formatLocalDate(dt) { return isFinite(dt) ? rcDateFmt.format(dt) : ''; }
+function formatLocalTime(dt) { return isFinite(dt) ? rcTimeFmt.format(dt) : 'TBA'; }
+
 function renderRaceCard(container, championship, race, labelText, showDetails = false) {
-  const raceDate = new Date(race.date);
+  const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const raceDay = new Date(race.date);
+  const raceDay = new Date(dt);
   raceDay.setHours(0, 0, 0, 0);
 
   // === Main wrapper ===
@@ -19,8 +37,8 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
     <h3>${labelText}</h3>
     <p><strong>${championship}</strong></p>
     <p>${race.name}</p>
-    <p>${raceDate.toLocaleDateString()}</p>
-    <p><strong>Race time:</strong> ${race.time || "TBA"}</p>
+    <p>${formatLocalDate(dt)}</p>
+    <p><strong>Local time:</strong> ${formatLocalTime(dt)}</p>
   `;
   row.appendChild(infoDiv);
 
@@ -53,7 +71,7 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
     row.appendChild(trackImageDiv);
 
     // If circuit-based (F1, WEC, MotoGP)
-    if (race.idtrack && race.idtrack.trim() !== "") {
+    if (race.idtrack && String(race.idtrack).trim() !== "") {
       fetch(`../tracks/${race.idtrack}.json`)
         .then(res => res.json())
         .then(track => {
@@ -88,16 +106,16 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
 }
 
 function renderRaceDetails(race, container) {
+  const sessions = (race.additionalInfo && race.additionalInfo.sessions) || [];
+  const items = sessions.length
+    ? sessions.map(s => {
+        const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
+        return `<li><strong>${s.name}</strong> — ${formatLocalDate(sdt)}, ${formatLocalTime(sdt)}</li>`;
+      }).join('')
+    : '<li><em>No detailed sessions available.</em></li>';
   container.innerHTML = `
     <h4>Weekend Schedule</h4>
-    <ul>
-      ${race.additionalInfo?.sessions
-      ? race.additionalInfo.sessions
-        .map(s => `<li><strong>${s.name}</strong> — ${s.date}, ${s.time}</li>`)
-        .join("")
-      : "<li><em>No detailed sessions available.</em></li>"
-    }
-    </ul>
+    <ul>${items}</ul>
   `;
 }
 
@@ -110,7 +128,7 @@ function ensureModal() {
     backdrop.className = 'rc-modal-backdrop';
     backdrop.innerHTML = `
       <div class="rc-modal" role="dialog" aria-modal="true">
-        <button class="rc-modal-close" aria-label="Close">×</button>
+        <button class="rc-modal-close" aria-label="Close">&times;</button>
         <div class="rc-modal-body"></div>
       </div>
     `;
@@ -135,3 +153,4 @@ function ensureModal() {
     }
   };
 }
+

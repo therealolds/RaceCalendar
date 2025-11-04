@@ -1,3 +1,14 @@
+// Parse JSON date/time as UTC and compare in local time where needed
+function parseUtcDateTime(dateStr, timeStr) {
+  if (!dateStr) return new Date(NaN);
+  if (String(dateStr).includes('T')) {
+    return new Date(dateStr);
+  }
+  const [y, m, d] = String(dateStr).split('-').map(Number);
+  const [hh, mm] = String(timeStr || '00:00').split(':').map(Number);
+  return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+}
+
 // === LOAD TODAY'S RACES (for main page) ===
 // Accepts either an array of series objects (preferred) or an array of JSON paths
 function loadTodayRaces(items, showDetails = false) {
@@ -14,22 +25,31 @@ function loadTodayRaces(items, showDetails = false) {
       : { series: it, json: it.json }
   );
 
-  Promise.all(
+  Promise.allSettled(
     sources.map(src =>
       fetch(src.json)
         .then(res => res.json())
         .then(data => ({ src, data }))
     )
   )
-    .then(results => {
+    .then(settled => {
+      const fulfilled = settled.filter(s => s.status === 'fulfilled').map(s => s.value);
+      const rejected = settled.filter(s => s.status === 'rejected');
+
+      if (fulfilled.length === 0) {
+        todayContainer.innerHTML = "<p>Error loading today's races.</p>";
+        return;
+      }
+
       const todayRaces = [];
 
-      results.forEach(({ src, data }) => {
+      fulfilled.forEach(({ src, data }) => {
         const championship = data.championship;
-        data.races.forEach(race => {
-          const raceDate = new Date(race.date);
-          raceDate.setHours(0, 0, 0, 0);
-          if (raceDate.getTime() === today.getTime()) {
+        (data.races || []).forEach(race => {
+          const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+          const eventDay = new Date(dt);
+          eventDay.setHours(0, 0, 0, 0);
+          if (isFinite(dt) && eventDay.getTime() === today.getTime()) {
             todayRaces.push({ series: src.series, championship, race });
           }
         });
@@ -38,7 +58,10 @@ function loadTodayRaces(items, showDetails = false) {
       todayContainer.innerHTML = "";
 
       if (todayRaces.length === 0) {
-        todayContainer.innerHTML = "<p>No races today.</p>";
+        todayContainer.innerHTML = "<p>No racing today :(</p>";
+        if (rejected.length) {
+          console.warn("Some calendars failed to load", rejected);
+        }
         return;
       }
 
@@ -83,19 +106,32 @@ function loadNextRace(calendarFile, containerId, showDetails = false) {
   fetch(calendarFile)
     .then(res => res.json())
     .then(data => {
+      const now = new Date();
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      const nextRace = data.races.find(race => {
-        const raceDate = new Date(race.date);
-        raceDate.setHours(0, 0, 0, 0);
-        return raceDate >= today;
+      const entries = (data.races || [])
+        .map(r => ({ r, dt: parseUtcDateTime(r.datetime_utc || r.date, r.time) }))
+        .filter(x => isFinite(x.dt))
+        .sort((a, b) => a.dt - b.dt);
+
+      // Prefer a race that is TODAY (local), even if already started
+      const todayEntry = entries.find(x => {
+        const d = new Date(x.dt);
+        d.setHours(0, 0, 0, 0);
+        return d.getTime() === today.getTime();
       });
+
+      // Otherwise, take the next upcoming race
+      const nextUpcoming = entries.find(x => x.dt >= now);
+
+      const chosen = todayEntry || nextUpcoming;
 
       container.textContent = "";
 
-      if (nextRace) {
-        renderRaceCard(container, data.championship, nextRace, "Next Race", showDetails);
+      if (chosen) {
+        const label = todayEntry ? "Race Today!" : "Next Race";
+        renderRaceCard(container, data.championship, chosen.r, label, showDetails);
       } else {
         container.textContent = "Season finished!";
       }
@@ -118,19 +154,22 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      // --- Sort all races by date first ---
-      const sortedRaces = [...data.races].sort((a, b) => new Date(a.date) - new Date(b.date));
+      // --- Sort all races by UTC timestamp ---
+      const sortedRaces = [...data.races].sort((a, b) =>
+        parseUtcDateTime(a.datetime_utc || a.date, a.time) - parseUtcDateTime(b.datetime_utc || b.date, b.time)
+      );
 
       const pastRaces = [];
       const todayRaces = [];
       const futureRaces = [];
 
       sortedRaces.forEach(race => {
-        const raceDate = new Date(race.date);
-        raceDate.setHours(0, 0, 0, 0);
+        const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+        const eventDay = new Date(dt);
+        eventDay.setHours(0, 0, 0, 0);
 
-        if (raceDate.getTime() === today.getTime()) todayRaces.push(race);
-        else if (raceDate < today) pastRaces.push(race);
+        if (eventDay.getTime() === today.getTime()) todayRaces.push(race);
+        else if (eventDay < today) pastRaces.push(race);
         else futureRaces.push(race);
       });
 
@@ -147,7 +186,7 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true) {
         });
       } else {
         const noToday = document.createElement("p");
-        noToday.textContent = "No race today.";
+        noToday.textContent = "No racing today :(";
         noToday.style.textAlign = "center";
         container.appendChild(noToday);
       }
@@ -164,16 +203,14 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true) {
     });
 }
 
-
-
-// === Helper: Create an Accordion ===
+// === Helper: Create an Accordion (ASCII-safe icons) ===
 function createAccordion(titleText, raceList, championship, showDetails, labelText) {
   const accordion = document.createElement("div");
   accordion.className = "accordion";
 
   const header = document.createElement("button");
   header.className = "accordion-header";
-  header.textContent = `${titleText} ⯈`;
+  header.textContent = `${titleText} v`;
 
   const panel = document.createElement("div");
   panel.className = "accordion-panel";
@@ -182,10 +219,9 @@ function createAccordion(titleText, raceList, championship, showDetails, labelTe
   header.addEventListener("click", () => {
     const isOpen = panel.style.display === "block";
     panel.style.display = isOpen ? "none" : "block";
-    header.textContent = isOpen ? `${titleText} ⯈` : `${titleText} ⯆`;
+    header.textContent = isOpen ? `${titleText} >` : `${titleText} v`;
   });
 
-  // Render races inside the accordion
   raceList.forEach(race => {
     renderRaceCard(panel, championship, race, labelText, showDetails);
   });
@@ -194,4 +230,3 @@ function createAccordion(titleText, raceList, championship, showDetails, labelTe
   accordion.appendChild(panel);
   return accordion;
 }
-
