@@ -4,55 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racing Calendar</title>
+  <title>RaceCalendar</title>
   <link rel="stylesheet" href="style.css">
   <!-- Dark mode support: automatic via prefers-color-scheme -->
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0b">
-
-  <style>
-    :root { color-scheme: light dark; }
-
-    /* Light defaults */
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #666666;
-      --surface: #f5f5f5;
-      --accent: #d90429;
-      --border: #e6e6e6;
-    }
-
-    /* Dark overrides */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b0b0b;
-        --fg: #eaeaea;
-        --muted: #a3a3a3;
-        --surface: #171717;
-        --accent: #ff395b;
-        --border: #2a2a2a;
-      }
-    }
-
-    /* Base application */
-    html, body {
-      background: var(--bg);
-      color: var(--fg);
-    }
-    a { color: var(--accent); }
-    hr, .divider { border-color: var(--border); }
-    .card, .panel { background: var(--surface); border: 1px solid var(--border); }
-    .muted { color: var(--muted); }
-  </style>
 </head>
 
 <body>
   <header>
     <nav>
-      <ul>
+      <ul class="topbar">
         <li><a href="https://github.com/therealolds/RaceCalendar">RaceCalendar</a></li>
+        <li class="welcome">Made in Modena</li>
       </ul>
     </nav>
   </header>

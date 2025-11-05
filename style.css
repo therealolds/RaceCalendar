@@ -632,3 +632,15 @@ h1 a:hover {
   margin: 0.2em 0;
 }
 /* theme block removed: now defined at top */
+
+.topbar {
+display: flex;
+align-items: center;
+list-style: none;
+padding: 0;
+margin: 0;
+width: 100%;
+}
+.topbar .welcome {
+margin-left: auto; /* pushes to the far right */
+}
