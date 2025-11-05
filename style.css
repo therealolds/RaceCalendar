@@ -14,7 +14,7 @@
 /* --- Light Theme (edit these to adjust colors) --- */
 :root {
   /* Page & text */
-  --bg: #ffffff;        /* Page background */
+  --bg: #ec920b09;        /* Page background */
   --fg: #111111;        /* Default text color */
   --muted: #666666;     /* Secondary text */
 
@@ -28,7 +28,7 @@
   --brand-2: #f5c800;   /* Former secondary */
 
   /* Overlays & shadows */
-  --tile-fg: #ffffff;               /* Text over image tiles */
+  --tile-fg: #000000;               /* Text over image tiles */
   --glass-bg: rgba(255, 255, 255, 0.18); /* Frosted panels */
   --glass-border: rgba(255, 255, 255, 0.28);
   --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.10);
@@ -47,7 +47,7 @@
 /* --- Dark Theme Overrides --- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0b0b0b;
+    --bg: #242424;
     --fg: #eaeaea;
     --muted: #a3a3a3;
     --surface: #171717;
