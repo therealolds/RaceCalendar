@@ -114,7 +114,7 @@ function renderRaceDetails(race, container) {
       }).join('')
     : '<li><em>No detailed sessions available.</em></li>';
   container.innerHTML = `
-    <h4>Weekend Schedule (UTC time)</h4>
+    <h4>Weekend Schedule</h4>
     <ul>${items}</ul>
   `;
 }
