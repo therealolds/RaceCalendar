@@ -4,19 +4,70 @@
    ========================================================= */
 
 /* ========================
-   1. ROOT VARIABLES & BASE
+   1. THEME VARIABLES
    ======================== */
 @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
 
+/* Automatic light/dark detection via OS/browser */
+:root { color-scheme: light dark; }
+
+/* --- Light Theme (edit these to adjust colors) --- */
 :root {
-  --base-color: #ffffff;
-  --text-color: #ee0901ec;
-  --primary-color: #ffc06e;
-  --secondary-color: #f5c800;
-  --color-1: #e9750100;
-  --color-2: #ff080036;
-  --color-3: #F6F3F9;
+  /* Page & text */
+  --bg: #ffffff;        /* Page background */
+  --fg: #111111;        /* Default text color */
+  --muted: #666666;     /* Secondary text */
+
+  /* Surfaces & borders */
+  --surface: #f5f5f5;   /* Cards, panels */
+  --border: #e6e6e6;    /* Dividers, outlines */
+
+  /* Brand / accents */
+  --accent: #d90429;    /* Links, emphasis */
+  --brand-1: #ffc06e;   /* Former primary */
+  --brand-2: #f5c800;   /* Former secondary */
+
+  /* Overlays & shadows */
+  --tile-fg: #ffffff;               /* Text over image tiles */
+  --glass-bg: rgba(255, 255, 255, 0.18); /* Frosted panels */
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.10);
+  --shadow-2: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  /* Legacy variable aliases (keep existing components working) */
+  --base-color: var(--surface);
+  --text-color: var(--fg);
+  --primary-color: var(--brand-1);
+  --secondary-color: var(--brand-2);
+  --color-1: rgba(0, 0, 0, 0.02);
+  --color-2: rgba(0, 0, 0, 0.04);
+  --color-3: var(--surface);
 }
+
+/* --- Dark Theme Overrides --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0b;
+    --fg: #eaeaea;
+    --muted: #a3a3a3;
+    --surface: #171717;
+    --border: #2a2a2a;
+    --accent: #ff395b;
+
+    --tile-fg: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.20);
+    --shadow-2: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Base application colors */
+html, body { background: var(--bg); color: var(--fg); }
+a { color: var(--accent); }
+hr, .divider { border-color: var(--border); }
+.card, .panel { background: var(--surface); border: 1px solid var(--border); }
+.muted { color: var(--muted); }
 
 * {
   margin: 0;
@@ -108,7 +159,7 @@ h1 a:hover {
   place-items: center;
   padding: 2rem 1.5rem;
   isolation: isolate;
-  color: #fff;
+  color: var(--tile-fg);
 }
 
 .home-grid .section::before {
@@ -122,7 +173,7 @@ h1 a:hover {
 .home-grid .section .center-container {
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: var(--tile-fg);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   align-items: center;
 }
@@ -204,12 +255,12 @@ h1 a:hover {
    Modifier class used inside tiles for translucent panel
    ======================== */
 .next-race--overlay {
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
+  background: var(--glass-bg);
+  color: var(--tile-fg);
   padding: 1rem 1.25rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   max-width: 420px;
@@ -242,11 +293,11 @@ h1 a:hover {
 /* Frosted background behind series logos */
 .logo-panel {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--glass-bg);
   padding: 0.5rem 0.75rem;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   margin-left: auto;
@@ -300,7 +351,7 @@ h1 a:hover {
 /* Stronger override so Today/series tiles inside home-grid use the translucent panel */
 .home-grid .section .next-race {
   background: rgba(0, 0, 0, 0.45);
-  color: #fff;
+  color: var(--tile-fg);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -507,7 +558,7 @@ h1 a:hover {
   place-items: center;
   padding: 2rem 1.5rem;
   isolation: isolate;
-  color: #fff;
+  color: var(--tile-fg);
 }
 
 .section.tile::before {
@@ -521,7 +572,7 @@ h1 a:hover {
 .section.tile .center-container {
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: var(--tile-fg);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   align-items: center;
 }
@@ -580,34 +631,4 @@ h1 a:hover {
 .rc-modal-body li {
   margin: 0.2em 0;
 }
-/* --- Automatic light/dark theme via OS/browser setting --- */
-:root { color-scheme: light dark; }
-
-/* Light defaults */
-:root {
-  --bg: #ffffff;
-  --fg: #111111;
-  --muted: #666666;
-  --surface: #f5f5f5;
-  --accent: #d90429;
-  --border: #e6e6e6;
-}
-
-/* Dark overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b0b0b;
-    --fg: #eaeaea;
-    --muted: #a3a3a3;
-    --surface: #171717;
-    --accent: #ff395b;
-    --border: #2a2a2a;
-  }
-}
-
-/* Base application colors */
-html, body { background: var(--bg); color: var(--fg); }
-a { color: var(--accent); }
-hr, .divider { border-color: var(--border); }
-.card, .panel { background: var(--surface); border: 1px solid var(--border); }
-.muted { color: var(--muted); }
+/* theme block removed: now defined at top */
