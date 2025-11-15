@@ -98,6 +98,109 @@ function loadTodayRaces(items, showDetails = false) {
     });
 }
 
+// === LOAD THIS WEEK'S RACES (for main page) ===
+function loadWeekRaces(items, showDetails = false) {
+  const weekContainer = document.getElementById("week-races");
+  if (!weekContainer) return;
+  weekContainer.innerHTML = "Loading...";
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const startOfWeek = new Date(today);
+  const weekdayIndex = (startOfWeek.getDay() + 6) % 7; // convert Sunday=0 to Monday=0
+  startOfWeek.setDate(startOfWeek.getDate() - weekdayIndex);
+  startOfWeek.setHours(0, 0, 0, 0);
+
+  const endOfWeek = new Date(startOfWeek);
+  endOfWeek.setDate(startOfWeek.getDate() + 6);
+  endOfWeek.setHours(23, 59, 59, 999);
+
+  const sources = items.map(it =>
+    typeof it === 'string'
+      ? { series: null, json: it }
+      : { series: it, json: it.json }
+  );
+
+  const labelFormatter = new Intl.DateTimeFormat(undefined, {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric'
+  });
+
+  Promise.allSettled(
+    sources.map(src =>
+      fetch(src.json)
+        .then(res => res.json())
+        .then(data => ({ src, data }))
+    )
+  )
+    .then(settled => {
+      const fulfilled = settled.filter(s => s.status === 'fulfilled').map(s => s.value);
+      const rejected = settled.filter(s => s.status === 'rejected');
+
+      if (fulfilled.length === 0) {
+        weekContainer.innerHTML = "<p>Error loading this week's races.</p>";
+        return;
+      }
+
+      const weekRaces = [];
+
+      fulfilled.forEach(({ src, data }) => {
+        const championship = data.championship;
+        (data.races || []).forEach(race => {
+          const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+          if (!isFinite(dt)) return;
+          if (dt >= startOfWeek && dt <= endOfWeek) {
+            weekRaces.push({ series: src.series, championship, race, dt });
+          }
+        });
+      });
+
+      weekContainer.innerHTML = "";
+
+      if (weekRaces.length === 0) {
+        weekContainer.innerHTML = "<p>No races scheduled for this week.</p>";
+        if (rejected.length) {
+          console.warn("Some calendars failed to load", rejected);
+        }
+        return;
+      }
+
+      weekRaces.sort((a, b) => a.dt - b.dt);
+
+      weekRaces.forEach(({ series, championship, race, dt }) => {
+        const label = `This Week - ${labelFormatter.format(dt)}`;
+        if (series) {
+          const tile = document.createElement('section');
+          tile.className = `section tile ${series.bgClass}`;
+          tile.innerHTML = `
+            <div class="center-container">
+              <h2>
+                <a href="${series.site}" target="_blank" rel="noopener noreferrer">
+                  ${series.name}
+                </a>
+              </h2>
+              <a href="${series.page}" class="logo-panel">
+                <img src="${series.logo}" alt="${series.name} logo" loading="lazy">
+              </a>
+              <div class="next-race next-race--overlay"></div>
+            </div>
+          `;
+          const nextContainer = tile.querySelector('.next-race');
+          renderRaceCard(nextContainer, championship, race, label, showDetails);
+          weekContainer.appendChild(tile);
+        } else {
+          renderRaceCard(weekContainer, championship, race, label, showDetails);
+        }
+      });
+    })
+    .catch(err => {
+      console.error("Error loading this week's races:", err);
+      weekContainer.innerHTML = "<p>Error loading this week's races.</p>";
+    });
+}
+
 // === LOAD NEXT RACE (for main page) ===
 function loadNextRace(calendarFile, containerId, showDetails = false) {
   const container = document.getElementById(containerId);

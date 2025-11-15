@@ -26,8 +26,13 @@
     <!-- TODAY -->
     <section id="TODAY" class="section section--full">
       <div class="center-container">
-        <h1>Racing Today</h1>
-        <div id="today-races" class="today-list series-grid">Loading...</div>
+        <h1 id="racing-view-title">Racing This Week</h1>
+        <div class="view-toggle" role="group" aria-label="Racing view toggle">
+          <button class="view-toggle__btn" type="button" data-view="today" aria-pressed="false">Today</button>
+          <button class="view-toggle__btn is-active" type="button" data-view="week" aria-pressed="true">This Week</button>
+        </div>
+        <div id="today-races" class="today-list series-grid" hidden aria-hidden="true">Loading...</div>
+        <div id="week-races" class="today-list series-grid">Loading...</div>
       </div>
     </section>
 

@@ -26,6 +26,8 @@
   function renderHome() {
     const allSeries = VISIBLE;
     loadTodayRaces(allSeries, false);
+    loadWeekRaces(allSeries, false);
+    initRacingViewToggle();
 
     // Render Featured section (if any)
     const featuredSection = document.getElementById('section-featured');
@@ -54,6 +56,49 @@
         loadNextRace(series.json, nextId, false);
       });
     });
+  }
+
+  function initRacingViewToggle() {
+    const toggleButtons = document.querySelectorAll('.view-toggle__btn');
+    if (toggleButtons.length === 0) return;
+
+    const todayContainer = document.getElementById('today-races');
+    const weekContainer = document.getElementById('week-races');
+    const title = document.getElementById('racing-view-title');
+
+    const titles = {
+      today: 'Racing Today',
+      week: 'Racing This Week'
+    };
+
+    const setView = (view) => {
+      const isWeek = view === 'week';
+      if (todayContainer) {
+        todayContainer.hidden = isWeek;
+        todayContainer.setAttribute('aria-hidden', String(isWeek));
+      }
+      if (weekContainer) {
+        weekContainer.hidden = !isWeek;
+        weekContainer.setAttribute('aria-hidden', String(!isWeek));
+      }
+      toggleButtons.forEach(btn => {
+        const active = btn.dataset.view === view;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+      if (title && titles[view]) {
+        title.textContent = titles[view];
+      }
+    };
+
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.view || 'today';
+        setView(view);
+      });
+    });
+
+    setView('week');
   }
 
   if (document.readyState === 'loading') {
