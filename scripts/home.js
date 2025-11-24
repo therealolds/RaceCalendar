@@ -25,9 +25,18 @@
 
   function renderHome() {
     const allSeries = VISIBLE;
-    loadTodayRaces(allSeries, false);
-    loadWeekRaces(allSeries, false);
+    const featuredSeries = allSeries.filter(s => s.featured);
+    const applyFilter = (filter) => {
+      const selected = filter === 'all' ? allSeries : featuredSeries;
+      loadTodayRaces(selected, false);
+      loadWeekRaces(selected, false);
+    };
+
     initRacingViewToggle();
+    const hasFilterToggle = initFeaturedFilter(applyFilter);
+    if (!hasFilterToggle) {
+      applyFilter('featured');
+    }
 
     // Render Featured section (if any)
     const featuredSection = document.getElementById('section-featured');
@@ -58,8 +67,34 @@
     });
   }
 
+  function initFeaturedFilter(onChange) {
+    const filterButtons = document.querySelectorAll('.filter-toggle__btn');
+    if (filterButtons.length === 0) return false;
+
+    const setFilter = (filter) => {
+      const mode = filter === 'all' ? 'all' : 'featured';
+      filterButtons.forEach(btn => {
+        const isActive = btn.dataset.filter === mode;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+      onChange(mode);
+    };
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setFilter(btn.dataset.filter || 'featured');
+      });
+    });
+
+    setFilter('featured');
+    return true;
+  }
+
   function initRacingViewToggle() {
-    const toggleButtons = document.querySelectorAll('.view-toggle__btn');
+    const viewToggle = document.querySelector('.view-toggle');
+    if (!viewToggle) return;
+    const toggleButtons = viewToggle.querySelectorAll('[data-view]');
     if (toggleButtons.length === 0) return;
 
     const todayContainer = document.getElementById('today-races');
@@ -98,7 +133,8 @@
       });
     });
 
-    setView('week');
+    const defaultActive = [...toggleButtons].find(btn => btn.classList.contains('is-active') || btn.getAttribute('aria-pressed') === 'true');
+    setView((defaultActive && defaultActive.dataset.view) || 'today');
   }
 
   if (document.readyState === 'loading') {

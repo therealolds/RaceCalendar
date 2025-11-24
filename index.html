@@ -31,6 +31,10 @@
           <button class="view-toggle__btn" type="button" data-view="today" aria-pressed="false">Today</button>
           <button class="view-toggle__btn is-active" type="button" data-view="week" aria-pressed="true">This Week</button>
         </div>
+        <div class="filter-toggle" role="group" aria-label="Featured filter toggle">
+          <button class="filter-toggle__btn view-toggle__btn" type="button" data-filter="all" aria-pressed="false">All</button>
+          <button class="filter-toggle__btn view-toggle__btn is-active" type="button" data-filter="featured" aria-pressed="true">Only Featured</button>
+        </div>
         <div id="today-races" class="today-list series-grid" hidden aria-hidden="true">Loading...</div>
         <div id="week-races" class="today-list series-grid">Loading...</div>
       </div>
