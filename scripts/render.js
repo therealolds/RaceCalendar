@@ -17,14 +17,25 @@ function parseUtcDateTime(dateStr, timeStr) {
 const rcDateFmt = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
 const rcTimeFmt = new Intl.DateTimeFormat(undefined, { timeStyle: 'short' });
 function formatLocalDate(dt) { return isFinite(dt) ? rcDateFmt.format(dt) : ''; }
-function formatLocalTime(dt) { return isFinite(dt) ? rcTimeFmt.format(dt) : 'TBA'; }
+function hasExplicitTime(dateStr, timeStr) {
+  if (timeStr && String(timeStr).trim() !== "") return true;
+  return String(dateStr || "").includes("T");
+}
+function formatLocalTime(dt, dateStr, timeStr) {
+  if (!hasExplicitTime(dateStr, timeStr) || !isFinite(dt)) return "Not available";
+  return rcTimeFmt.format(dt);
+}
 
-function renderRaceCard(container, championship, race, labelText, showDetails = false) {
-  const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+function renderRaceCard(container, championship, race, labelText, showDetails = false, options = {}) {
+  const dateSrc = options.displayDateSrc || race.datetime_utc || race.date;
+  const timeSrc = options.displayTimeSrc || race.time;
+  const dt = options.displayDateTime || parseUtcDateTime(dateSrc, timeSrc);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const raceDay = new Date(dt);
   raceDay.setHours(0, 0, 0, 0);
+  const sessionItems = options.sessionItems || [];
+  const sessionModalSessions = options.sessionModalSessions || [];
 
   // === Main wrapper ===
   const row = document.createElement("div");
@@ -38,8 +49,34 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
     <p><strong>${championship}</strong></p>
     <p>${race.name}</p>
     <p>${formatLocalDate(dt)}</p>
-    <p><strong>Local time:</strong> ${formatLocalTime(dt)}</p>
+    <p><strong>Local time:</strong> ${formatLocalTime(dt, dateSrc, timeSrc)}</p>
   `;
+  if (sessionItems.length) {
+    const sessionList = sessionItems.map(s => {
+      const sDateSrc = s.datetime_utc || s.date;
+      const sdt = parseUtcDateTime(sDateSrc, s.time);
+      const sTime = formatLocalTime(sdt, sDateSrc, s.time);
+      return `<li><strong>${s.name}</strong> - ${sTime}</li>`;
+    }).join("");
+    infoDiv.innerHTML += `
+      <p><strong>Today:</strong></p>
+      <ul class="race-session-list">${sessionList}</ul>
+    `;
+  }
+
+  if (sessionModalSessions.length) {
+    const stageButton = document.createElement("button");
+    stageButton.textContent = options.sessionModalLabel || "View Stages";
+    stageButton.className = "view-details-btn";
+    infoDiv.appendChild(stageButton);
+
+    stageButton.addEventListener("click", () => {
+      const { openModal, getModalBody } = ensureModal();
+      const body = getModalBody();
+      renderRaceDetails({ additionalInfo: { sessions: sessionModalSessions } }, body);
+      openModal();
+    });
+  }
   row.appendChild(infoDiv);
 
   if (!showDetails) {
@@ -109,12 +146,13 @@ function renderRaceDetails(race, container) {
   const sessions = (race.additionalInfo && race.additionalInfo.sessions) || [];
   const items = sessions.length
     ? sessions.map(s => {
-        const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
-        return `<li><strong>${s.name}</strong> — ${formatLocalDate(sdt)}, ${formatLocalTime(sdt)}</li>`;
+        const sDateSrc = s.datetime_utc || s.date;
+        const sdt = parseUtcDateTime(sDateSrc, s.time);
+        return `<li><strong>${s.name}</strong> — ${formatLocalDate(sdt)}, ${formatLocalTime(sdt, sDateSrc, s.time)}</li>`;
       }).join('')
     : '<li><em>No detailed sessions available.</em></li>';
   container.innerHTML = `
-    <h4>Weekend Schedule</h4>
+    <h4>Week Schedule</h4>
     <ul>${items}</ul>
   `;
 }
@@ -153,4 +191,3 @@ function ensureModal() {
     }
   };
 }
-

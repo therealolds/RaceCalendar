@@ -9,6 +9,97 @@ function parseUtcDateTime(dateStr, timeStr) {
   return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
 }
 
+function isFiniteDate(dt) {
+  return dt instanceof Date && isFinite(dt);
+}
+
+function toLocalDay(dt) {
+  const d = new Date(dt);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function formatDateKey(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+function getSessions(race) {
+  return (race.additionalInfo && race.additionalInfo.sessions) || [];
+}
+
+function isMultiDayRace(race, series) {
+  return Boolean((series && series.multiDay) || race.startDate || race.starDate);
+}
+
+function getRaceRange(race, series) {
+  const multiDay = isMultiDayRace(race, series);
+  const sessions = getSessions(race);
+  const sessionDts = sessions
+    .map(s => parseUtcDateTime(s.datetime_utc || s.date, s.time))
+    .filter(isFinite);
+
+  let startDt = null;
+  let endDt = null;
+
+  if (race.startDate || race.starDate) {
+    startDt = parseUtcDateTime(race.startDate || race.starDate, race.time);
+  }
+  if (race.date) {
+    endDt = parseUtcDateTime(race.date, race.time);
+  }
+
+  if (multiDay) {
+    if (!isFiniteDate(startDt) && sessionDts.length) {
+      startDt = new Date(Math.min(...sessionDts.map(d => d.getTime())));
+    }
+    if (!isFiniteDate(endDt) && sessionDts.length) {
+      endDt = new Date(Math.max(...sessionDts.map(d => d.getTime())));
+    }
+  }
+
+  if (!isFiniteDate(startDt)) {
+    const dateSrc = race.datetime_utc || race.date;
+    startDt = parseUtcDateTime(dateSrc, race.time);
+  }
+  if (!isFiniteDate(endDt)) {
+    endDt = startDt;
+  }
+
+  return { startDt, endDt, multiDay };
+}
+
+function getSessionsForDay(race, targetDay) {
+  const sessions = getSessions(race);
+  const target = toLocalDay(targetDay);
+  return sessions.filter(s => {
+    const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
+    if (!isFinite(sdt)) return false;
+    const sDay = toLocalDay(sdt);
+    return sDay.getTime() === target.getTime();
+  });
+}
+
+function pickDisplaySession(sessions) {
+  if (!sessions.length) return null;
+  return sessions.find(s => (s.time && String(s.time).trim() !== "") || String(s.datetime_utc || "").includes("T")) || sessions[0];
+}
+
+function buildDisplayInfoForDay(race, targetDay) {
+  const sessionsToday = getSessionsForDay(race, targetDay);
+  const displaySession = pickDisplaySession(sessionsToday);
+  const displayDateSrc = displaySession ? (displaySession.datetime_utc || displaySession.date) : formatDateKey(targetDay);
+  const displayTimeSrc = displaySession ? displaySession.time : "";
+  return {
+    sessionsToday,
+    displayDateSrc,
+    displayTimeSrc,
+    displayDateTime: parseUtcDateTime(displayDateSrc, displayTimeSrc)
+  };
+}
+
 // === LOAD TODAY'S RACES (for main page) ===
 // Accepts either an array of series objects (preferred) or an array of JSON paths
 function loadTodayRaces(items, showDetails = false) {
@@ -46,9 +137,20 @@ function loadTodayRaces(items, showDetails = false) {
       fulfilled.forEach(({ src, data }) => {
         const championship = data.championship;
         (data.races || []).forEach(race => {
+          const range = getRaceRange(race, src.series);
+          const startDay = toLocalDay(range.startDt);
+          const endDay = toLocalDay(range.endDt);
+
+          if (range.multiDay) {
+            if (today >= startDay && today <= endDay) {
+              const display = buildDisplayInfoForDay(race, today);
+              todayRaces.push({ series: src.series, championship, race, display });
+            }
+            return;
+          }
+
           const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
-          const eventDay = new Date(dt);
-          eventDay.setHours(0, 0, 0, 0);
+          const eventDay = toLocalDay(dt);
           if (isFinite(dt) && eventDay.getTime() === today.getTime()) {
             todayRaces.push({ series: src.series, championship, race });
           }
@@ -66,7 +168,13 @@ function loadTodayRaces(items, showDetails = false) {
       }
 
       // For each today race, render a tile styled like series cards
-      todayRaces.forEach(({ series, championship, race }) => {
+      todayRaces.forEach(({ series, championship, race, display }) => {
+        const renderOptions = display ? {
+          sessionItems: display.sessionsToday,
+          displayDateSrc: display.displayDateSrc,
+          displayTimeSrc: display.displayTimeSrc,
+          displayDateTime: display.displayDateTime
+        } : undefined;
         if (series) {
           const tile = document.createElement('section');
           tile.className = `section tile ${series.bgClass}`;
@@ -84,11 +192,11 @@ function loadTodayRaces(items, showDetails = false) {
             </div>
           `;
           const nextContainer = tile.querySelector('.next-race');
-          renderRaceCard(nextContainer, championship, race, "Race Today!", showDetails);
+          renderRaceCard(nextContainer, championship, race, "Race Today!", showDetails, renderOptions);
           todayContainer.appendChild(tile);
         } else {
           // Fallback: if no series metadata, render simple card
-          renderRaceCard(todayContainer, championship, race, "Race Today!", showDetails);
+          renderRaceCard(todayContainer, championship, race, "Race Today!", showDetails, renderOptions);
         }
       });
     })
@@ -149,6 +257,45 @@ function loadWeekRaces(items, showDetails = false) {
       fulfilled.forEach(({ src, data }) => {
         const championship = data.championship;
         (data.races || []).forEach(race => {
+          const range = getRaceRange(race, src.series);
+          const startDay = toLocalDay(range.startDt);
+          const endDay = toLocalDay(range.endDt);
+
+          if (range.multiDay) {
+            const overlapsWeek = !(endDay < startOfWeek || startDay > endOfWeek);
+            if (!overlapsWeek) return;
+
+            const sessions = getSessions(race);
+            const sessionsInWeek = sessions.filter(s => {
+              const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
+              return isFinite(sdt) && sdt >= startOfWeek && sdt <= endOfWeek;
+            });
+
+            const clampDay = new Date(Math.max(startDay.getTime(), startOfWeek.getTime()));
+            clampDay.setHours(0, 0, 0, 0);
+            const displayDateSrc = sessionsInWeek.length
+              ? (sessionsInWeek[0].datetime_utc || sessionsInWeek[0].date)
+              : formatDateKey(clampDay);
+            const displayTimeSrc = sessionsInWeek.length ? sessionsInWeek[0].time : "";
+            const displayDateTime = parseUtcDateTime(displayDateSrc, displayTimeSrc);
+
+            weekRaces.push({
+              series: src.series,
+              championship,
+              race,
+              dt: displayDateTime,
+              display: {
+                sessionsToday: [],
+                displayDateSrc,
+                displayTimeSrc,
+                displayDateTime,
+                sessionModalSessions: sessionsInWeek,
+                sessionModalLabel: "View Stages"
+              }
+            });
+            return;
+          }
+
           const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
           if (!isFinite(dt)) return;
           if (dt >= startOfWeek && dt <= endOfWeek) {
@@ -160,7 +307,7 @@ function loadWeekRaces(items, showDetails = false) {
       weekContainer.innerHTML = "";
 
       if (weekRaces.length === 0) {
-        weekContainer.innerHTML = "<p>No races scheduled for this week.</p>";
+        weekContainer.innerHTML = "<p>No racing this week :(</p>";
         if (rejected.length) {
           console.warn("Some calendars failed to load", rejected);
         }
@@ -169,8 +316,16 @@ function loadWeekRaces(items, showDetails = false) {
 
       weekRaces.sort((a, b) => a.dt - b.dt);
 
-      weekRaces.forEach(({ series, championship, race, dt }) => {
+      weekRaces.forEach(({ series, championship, race, dt, display }) => {
         const label = `This Week - ${labelFormatter.format(dt)}`;
+        const renderOptions = display ? {
+          sessionItems: display.sessionsToday,
+          displayDateSrc: display.displayDateSrc,
+          displayTimeSrc: display.displayTimeSrc,
+          displayDateTime: display.displayDateTime,
+          sessionModalSessions: display.sessionModalSessions,
+          sessionModalLabel: display.sessionModalLabel
+        } : undefined;
         if (series) {
           const tile = document.createElement('section');
           tile.className = `section tile ${series.bgClass}`;
@@ -188,10 +343,10 @@ function loadWeekRaces(items, showDetails = false) {
             </div>
           `;
           const nextContainer = tile.querySelector('.next-race');
-          renderRaceCard(nextContainer, championship, race, label, showDetails);
+          renderRaceCard(nextContainer, championship, race, label, showDetails, renderOptions);
           weekContainer.appendChild(tile);
         } else {
-          renderRaceCard(weekContainer, championship, race, label, showDetails);
+          renderRaceCard(weekContainer, championship, race, label, showDetails, renderOptions);
         }
       });
     })
@@ -202,7 +357,7 @@ function loadWeekRaces(items, showDetails = false) {
 }
 
 // === LOAD NEXT RACE (for main page) ===
-function loadNextRace(calendarFile, containerId, showDetails = false) {
+function loadNextRace(calendarFile, containerId, showDetails = false, seriesMeta = null) {
   const container = document.getElementById(containerId);
   container.textContent = "Loading next race...";
 
@@ -214,19 +369,22 @@ function loadNextRace(calendarFile, containerId, showDetails = false) {
       today.setHours(0, 0, 0, 0);
 
       const entries = (data.races || [])
-        .map(r => ({ r, dt: parseUtcDateTime(r.datetime_utc || r.date, r.time) }))
-        .filter(x => isFinite(x.dt))
-        .sort((a, b) => a.dt - b.dt);
+        .map(r => {
+          const range = getRaceRange(r, seriesMeta);
+          return { r, range, startDt: range.startDt, endDt: range.endDt };
+        })
+        .filter(x => isFiniteDate(x.startDt))
+        .sort((a, b) => a.startDt - b.startDt);
 
       // Prefer a race that is TODAY (local), even if already started
       const todayEntry = entries.find(x => {
-        const d = new Date(x.dt);
-        d.setHours(0, 0, 0, 0);
-        return d.getTime() === today.getTime();
+        const startDay = toLocalDay(x.range.startDt);
+        const endDay = toLocalDay(x.range.endDt);
+        return today >= startDay && today <= endDay;
       });
 
       // Otherwise, take the next upcoming race
-      const nextUpcoming = entries.find(x => x.dt >= now);
+      const nextUpcoming = entries.find(x => x.startDt >= now);
 
       const chosen = todayEntry || nextUpcoming;
 
@@ -234,7 +392,22 @@ function loadNextRace(calendarFile, containerId, showDetails = false) {
 
       if (chosen) {
         const label = todayEntry ? "Race Today!" : "Next Race";
-        renderRaceCard(container, data.championship, chosen.r, label, showDetails);
+        const renderOptions = todayEntry && chosen.range.multiDay
+          ? buildDisplayInfoForDay(chosen.r, today)
+          : undefined;
+        renderRaceCard(
+          container,
+          data.championship,
+          chosen.r,
+          label,
+          showDetails,
+          renderOptions && {
+            sessionItems: renderOptions.sessionsToday,
+            displayDateSrc: renderOptions.displayDateSrc,
+            displayTimeSrc: renderOptions.displayTimeSrc,
+            displayDateTime: renderOptions.displayDateTime
+          }
+        );
       } else {
         container.textContent = "Season finished!";
       }
@@ -246,7 +419,7 @@ function loadNextRace(calendarFile, containerId, showDetails = false) {
 }
 
 // === LOAD FULL CALENDAR (for pages like f1.html) ===
-function loadFullCalendar(calendarFile, containerId, showDetails = true) {
+function loadFullCalendar(calendarFile, containerId, showDetails = true, options = {}) {
   const container = document.getElementById(containerId);
   container.textContent = "Loading races...";
 
@@ -256,24 +429,32 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true) {
       container.textContent = "";
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+      const seriesMeta = options.series || options;
 
       // --- Sort all races by UTC timestamp ---
-      const sortedRaces = [...data.races].sort((a, b) =>
-        parseUtcDateTime(a.datetime_utc || a.date, a.time) - parseUtcDateTime(b.datetime_utc || b.date, b.time)
-      );
+      const sortedRaces = [...data.races].sort((a, b) => {
+        const ar = getRaceRange(a, seriesMeta);
+        const br = getRaceRange(b, seriesMeta);
+        return ar.startDt - br.startDt;
+      });
 
       const pastRaces = [];
       const todayRaces = [];
       const futureRaces = [];
 
       sortedRaces.forEach(race => {
-        const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
-        const eventDay = new Date(dt);
-        eventDay.setHours(0, 0, 0, 0);
+        const range = getRaceRange(race, seriesMeta);
+        const startDay = toLocalDay(range.startDt);
+        const endDay = toLocalDay(range.endDt);
 
-        if (eventDay.getTime() === today.getTime()) todayRaces.push(race);
-        else if (eventDay < today) pastRaces.push(race);
-        else futureRaces.push(race);
+        if (today >= startDay && today <= endDay) {
+          const display = range.multiDay ? buildDisplayInfoForDay(race, today) : null;
+          todayRaces.push({ race, display });
+        } else if (endDay < today) {
+          pastRaces.push(race);
+        } else {
+          futureRaces.push(race);
+        }
       });
 
       // --- Accordion for past races (chronological order) ---
@@ -284,8 +465,14 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true) {
 
       // --- Today's race ---
       if (todayRaces.length > 0) {
-        todayRaces.forEach(race => {
-          renderRaceCard(container, data.championship, race, "Race Today!", showDetails);
+        todayRaces.forEach(({ race, display }) => {
+          const renderOptions = display ? {
+            sessionItems: display.sessionsToday,
+            displayDateSrc: display.displayDateSrc,
+            displayTimeSrc: display.displayTimeSrc,
+            displayDateTime: display.displayDateTime
+          } : undefined;
+          renderRaceCard(container, data.championship, race, "Race Today!", showDetails, renderOptions);
         });
       } else {
         const noToday = document.createElement("p");

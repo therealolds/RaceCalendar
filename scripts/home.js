@@ -49,7 +49,7 @@
         featured.forEach(series => {
           const { section, nextId } = createSeriesCard(series, `featured-${series.id}`);
           featuredGrid.appendChild(section);
-          loadNextRace(series.json, nextId, false);
+          loadNextRace(series.json, nextId, false, series);
         });
       }
     }
@@ -62,7 +62,7 @@
       allSeries.filter(s => s.tag === tag).forEach(series => {
         const { section, nextId } = createSeriesCard(series);
         grid.appendChild(section);
-        loadNextRace(series.json, nextId, false);
+        loadNextRace(series.json, nextId, false, series);
       });
     });
   }

@@ -1,0 +1,30 @@
+{
+  "championship": "Dakar",
+  "races": [
+    {
+      "name": "Dakar",
+      "date": "2026-01-16",
+      "starDate": "2026-01-03",
+      "time": "",
+      "idtrack": "dakar",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "YANBU > YANBU", "date": "2026-01-04", "time": "" },
+          { "name": "YANBU > YANBU", "date": "2026-01-04", "time": "" },
+          { "name": "YANBU > ALULA", "date": "2026-01-05", "time": "" },
+          { "name": "ALULA > ALULA", "date": "2026-01-06", "time": "" },
+          { "name": "ALULA > ALULA (MARATHON)", "date": "2026-01-07", "time": "" },
+          { "name": "ALULA (MARATHON) > HAIL", "date": "2026-01-08", "time": "" },
+          { "name": "HAIL > RIYADH", "date": "2026-01-09", "time": "" },
+          { "name": "Rest", "date": "2026-01-10", "time": "" },
+          { "name": "RIYADH > WADI AD DAWASIR", "date": "2026-01-11", "time": "" },
+          { "name": "WADI AD DAWASIR > WADI AD DAWASIR", "date": "2026-01-12", "time": "" },
+          { "name": "WADI AD DAWASIR > BISHA (MARATHON)", "date": "2026-01-13", "time": "" },
+          { "name": "BISHA (MARATHON) > BISHA", "date": "2026-01-14", "time": "" },
+          { "name": "BISHA > AL HENAKIYAH", "date": "2026-01-15", "time": "" },
+          { "name": "AL HENAKIYAH > YANBU", "date": "2026-01-16", "time": "" }
+        ]
+      }
+    }
+  ]
+}

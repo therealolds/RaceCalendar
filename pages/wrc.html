@@ -35,10 +35,9 @@
   <script src="../scripts/render.js"></script>
   <script src="../scripts/calendar.js"></script>
   <script>
-    loadNextRace('../calendars/wrc.json', 'next-wrc', false);
-    loadFullCalendar('../calendars/wrc.json', 'calendar');
+    loadNextRace('../calendars/wrc.json', 'next-wrc', false, { multiDay: true });
+    loadFullCalendar('../calendars/wrc.json', 'calendar', true, { multiDay: true });
   </script>
 </body>
 
 </html>
-
