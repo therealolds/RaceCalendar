@@ -1,0 +1,13 @@
+{
+  "id": "China.Shanghai_International_Racing_Circuit.F1",
+  "name": "Shanghai International Circuit",
+  "length_km": 5.451,
+  "turns": 16,
+  "location": {
+    "city": "Shanghai",
+    "country": "China",
+    "circuit": "Shanghai International Circuit",
+    "timezone": "UTC+8"
+  },
+  "image": "tracks/China.Shanghai_International_Racing_Circuit.F1.svg"
+}

@@ -1,49 +1,92 @@
 {
   "championship": "Formula 1",
-  "year": 2025,
+  "year": 2026,
   "races": [
     {
-      "idtrack": "Albert_Park",
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Testing - Round 1",
+      "date": "2026-02-13",
+      "starDate": "2026-02-11",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Testing - Day 1", "date": "2026-02-11"},
+          { "name": "Testing - Day 2", "date": "2026-02-12"},
+          { "name": "Testing - Day 3", "date": "2026-02-13"}
+        ]
+      }
+    },
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Testing - Round 2",
+      "date": "2026-02-20",
+      "starDate": "2026-02-18",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Testing - Day 4", "date": "2026-02-18"},
+          { "name": "Testing - Day 5", "date": "2026-02-19"},
+          { "name": "Testing - Day 6", "date": "2026-02-20"}
+        ]
+      }
+    },
+    {
+      "idtrack": "Australia.Albert_Park_Circuit.F1",
       "name": "Australian Grand Prix",
-      "date": "2025-03-16",
+      "date": "2026-03-08",
       "time": "15:00",
       "additionalInfo": {
         "sessions": [
-          { "name": "Free Practice 1", "date": "2025-03-14", "time": "12:30" },
-          { "name": "Free Practice 2", "date": "2025-03-14", "time": "16:00" },
-          { "name": "Free Practice 3", "date": "2025-03-15", "time": "12:30" },
-          { "name": "Qualifying", "date": "2025-03-16", "time": "16:00" },
-          { "name": "Race", "date": "2025-03-16", "time": "15:00" }
+          { "name": "Free Practice 1", "date": "2026-03-06", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-03-06", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-03-07", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-03-07", "time": "16:00" },
+          { "name": "Race", "date": "2026-03-08", "time": "15:00" }
         ]
       }
     },
     {
       "idtrack": "Shanghai_International_Circuit",
       "name": "Chinese Grand Prix",
-      "date": "2025-03-23",
+      "date": "2026-03-15",
       "time": "15:00",
       "additionalInfo": {
         "sessions": [
-          { "name": "Free Practice 1", "date": "2025-03-21", "time": "11:30" },
-          { "name": "Sprint Qualifying", "date": "2025-03-21", "time": "15:30" },
-          { "name": "Sprint", "date": "2025-03-22", "time": "11:00" },
-          { "name": "Qualifying", "date": "2025-03-22", "time": "15:00" },
-          { "name": "Race", "date": "2025-03-23", "time": "15:00" }
+          { "name": "Free Practice 1", "date": "2026-03-13", "time": "11:30" },
+          { "name": "Sprint Qualifying", "date": "2026-03-13", "time": "15:30" },
+          { "name": "Sprint", "date": "2026-03-14", "time": "11:00" },
+          { "name": "Qualifying", "date": "2026-03-14", "time": "15:00" },
+          { "name": "Race", "date": "2026-03-15", "time": "15:00" }
         ]
       }
     },
     {
-      "idtrack": "COTA",
-      "name": "United States GP",
-      "date": "2025-10-26",
+      "idtrack": "Japan.Suzuka.F1",
+      "name": "Japan GP",
+      "date": "2026-03-29",
       "time": "14:00",
       "additionalInfo": {
         "sessions": [
-          { "name": "Free Practice 1", "date": "2025-10-17", "time": "12:30" },
-          { "name": "Sprint Qualifying", "date": "2025-10-17", "time": "16:30" },
-          { "name": "Sprint", "date": "2025-10-18", "time": "12:00" },
-          { "name": "Qualifying", "date": "2025-10-18", "time": "16:00" },
-          { "name": "Race", "date": "2025-10-19", "time": "14:00" }
+          { "name": "Free Practice 1", "date": "2026-03-27", "time": "11:30" },
+          { "name": "Free Practice 2", "date": "2026-03-27", "time": "15:00" },
+          { "name": "Free Practice 3", "date": "2026-03-28", "time": "11:30" },
+          { "name": "Qualifying", "date": "2026-03-28", "time": "15:00" },
+          { "name": "Race", "date": "2026-03-29", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Bahrain GP",
+      "date": "2026-04-12",
+      "time": "14:30",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-04-10", "time": "14:30" },
+          { "name": "Free Practice 2", "date": "2026-04-10", "time": "18:00" },
+          { "name": "Free Practice 3", "date": "2026-04-11", "time": "15:30" },
+          { "name": "Qualifying", "date": "2026-04-11", "time": "19:00" },
+          { "name": "Race", "date": "2026-04-11", "time": "18:00" }
         ]
       }
     },

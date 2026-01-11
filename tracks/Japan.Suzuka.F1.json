@@ -1,0 +1,13 @@
+{
+  "id": "Japan.Suzuka.F1",
+  "name": "Suzuka",
+  "length_km": 5.807,
+  "turns": 18,
+  "location": {
+    "city": "Suzuka",
+    "country": "Japan",
+    "circuit": "Suzuka",
+    "timezone": "UTC+9"
+  },
+  "image": "tracks/Japan.Suzuka.F1.svg"
+}
