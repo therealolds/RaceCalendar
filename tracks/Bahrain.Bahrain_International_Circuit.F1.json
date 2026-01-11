@@ -1,13 +1,13 @@
-{
-  "id": "Bahrain.Bahrain_International_Circuit.F1",
-  "name": "Bahrain International Circuit",
-  "length_km": 5.512,
-  "turns": 15,
-  "location": {
-    "city": "Manama",
-    "country": "Bahrein",
-    "circuit": "Bahrain International Circuit",
-    "timezone": "UTC+3"
-  },
-  "image": "tracks/Bahrain.Bahrain_International_Circuit.F1.svg"
+﻿{
+    "id":  "Bahrain.Bahrain_International_Circuit.F1",
+    "name":  "Bahrain International Circuit",
+    "length_km":  5.512,
+    "turns":  15,
+    "location":  {
+                     "city":  "Manama",
+                     "country":  "Bahrein",
+                     "circuit":  "Bahrain International Circuit",
+                     "timezone":  "Asia/Bahrain"
+                 },
+    "image":  "tracks/Bahrain.Bahrain_International_Circuit.F1.svg"
 }

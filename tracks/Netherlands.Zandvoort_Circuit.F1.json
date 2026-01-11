@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Netherlands.Zandvoort_Circuit.F1",
+    "name":  "Circuit Zandvoort ",
+    "length_km":  4.259,
+    "turns":  14,
+    "location":  {
+                     "city":  "Zandvoort",
+                     "country":  "Netherlands",
+                     "circuit":  "Circuit Zandvoort ",
+                     "timezone":  "Europe/Amsterdam"
+                 },
+    "image":  "tracks/Netherlands.Zandvoort_Circuit.F1.png"
+}

@@ -1,12 +1,101 @@
-// Parse JSON date/time as UTC and compare in local time where needed
-function parseUtcDateTime(dateStr, timeStr) {
+// Parse race date/time as local track time (IANA timezone) and return a UTC Date.
+const rcTimeZoneCache = new Map();
+
+function getTimeZoneOffsetMs(timeZone, date) {
+  const dtf = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+  const parts = dtf.formatToParts(date).reduce((acc, part) => {
+    if (part.type !== 'literal') acc[part.type] = part.value;
+    return acc;
+  }, {});
+  const asUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour),
+    Number(parts.minute),
+    Number(parts.second)
+  );
+  return asUtc - date.getTime();
+}
+
+function parseUtcOffsetMinutes(timeZone) {
+  const match = String(timeZone || '').match(/^UTC([+-])(\d{1,2})(?::?(\d{2}))?$/i);
+  if (!match) return null;
+  const sign = match[1] === '-' ? -1 : 1;
+  const hours = Number(match[2] || 0);
+  const minutes = Number(match[3] || 0);
+  return sign * (hours * 60 + minutes);
+}
+
+function makeDateInTimeZone(y, m, d, hh, mm, timeZone) {
+  const utcGuess = new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+  let offset = getTimeZoneOffsetMs(timeZone, utcGuess);
+  let corrected = new Date(utcGuess.getTime() - offset);
+  const offset2 = getTimeZoneOffsetMs(timeZone, corrected);
+  if (offset2 !== offset) {
+    corrected = new Date(utcGuess.getTime() - offset2);
+  }
+  return corrected;
+}
+
+function parseEventDateTime(dateStr, timeStr, timeZone) {
   if (!dateStr) return new Date(NaN);
   if (String(dateStr).includes('T')) {
     return new Date(dateStr);
   }
   const [y, m, d] = String(dateStr).split('-').map(Number);
   const [hh, mm] = String(timeStr || '00:00').split(':').map(Number);
+  if (timeZone) {
+    const offsetMinutes = parseUtcOffsetMinutes(timeZone);
+    if (offsetMinutes !== null) {
+      return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0) - offsetMinutes * 60000);
+    }
+    if (String(timeZone).includes('/')) {
+      return makeDateInTimeZone(y, m, d, hh, mm, timeZone);
+    }
+  }
   return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+}
+
+function getCalendarBasePath(calendarFile) {
+  const match = String(calendarFile || '').match(/^(\.\.\/)+/);
+  return match ? match[0] : '';
+}
+
+function extractTrackTimeZone(track) {
+  const loc = (track && track.location) || {};
+  return loc.timezoneIana || loc.timezone || null;
+}
+
+async function preloadTrackTimezones(data, basePath) {
+  const ids = [...new Set((data.races || []).map(r => r.idtrack).filter(Boolean))];
+  const timezones = new Map();
+  await Promise.all(ids.map(async id => {
+    if (rcTimeZoneCache.has(id)) {
+      timezones.set(id, rcTimeZoneCache.get(id));
+      return;
+    }
+    try {
+      const res = await fetch(`${basePath}tracks/${id}.json`);
+      const track = await res.json();
+      const tz = extractTrackTimeZone(track);
+      rcTimeZoneCache.set(id, tz);
+      timezones.set(id, tz);
+    } catch {
+      rcTimeZoneCache.set(id, null);
+      timezones.set(id, null);
+    }
+  }));
+  return timezones;
 }
 
 function isFiniteDate(dt) {
@@ -34,21 +123,21 @@ function isMultiDayRace(race, series) {
   return Boolean((series && series.multiDay) || race.startDate || race.starDate);
 }
 
-function getRaceRange(race, series) {
+function getRaceRange(race, series, timeZone) {
   const multiDay = isMultiDayRace(race, series);
   const sessions = getSessions(race);
   const sessionDts = sessions
-    .map(s => parseUtcDateTime(s.datetime_utc || s.date, s.time))
+    .map(s => parseEventDateTime(s.datetime_utc || s.date, s.time, timeZone))
     .filter(isFinite);
 
   let startDt = null;
   let endDt = null;
 
   if (race.startDate || race.starDate) {
-    startDt = parseUtcDateTime(race.startDate || race.starDate, race.time);
+    startDt = parseEventDateTime(race.startDate || race.starDate, race.time, timeZone);
   }
   if (race.date) {
-    endDt = parseUtcDateTime(race.date, race.time);
+    endDt = parseEventDateTime(race.date, race.time, timeZone);
   }
 
   if (multiDay) {
@@ -62,7 +151,7 @@ function getRaceRange(race, series) {
 
   if (!isFiniteDate(startDt)) {
     const dateSrc = race.datetime_utc || race.date;
-    startDt = parseUtcDateTime(dateSrc, race.time);
+    startDt = parseEventDateTime(dateSrc, race.time, timeZone);
   }
   if (!isFiniteDate(endDt)) {
     endDt = startDt;
@@ -71,11 +160,11 @@ function getRaceRange(race, series) {
   return { startDt, endDt, multiDay };
 }
 
-function getSessionsForDay(race, targetDay) {
+function getSessionsForDay(race, targetDay, timeZone) {
   const sessions = getSessions(race);
   const target = toLocalDay(targetDay);
   return sessions.filter(s => {
-    const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
+    const sdt = parseEventDateTime(s.datetime_utc || s.date, s.time, timeZone);
     if (!isFinite(sdt)) return false;
     const sDay = toLocalDay(sdt);
     return sDay.getTime() === target.getTime();
@@ -87,8 +176,8 @@ function pickDisplaySession(sessions) {
   return sessions.find(s => (s.time && String(s.time).trim() !== "") || String(s.datetime_utc || "").includes("T")) || sessions[0];
 }
 
-function buildDisplayInfoForDay(race, targetDay) {
-  const sessionsToday = getSessionsForDay(race, targetDay);
+function buildDisplayInfoForDay(race, targetDay, timeZone) {
+  const sessionsToday = getSessionsForDay(race, targetDay, timeZone);
   const displaySession = pickDisplaySession(sessionsToday);
   const displayDateSrc = displaySession ? (displaySession.datetime_utc || displaySession.date) : formatDateKey(targetDay);
   const displayTimeSrc = displaySession ? displaySession.time : "";
@@ -96,7 +185,7 @@ function buildDisplayInfoForDay(race, targetDay) {
     sessionsToday,
     displayDateSrc,
     displayTimeSrc,
-    displayDateTime: parseUtcDateTime(displayDateSrc, displayTimeSrc)
+    displayDateTime: parseEventDateTime(displayDateSrc, displayTimeSrc, timeZone)
   };
 }
 
@@ -117,11 +206,12 @@ function loadTodayRaces(items, showDetails = false) {
   );
 
   Promise.allSettled(
-    sources.map(src =>
-      fetch(src.json)
-        .then(res => res.json())
-        .then(data => ({ src, data }))
-    )
+    sources.map(async src => {
+      const data = await fetch(src.json).then(res => res.json());
+      const basePath = getCalendarBasePath(src.json);
+      const timezones = await preloadTrackTimezones(data, basePath);
+      return { src, data, timezones };
+    })
   )
     .then(settled => {
       const fulfilled = settled.filter(s => s.status === 'fulfilled').map(s => s.value);
@@ -134,25 +224,26 @@ function loadTodayRaces(items, showDetails = false) {
 
       const todayRaces = [];
 
-      fulfilled.forEach(({ src, data }) => {
+      fulfilled.forEach(({ src, data, timezones }) => {
         const championship = data.championship;
         (data.races || []).forEach(race => {
-          const range = getRaceRange(race, src.series);
+          const timeZone = timezones.get(race.idtrack) || null;
+          const range = getRaceRange(race, src.series, timeZone);
           const startDay = toLocalDay(range.startDt);
           const endDay = toLocalDay(range.endDt);
 
           if (range.multiDay) {
             if (today >= startDay && today <= endDay) {
-              const display = buildDisplayInfoForDay(race, today);
-              todayRaces.push({ series: src.series, championship, race, display });
+              const display = buildDisplayInfoForDay(race, today, timeZone);
+              todayRaces.push({ series: src.series, championship, race, display, timeZone });
             }
             return;
           }
 
-          const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+          const dt = parseEventDateTime(race.datetime_utc || race.date, race.time, timeZone);
           const eventDay = toLocalDay(dt);
           if (isFinite(dt) && eventDay.getTime() === today.getTime()) {
-            todayRaces.push({ series: src.series, championship, race });
+            todayRaces.push({ series: src.series, championship, race, timeZone });
           }
         });
       });
@@ -168,12 +259,13 @@ function loadTodayRaces(items, showDetails = false) {
       }
 
       // For each today race, render a tile styled like series cards
-      todayRaces.forEach(({ series, championship, race, display }) => {
+      todayRaces.forEach(({ series, championship, race, display, timeZone }) => {
         const renderOptions = display ? {
           sessionItems: display.sessionsToday,
           displayDateSrc: display.displayDateSrc,
           displayTimeSrc: display.displayTimeSrc,
-          displayDateTime: display.displayDateTime
+          displayDateTime: display.displayDateTime,
+          timeZone
         } : undefined;
         if (series) {
           const tile = document.createElement('section');
@@ -192,11 +284,11 @@ function loadTodayRaces(items, showDetails = false) {
             </div>
           `;
           const nextContainer = tile.querySelector('.next-race');
-          renderRaceCard(nextContainer, championship, race, "Race Today!", showDetails, renderOptions);
+          renderRaceCard(nextContainer, championship, race, "Race Today!", showDetails, renderOptions || { timeZone });
           todayContainer.appendChild(tile);
         } else {
           // Fallback: if no series metadata, render simple card
-          renderRaceCard(todayContainer, championship, race, "Race Today!", showDetails, renderOptions);
+          renderRaceCard(todayContainer, championship, race, "Race Today!", showDetails, renderOptions || { timeZone });
         }
       });
     })
@@ -237,11 +329,12 @@ function loadWeekRaces(items, showDetails = false) {
   });
 
   Promise.allSettled(
-    sources.map(src =>
-      fetch(src.json)
-        .then(res => res.json())
-        .then(data => ({ src, data }))
-    )
+    sources.map(async src => {
+      const data = await fetch(src.json).then(res => res.json());
+      const basePath = getCalendarBasePath(src.json);
+      const timezones = await preloadTrackTimezones(data, basePath);
+      return { src, data, timezones };
+    })
   )
     .then(settled => {
       const fulfilled = settled.filter(s => s.status === 'fulfilled').map(s => s.value);
@@ -254,10 +347,11 @@ function loadWeekRaces(items, showDetails = false) {
 
       const weekRaces = [];
 
-      fulfilled.forEach(({ src, data }) => {
+      fulfilled.forEach(({ src, data, timezones }) => {
         const championship = data.championship;
         (data.races || []).forEach(race => {
-          const range = getRaceRange(race, src.series);
+          const timeZone = timezones.get(race.idtrack) || null;
+          const range = getRaceRange(race, src.series, timeZone);
           const startDay = toLocalDay(range.startDt);
           const endDay = toLocalDay(range.endDt);
 
@@ -267,7 +361,7 @@ function loadWeekRaces(items, showDetails = false) {
 
             const sessions = getSessions(race);
             const sessionsInWeek = sessions.filter(s => {
-              const sdt = parseUtcDateTime(s.datetime_utc || s.date, s.time);
+              const sdt = parseEventDateTime(s.datetime_utc || s.date, s.time, timeZone);
               return isFinite(sdt) && sdt >= startOfWeek && sdt <= endOfWeek;
             });
 
@@ -277,7 +371,7 @@ function loadWeekRaces(items, showDetails = false) {
               ? (sessionsInWeek[0].datetime_utc || sessionsInWeek[0].date)
               : formatDateKey(clampDay);
             const displayTimeSrc = sessionsInWeek.length ? sessionsInWeek[0].time : "";
-            const displayDateTime = parseUtcDateTime(displayDateSrc, displayTimeSrc);
+            const displayDateTime = parseEventDateTime(displayDateSrc, displayTimeSrc, timeZone);
 
             weekRaces.push({
               series: src.series,
@@ -289,6 +383,7 @@ function loadWeekRaces(items, showDetails = false) {
                 displayDateSrc,
                 displayTimeSrc,
                 displayDateTime,
+                timeZone,
                 sessionModalSessions: sessionsInWeek,
                 sessionModalLabel: "View Stages"
               }
@@ -296,10 +391,10 @@ function loadWeekRaces(items, showDetails = false) {
             return;
           }
 
-          const dt = parseUtcDateTime(race.datetime_utc || race.date, race.time);
+          const dt = parseEventDateTime(race.datetime_utc || race.date, race.time, timeZone);
           if (!isFinite(dt)) return;
           if (dt >= startOfWeek && dt <= endOfWeek) {
-            weekRaces.push({ series: src.series, championship, race, dt });
+            weekRaces.push({ series: src.series, championship, race, dt, timeZone });
           }
         });
       });
@@ -316,13 +411,14 @@ function loadWeekRaces(items, showDetails = false) {
 
       weekRaces.sort((a, b) => a.dt - b.dt);
 
-      weekRaces.forEach(({ series, championship, race, dt, display }) => {
+      weekRaces.forEach(({ series, championship, race, dt, display, timeZone }) => {
         const label = `This Week - ${labelFormatter.format(dt)}`;
         const renderOptions = display ? {
           sessionItems: display.sessionsToday,
           displayDateSrc: display.displayDateSrc,
           displayTimeSrc: display.displayTimeSrc,
           displayDateTime: display.displayDateTime,
+          timeZone: display.timeZone || timeZone,
           sessionModalSessions: display.sessionModalSessions,
           sessionModalLabel: display.sessionModalLabel
         } : undefined;
@@ -343,10 +439,10 @@ function loadWeekRaces(items, showDetails = false) {
             </div>
           `;
           const nextContainer = tile.querySelector('.next-race');
-          renderRaceCard(nextContainer, championship, race, label, showDetails, renderOptions);
+          renderRaceCard(nextContainer, championship, race, label, showDetails, renderOptions || { timeZone });
           weekContainer.appendChild(tile);
         } else {
-          renderRaceCard(weekContainer, championship, race, label, showDetails, renderOptions);
+          renderRaceCard(weekContainer, championship, race, label, showDetails, renderOptions || { timeZone });
         }
       });
     })
@@ -363,15 +459,18 @@ function loadNextRace(calendarFile, containerId, showDetails = false, seriesMeta
 
   fetch(calendarFile)
     .then(res => res.json())
-    .then(data => {
+    .then(async data => {
+      const basePath = getCalendarBasePath(calendarFile);
+      const timezones = await preloadTrackTimezones(data, basePath);
       const now = new Date();
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
       const entries = (data.races || [])
         .map(r => {
-          const range = getRaceRange(r, seriesMeta);
-          return { r, range, startDt: range.startDt, endDt: range.endDt };
+          const timeZone = timezones.get(r.idtrack) || null;
+          const range = getRaceRange(r, seriesMeta, timeZone);
+          return { r, range, startDt: range.startDt, endDt: range.endDt, timeZone };
         })
         .filter(x => isFiniteDate(x.startDt))
         .sort((a, b) => a.startDt - b.startDt);
@@ -393,20 +492,22 @@ function loadNextRace(calendarFile, containerId, showDetails = false, seriesMeta
       if (chosen) {
         const label = todayEntry ? "Race Today!" : "Next Race";
         const renderOptions = todayEntry && chosen.range.multiDay
-          ? buildDisplayInfoForDay(chosen.r, today)
+          ? buildDisplayInfoForDay(chosen.r, today, chosen.timeZone)
           : undefined;
+        const options = renderOptions ? {
+          sessionItems: renderOptions.sessionsToday,
+          displayDateSrc: renderOptions.displayDateSrc,
+          displayTimeSrc: renderOptions.displayTimeSrc,
+          displayDateTime: renderOptions.displayDateTime,
+          timeZone: chosen.timeZone
+        } : { timeZone: chosen.timeZone };
         renderRaceCard(
           container,
           data.championship,
           chosen.r,
           label,
           showDetails,
-          renderOptions && {
-            sessionItems: renderOptions.sessionsToday,
-            displayDateSrc: renderOptions.displayDateSrc,
-            displayTimeSrc: renderOptions.displayTimeSrc,
-            displayDateTime: renderOptions.displayDateTime
-          }
+          options
         );
       } else {
         container.textContent = "Season finished!";
@@ -425,7 +526,9 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
 
   fetch(calendarFile)
     .then(res => res.json())
-    .then(data => {
+    .then(async data => {
+      const basePath = getCalendarBasePath(calendarFile);
+      const timezones = await preloadTrackTimezones(data, basePath);
       container.textContent = "";
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -433,8 +536,8 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
 
       // --- Sort all races by UTC timestamp ---
       const sortedRaces = [...data.races].sort((a, b) => {
-        const ar = getRaceRange(a, seriesMeta);
-        const br = getRaceRange(b, seriesMeta);
+        const ar = getRaceRange(a, seriesMeta, timezones.get(a.idtrack) || null);
+        const br = getRaceRange(b, seriesMeta, timezones.get(b.idtrack) || null);
         return ar.startDt - br.startDt;
       });
 
@@ -443,17 +546,18 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
       const futureRaces = [];
 
       sortedRaces.forEach(race => {
-        const range = getRaceRange(race, seriesMeta);
+        const timeZone = timezones.get(race.idtrack) || null;
+        const range = getRaceRange(race, seriesMeta, timeZone);
         const startDay = toLocalDay(range.startDt);
         const endDay = toLocalDay(range.endDt);
 
         if (today >= startDay && today <= endDay) {
-          const display = range.multiDay ? buildDisplayInfoForDay(race, today) : null;
-          todayRaces.push({ race, display });
+          const display = range.multiDay ? buildDisplayInfoForDay(race, today, timeZone) : null;
+          todayRaces.push({ race, display, timeZone });
         } else if (endDay < today) {
-          pastRaces.push(race);
+          pastRaces.push({ race, timeZone });
         } else {
-          futureRaces.push(race);
+          futureRaces.push({ race, timeZone });
         }
       });
 
@@ -465,13 +569,14 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
 
       // --- Today's race ---
       if (todayRaces.length > 0) {
-        todayRaces.forEach(({ race, display }) => {
+        todayRaces.forEach(({ race, display, timeZone }) => {
           const renderOptions = display ? {
             sessionItems: display.sessionsToday,
             displayDateSrc: display.displayDateSrc,
             displayTimeSrc: display.displayTimeSrc,
-            displayDateTime: display.displayDateTime
-          } : undefined;
+            displayDateTime: display.displayDateTime,
+            timeZone
+          } : { timeZone };
           renderRaceCard(container, data.championship, race, "Race Today!", showDetails, renderOptions);
         });
       } else {
@@ -512,8 +617,10 @@ function createAccordion(titleText, raceList, championship, showDetails, labelTe
     header.textContent = isOpen ? `${titleText} >` : `${titleText} v`;
   });
 
-  raceList.forEach(race => {
-    renderRaceCard(panel, championship, race, labelText, showDetails);
+  raceList.forEach(item => {
+    const race = item.race || item;
+    const timeZone = item.timeZone || null;
+    renderRaceCard(panel, championship, race, labelText, showDetails, { timeZone });
   });
 
   accordion.appendChild(header);

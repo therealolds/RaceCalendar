@@ -1,0 +1,13 @@
+{
+  "id": "USA.Austin.COTA.F1",
+  "name": "Circuit of the Americas",
+  "length_km": 5.514,
+  "turns": 20,
+  "location": {
+    "city": "Austin",
+    "country": "USA - Texas",
+    "circuit": "Circuit of the Americas",
+    "timezone": "America/Chicago"
+  },
+  "image": "tracks/USA.Austin.COTA.F1.svg"
+}

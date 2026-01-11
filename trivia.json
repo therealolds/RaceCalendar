@@ -1,0 +1,26 @@
+﻿[
+  {
+    "id": "F1.1",
+    "tag": "motorsport",
+    "question": "What year did the F1 World Championship begin?",
+    "answer": "The championship began in 1950."
+  },
+  {
+    "id": "F1.2",
+    "tag": "motorsport",
+    "question": "Who was the driver to win the first F1 GP?",
+    "answer": "Nello Pagani, racing for Maserati at the time, was the driver who won the first F1 GP: the Pau GP in 1947. Note that it was the first GP to run under the new and official F1 regulations. However F1 was not a championship, each race was on its own. The first race of a F1 World Championship was Silverstione in 1950, won by Nino Farina for Alfa Romeo."
+  },
+  {
+    "id": "F1.3",
+    "tag": "motorsport",
+    "question": "Which team has won the most Formula 1 constructors' titles?",
+    "answer": "Ferrari holds the record for most constructors' championships."
+  },
+  {
+    "id": "AmericasCup.1",
+    "tag": "nautical",
+    "question": "What is the America's Cup trophy commonly called?",
+    "answer": "It is known as the Auld Mug."
+  }
+]

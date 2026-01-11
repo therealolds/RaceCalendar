@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Saudi_Arabia.Jeddah_Street_Circuit.F1",
+    "name":  "Jeddah Corniche Circuit",
+    "length_km":  6.174,
+    "turns":  27,
+    "location":  {
+                     "city":  "Jeddah",
+                     "country":  "Saudi Arabia",
+                     "circuit":  "Jeddah Corniche Circuit",
+                     "timezone":  "Asia/Riyadh"
+                 },
+    "image":  "tracks/Saudi_Arabia.Jeddah_Street_Circuit.F1.svg"
+}

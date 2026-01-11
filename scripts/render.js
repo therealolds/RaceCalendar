@@ -2,8 +2,54 @@
 // showDetails: true -> used on dedicated pages (e.g. f1.html, wrc.html)
 // showDetails: false -> used on main page (index.html)
 
-// Parse JSON date/time as UTC and let the browser display in local time
-function parseUtcDateTime(dateStr, timeStr) {
+// Parse race date/time as local track time (IANA timezone) and return a UTC Date.
+function getTimeZoneOffsetMs(timeZone, date) {
+  const dtf = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+  const parts = dtf.formatToParts(date).reduce((acc, part) => {
+    if (part.type !== 'literal') acc[part.type] = part.value;
+    return acc;
+  }, {});
+  const asUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour),
+    Number(parts.minute),
+    Number(parts.second)
+  );
+  return asUtc - date.getTime();
+}
+
+function parseUtcOffsetMinutes(timeZone) {
+  const match = String(timeZone || '').match(/^UTC([+-])(\d{1,2})(?::?(\d{2}))?$/i);
+  if (!match) return null;
+  const sign = match[1] === '-' ? -1 : 1;
+  const hours = Number(match[2] || 0);
+  const minutes = Number(match[3] || 0);
+  return sign * (hours * 60 + minutes);
+}
+
+function makeDateInTimeZone(y, m, d, hh, mm, timeZone) {
+  const utcGuess = new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+  let offset = getTimeZoneOffsetMs(timeZone, utcGuess);
+  let corrected = new Date(utcGuess.getTime() - offset);
+  const offset2 = getTimeZoneOffsetMs(timeZone, corrected);
+  if (offset2 !== offset) {
+    corrected = new Date(utcGuess.getTime() - offset2);
+  }
+  return corrected;
+}
+
+function parseEventDateTime(dateStr, timeStr, timeZone) {
   if (!dateStr) return new Date(NaN);
   if (String(dateStr).includes('T')) {
     // ISO string provided (e.g., 2025-03-16T15:00:00Z)
@@ -11,6 +57,15 @@ function parseUtcDateTime(dateStr, timeStr) {
   }
   const [y, m, d] = String(dateStr).split('-').map(Number);
   const [hh, mm] = String(timeStr || '00:00').split(':').map(Number);
+  if (timeZone) {
+    const offsetMinutes = parseUtcOffsetMinutes(timeZone);
+    if (offsetMinutes !== null) {
+      return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0) - offsetMinutes * 60000);
+    }
+    if (String(timeZone).includes('/')) {
+      return makeDateInTimeZone(y, m, d, hh, mm, timeZone);
+    }
+  }
   return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
 }
 
@@ -29,7 +84,8 @@ function formatLocalTime(dt, dateStr, timeStr) {
 function renderRaceCard(container, championship, race, labelText, showDetails = false, options = {}) {
   const dateSrc = options.displayDateSrc || race.datetime_utc || race.date;
   const timeSrc = options.displayTimeSrc || race.time;
-  const dt = options.displayDateTime || parseUtcDateTime(dateSrc, timeSrc);
+  const timeZone = options.timeZone || null;
+  const dt = options.displayDateTime || parseEventDateTime(dateSrc, timeSrc, timeZone);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const raceDay = new Date(dt);
@@ -54,7 +110,7 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
   if (sessionItems.length) {
     const sessionList = sessionItems.map(s => {
       const sDateSrc = s.datetime_utc || s.date;
-      const sdt = parseUtcDateTime(sDateSrc, s.time);
+      const sdt = parseEventDateTime(sDateSrc, s.time, timeZone);
       const sTime = formatLocalTime(sdt, sDateSrc, s.time);
       return `<li><strong>${s.name}</strong> - ${sTime}</li>`;
     }).join("");
@@ -73,7 +129,7 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
     stageButton.addEventListener("click", () => {
       const { openModal, getModalBody } = ensureModal();
       const body = getModalBody();
-      renderRaceDetails({ additionalInfo: { sessions: sessionModalSessions } }, body);
+      renderRaceDetails({ additionalInfo: { sessions: sessionModalSessions } }, body, timeZone);
       openModal();
     });
   }
@@ -93,7 +149,7 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
   button.addEventListener("click", () => {
     const { openModal, getModalBody } = ensureModal();
     const body = getModalBody();
-    renderRaceDetails(race, body);
+    renderRaceDetails(race, body, timeZone);
     openModal();
   });
 
@@ -142,13 +198,13 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
   container.appendChild(row);
 }
 
-function renderRaceDetails(race, container) {
+function renderRaceDetails(race, container, timeZone) {
   const sessions = (race.additionalInfo && race.additionalInfo.sessions) || [];
   const items = sessions.length
     ? sessions.map(s => {
         const sDateSrc = s.datetime_utc || s.date;
-        const sdt = parseUtcDateTime(sDateSrc, s.time);
-        return `<li><strong>${s.name}</strong> — ${formatLocalDate(sdt)}, ${formatLocalTime(sdt, sDateSrc, s.time)}</li>`;
+        const sdt = parseEventDateTime(sDateSrc, s.time, timeZone);
+        return `<li><strong>${s.name}</strong> - ${formatLocalDate(sdt)}, ${formatLocalTime(sdt, sDateSrc, s.time)}</li>`;
       }).join('')
     : '<li><em>No detailed sessions available.</em></li>';
   container.innerHTML = `

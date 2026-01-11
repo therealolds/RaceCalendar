@@ -1,0 +1,13 @@
+{
+    "id":  "Spain.Madring.F1",
+    "name":  "Madring",
+    "length_km":  5.474,
+    "turns":  22,
+    "location":  {
+                     "city":  "Madrid",
+                     "country":  "Spain",
+                     "circuit":  "Madring",
+                     "timezone":  "Europe/Madrid"
+                 },
+    "image":  "tracks/Spain.Madring.F1.svg"
+}

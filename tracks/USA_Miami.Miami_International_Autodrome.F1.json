@@ -1,0 +1,13 @@
+﻿{
+    "id":  "USA_Miami.Miami_International_Autodrome.F1",
+    "name":  "Miami International Autodrome",
+    "length_km":  5.412,
+    "turns":  19,
+    "location":  {
+                     "city":  "Miami",
+                     "country":  "USA",
+                     "circuit":  "Miami International Autodrome",
+                     "timezone":  "America/New_York"
+                 },
+    "image":  "tracks/USA_Miami.Miami_International_Autodrome.F1.svg"
+}
