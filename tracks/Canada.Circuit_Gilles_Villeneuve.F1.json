@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Canada.Circuit_Gilles_Villeneuve.F1",
+    "name":  "Circuit Gilles Villeneuve",
+    "length_km":  4.316,
+    "turns":  14,
+    "location":  {
+                     "city":  "MontrÃ©al",
+                     "country":  "Canada",
+                     "circuit":  "Circuit Gilles Villeneuve",
+                     "timezone":  "America/Toronto"
+                 },
+    "image":  "tracks/Canada.Circuit_Gilles_Villeneuve.F1.svg"
+}

@@ -1,0 +1,11 @@
+{
+    "id":  "France.Bugatti_Circuit.MotoGP",
+    "name":  "Bugatti Circuit",
+    "location":  {
+                     "city":  "Le Mans",
+                     "country":  "France",
+                     "circuit":  "Bugatti Circuit",
+                     "timezone":  "Europe/Paris"
+                 },
+    "image":  "tracks/France.Bugatti_Circuit.MotoGP.png"
+}

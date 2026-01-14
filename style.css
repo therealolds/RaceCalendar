@@ -1,0 +1,825 @@
+/* =========================================================
+   RACING CALENDAR — CLEANED STYLE SHEET
+   Maintains same visual design with improved structure
+   ========================================================= */
+
+/* ========================
+   1. THEME VARIABLES
+   ======================== */
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+
+/* Automatic light/dark detection via OS/browser */
+:root { color-scheme: light dark; }
+
+/* --- Light Theme (edit these to adjust colors) --- */
+:root {
+  /* Page & text */
+  --bg: #ec920b09;        /* Page background */
+  --fg: #111111;        /* Default text color */
+  --muted: #666666;     /* Secondary text */
+
+  /* Surfaces & borders */
+  --surface: #f5f5f5;   /* Cards, panels */
+  --border: #e6e6e6;    /* Dividers, outlines */
+
+  /* Brand / accents */
+  --accent: #d90429;    /* Links, emphasis */
+  --brand-1: #ffc06e;   /* Former primary */
+  --brand-2: #f5c800;   /* Former secondary */
+
+  /* Overlays & shadows */
+  --tile-fg: #ffffff;               /* Text over image tiles */
+  --glass-bg: rgba(255, 255, 255, 0.18); /* Frosted panels */
+  --glass-border: rgba(255, 255, 255, 0.527);
+  --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.10);
+  --shadow-2: 0 6px 18px rgba(0, 0, 0, 0.25);
+  --toggle-bg: rgba(255, 255, 255, 0.8);
+  --toggle-border: #cfcfcf;
+  --toggle-fg: #111111;
+
+  /* Legacy variable aliases (keep existing components working) */
+  --base-color: var(--surface);
+  --text-color: var(--fg);
+  --primary-color: var(--brand-1);
+  --secondary-color: var(--brand-2);
+  --color-1: rgba(0, 0, 0, 0.02);
+  --color-2: rgba(0, 0, 0, 0.04);
+  --color-3: var(--surface);
+}
+
+/* --- Dark Theme Overrides --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #242424;
+    --fg: #eaeaea;
+    --muted: #a3a3a3;
+    --surface: #171717;
+    --border: #2a2a2a;
+    --accent: #ff395b;
+
+    --tile-fg: #ffffff;
+    --glass-bg: rgba(0, 0, 0, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.20);
+    --shadow-2: 0 12px 32px rgba(0, 0, 0, 0.35);
+    --toggle-bg: rgba(0, 0, 0, 0.35);
+    --toggle-border: rgba(255, 255, 255, 0.25);
+    --toggle-fg: #eaeaea;
+  }
+}
+
+/* Base application colors */
+html, body { background: var(--bg); color: var(--fg); }
+a { color: var(--accent); }
+hr, .divider { border-color: var(--border); }
+.card, .panel { background: var(--surface); border: 1px solid var(--border); }
+.muted { color: var(--muted); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Momo Trust Display', sans-serif;
+  color: var(--text-color);
+}
+
+/* ========================
+   2. GLOBAL ELEMENTS
+   ======================== */
+img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   3. LAYOUT CONTAINERS
+   ======================== */
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+  text-align: center;
+}
+
+.center-container h1 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+.center-container img {
+  max-width: 300px;
+  transition: transform 0.2s ease;
+}
+
+.center-container img:hover {
+  transform: scale(1.05);
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  gap: 2em;
+}
+
+.section {
+  text-align: center;
+  margin: 4em 0;
+}
+
+/* ========================
+   3.1 HOME GRID (INDEX)
+   ======================== */
+.home-grid {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.home-grid .section {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  isolation: isolate;
+  color: var(--tile-fg);
+}
+
+.home-grid .section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+  z-index: 0;
+}
+
+.home-grid .section .center-container {
+  position: relative;
+  z-index: 1;
+  color: var(--tile-fg);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  align-items: center;
+}
+
+.home-grid .section a {
+  color: inherit;
+}
+
+.home-grid .section img {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  max-width: 240px;
+}
+
+/* Full-width section (e.g., TODAY) */
+.home-grid .section--full {
+  grid-column: 1 / -1;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  min-height: auto;
+  padding: 0;
+}
+
+.home-grid .section--full::before {
+  display: none;
+}
+
+.home-grid .section--full .center-container {
+  color: inherit;
+  text-shadow: none;
+}
+
+/* Background images for series cards */
+/* Common cover behavior */
+.bg-f1,
+.bg-moto_gp,
+.bg-wrc,
+.bg-wec,
+.bg-americascup,
+.bg-gp_offshore {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-f1 {
+  background-image: url('backgrounds/f1.jpg');
+}
+
+.bg-moto_gp {
+  background-image: url('backgrounds/moto_gp.jpg');
+}
+
+.bg-wrc {
+  background-image: url('backgrounds/wrc.png');
+}
+
+.bg-wec {
+  background-image: url('backgrounds/wec.jpg');
+}
+
+.bg-americascup {
+  background-image: url('backgrounds/americas_cup.jpg');
+}
+
+.bg-gp_offshore {
+  /* Placeholder background (nautical theme) */
+  background-image: url('');
+}
+
+.bg-dakar {
+  background-image: url('backgrounds/dakar.jpg');
+}
+
+
+/* ========================
+   3.2 NEXT-RACE OVERLAY (INDEX)
+   Modifier class used inside tiles for translucent panel
+   ======================== */
+.next-race--overlay {
+  background: var(--glass-bg);
+  color: var(--tile-fg);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  max-width: 420px;
+  margin-top: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.next-race--overlay h3 {
+  color: #cfd5ff;
+}
+
+/* Remove extra card layers inside overlay */
+.next-race--overlay .race-row {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  gap: 0;
+  width: auto;
+  margin: 0;
+}
+
+.next-race--overlay .race-card {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+}
+
+/* Frosted background behind series logos */
+.logo-panel {
+  display: inline-block;
+  background: var(--glass-bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-panel img {
+  display: block;
+}
+
+/* Tweak heading spacing for better vertical centering */
+.home-grid .section h2 {
+  margin: 0.25rem 0 0.5rem;
+}
+
+/* =========================
+   4. COMPONENTS
+   ========================= */
+
+/* --- Race Card --- */
+.race-card {
+  background: var(--color-2);
+  padding: 1em;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 280px;
+}
+
+.race-card h3 {
+  margin-bottom: 0.3em;
+  color: var(--secondary-color);
+}
+
+/* --- Next Race --- */
+.next-race {
+  background: var(--color-1);
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.next-race h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.3em;
+}
+
+/* Stronger override so Today/series tiles inside home-grid use the translucent panel */
+.home-grid .section .next-race {
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--tile-fg);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.home-grid .section .next-race h3 {
+  color: #cfd5ff;
+}
+
+/* --- Track Card --- */
+.track-card {
+  margin-top: 1em;
+  padding: 1em;
+  background: var(--color-3);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.track-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Race Row --- */
+.race-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  background: var(--color-1);
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: min(900px, 95%);
+  padding: 1.5em;
+  gap: 2em;
+  margin-bottom: 2em;
+}
+
+.race-info {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.race-details {
+  flex: 1 1 250px;
+  background: var(--color-2);
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.race-details h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.race-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.race-details li {
+  margin: 0.2em 0;
+  font-size: 0.9em;
+}
+
+/* --- Today List: spacing only; layout via .series-grid --- */
+.today-list {
+  margin-top: 1rem;
+}
+
+/* --- Accordion --- */
+.accordion {
+  width: 100%;
+  max-width: 900px;
+  margin: 2em auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  width: 100%;
+  background: var(--color-2);
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-align: left;
+  padding: 1em 1.2em;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background 0.2s ease;
+}
+
+.accordion-header:hover {
+  background: var(--color-3);
+}
+
+.accordion-panel {
+  background: var(--color-1);
+  padding: 1.5em;
+  display: none;
+}
+
+/* --- Buttons --- */
+.view-details-btn {
+  margin-top: 0.5em;
+  padding: 0.4em 1em;
+  border: none;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.view-details-btn:hover {
+  background: var(--primary-color);
+  color: #000;
+}
+
+/* ========================
+   5. RESPONSIVE DESIGN
+   ======================== */
+@media (max-width: 700px) {
+  .center-container {
+    gap: 1em;
+  }
+
+  .race-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .race-info,
+  .race-details {
+    width: 100%;
+  }
+}
+
+/* Group sections by tag */
+.tag-section {
+  grid-column: 1 / -1;
+  margin: 1rem 0 2rem;
+}
+
+.tag-section .center-container {
+  align-items: stretch;
+}
+
+/* Only stretch the top-level container inside TODAY; keep tiles centered */
+#TODAY>.center-container {
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Ensure the Today title is visible and aligned like section titles */
+#TODAY .center-container > h1 {
+  text-align: left;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+#TODAY .view-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+#TODAY .filter-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.view-toggle__btn,
+.filter-toggle__btn {
+  appearance: none;
+  border: 1px solid var(--toggle-border);
+  background: var(--toggle-bg);
+  color: var(--toggle-fg);
+  padding: 0.35rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-toggle__btn {
+  align-self: flex-start;
+}
+
+.view-toggle__btn:hover,
+.filter-toggle__btn:hover {
+  border-color: var(--accent);
+}
+
+.view-toggle__btn.is-active,
+.filter-toggle__btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Make sure TODAY grid forms columns */
+#TODAY #today-races,
+#TODAY #week-races {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+#TODAY #today-races[hidden],
+#TODAY #week-races[hidden] {
+  display: none !important;
+}
+
+
+/* Ensure the plain fallback message is readable on light backgrounds */
+#TODAY #today-races > p,
+#TODAY #week-races > p {
+  color: var(--text-color);
+}
+
+.tag-section>.center-container>h2 {
+  text-align: left;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  text-shadow: none;
+}
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* =========================
+   6. REUSABLE TILE (PAGES)
+   ========================= */
+/* Apply the same tile look used on the home cards to any section
+   by adding class "tile" alongside "section". */
+.section.tile {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  isolation: isolate;
+  color: var(--tile-fg);
+}
+
+.section.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6));
+  z-index: 0;
+}
+
+.section.tile .center-container {
+  position: relative;
+  z-index: 1;
+  color: var(--tile-fg);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  align-items: center;
+}
+
+/* =========================
+   7. MODAL (DETAILS VIEW)
+   ========================= */
+.rc-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.rc-modal-backdrop.is-open {
+  display: flex;
+}
+
+.rc-modal {
+  position: relative;
+  background: var(--base-color);
+  color: var(--text-color);
+  border-radius: 12px;
+  width: min(720px, 92%);
+  max-height: 80vh;
+  padding: 1rem 1.25rem 1.25rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  overflow: auto;
+}
+
+.rc-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rc-modal-body h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5em;
+}
+
+.rc-modal-body ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rc-modal-body li {
+  margin: 0.2em 0;
+}
+/* theme block removed: now defined at top */
+
+.topbar {
+display: flex;
+align-items: center;
+list-style: none;
+padding: 0;
+margin: 0;
+width: 100%;
+}
+.topbar .welcome {
+margin-left: auto; /* pushes to the far right */
+}
+
+
+/* Footer layout */
+.topbar--footer > li {
+  flex: 1;
+}
+
+.topbar--footer .topbar-left {
+  text-align: left;
+}
+
+.topbar--footer .topbar-center {
+  text-align: center;
+}
+
+.topbar--footer .topbar-right {
+  text-align: right;
+}
+
+footer .topbar {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* === TRACKS PAGE === */
+.tracks-page {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.track-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: var(--shadow-1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.track-tile__image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: var(--color-1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.track-tile__image--empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  background: transparent;
+}
+
+.track-tile__meta p {
+  margin: 0.15rem 0;
+}
+
+/* === TRIVIA PAGE === */
+.trivia-page {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.trivia-root {
+  display: grid;
+  gap: 2rem;
+}
+
+.trivia-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.trivia-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 160px;
+  text-align: left;
+}
+
+.trivia-question {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--fg);
+}
+
+.trivia-card .view-details-btn {
+  align-self: flex-start;
+}
+
+.trivia-answer {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+

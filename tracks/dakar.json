@@ -1,0 +1,11 @@
+{
+  "id": "dakar",
+  "name": "Dakar",
+  "location": {
+    "city": "Multi stage",
+    "country": "Saudi Arabia",
+    "circuit": "",
+    "timezone": "UTC+3"
+  },
+  "image": "tracks/dakar.jpeg"
+}

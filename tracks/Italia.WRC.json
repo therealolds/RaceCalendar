@@ -1,0 +1,11 @@
+{
+    "id":  "Italia.WRC",
+    "name":  "Rally Italia Sardegna",
+    "location":  {
+                     "city":  "",
+                     "country":  "Italy",
+                     "circuit":  "Rally Italia Sardegna",
+                     "timezone":  "Europe/Rome"
+                 },
+    "image":  "tracks/Italia.WRC.webp"
+}

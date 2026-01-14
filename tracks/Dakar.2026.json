@@ -1,0 +1,11 @@
+{
+  "id": "Dakar.2026",
+  "name": "Dakar",
+  "location": {
+    "city": "Multi stage",
+    "country": "Saudi Arabia",
+    "circuit": "",
+    "timezone": "Asia/Riyadh"
+  },
+  "image": "tracks/Dakar.2026.jpeg"
+}

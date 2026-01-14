@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Hungary.Hungaroring.F1",
+    "name":  "Hungaroring ",
+    "length_km":  4.381,
+    "turns":  14,
+    "location":  {
+                     "city":  "MogyorÃ³d",
+                     "country":  "Hungary",
+                     "circuit":  "Hungaroring ",
+                     "timezone":  "Europe/Budapest"
+                 },
+    "image":  "tracks/Hungary.Hungaroring.F1.svg"
+}

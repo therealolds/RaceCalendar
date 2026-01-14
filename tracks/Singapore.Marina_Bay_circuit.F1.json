@@ -1,0 +1,13 @@
+{
+    "id":  "Singapore.Marina_Bay_circuit.F1",
+    "name":  "Marina Bay Street Circuit",
+    "length_km":  4.927,
+    "turns":  19,
+    "location":  {
+                     "city":  "Singapore",
+                     "country":  "Singapore",
+                     "circuit":  "Marina Bay Street Circuit",
+                     "timezone":  "Asia/Singapore"
+                 },
+    "image":  "tracks/Singapore.Marina_Bay_circuit.F1.svg"
+}

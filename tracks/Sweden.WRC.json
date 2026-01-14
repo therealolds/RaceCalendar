@@ -1,0 +1,11 @@
+{
+    "id":  "Sweden.WRC",
+    "name":  "Rally Sweden",
+    "location":  {
+                     "city":  "",
+                     "country":  "Sweden",
+                     "circuit":  "Rally Sweden",
+                     "timezone":  "Europe/Stockholm"
+                 },
+    "image":  "tracks/Sweden.WRC.webp"
+}

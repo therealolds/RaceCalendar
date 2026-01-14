@@ -1,0 +1,13 @@
+﻿{
+    "id":  "UK.Circuit_Silverstone.F1",
+    "name":  "Miami International Autodrome",
+    "length_km":  5.891,
+    "turns":  18,
+    "location":  {
+                     "city":  "Silverstone",
+                     "country":  "UK",
+                     "circuit":  "Silverstone Circuit",
+                     "timezone":  "Europe/London"
+                 },
+    "image":  "tracks/UK.Circuit_Silverstone.F1.svg"
+}

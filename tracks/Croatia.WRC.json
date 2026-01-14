@@ -1,0 +1,11 @@
+{
+    "id":  "Croatia.WRC",
+    "name":  "Croatia Rally",
+    "location":  {
+                     "city":  "",
+                     "country":  "Croatia",
+                     "circuit":  "Croatia Rally",
+                     "timezone":  "Europe/Zagreb"
+                 },
+    "image":  "tracks/Croatia.WRC.webp"
+}

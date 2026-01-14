@@ -1,0 +1,13 @@
+{
+  "id": "Brazil.Autodromo_Jose_Carlos_Pace_(AKA_Interlagos).F1",
+  "name": "Interlagos",
+  "length_km": 4.309,
+  "turns": 15,
+  "location": {
+    "city": "San Paolo",
+    "country": "Brasil",
+    "circuit": "Autodromo Jose Carlos Pace (Interlagos)",
+    "timezone": "America/Sao_Paulo"
+  },
+  "image": "tracks/Brazil.Autodromo_Jose_Carlos_Pace_(AKA_Interlagos).F1.svg"
+}

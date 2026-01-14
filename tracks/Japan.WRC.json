@@ -1,0 +1,11 @@
+{
+    "id":  "Japan.WRC",
+    "name":  "Rally Japan",
+    "location":  {
+                     "city":  "",
+                     "country":  "Japan",
+                     "circuit":  "Rally Japan",
+                     "timezone":  "Asia/Tokyo"
+                 },
+    "image":  "tracks/Japan.WRC.webp"
+}

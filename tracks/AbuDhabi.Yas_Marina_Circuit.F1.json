@@ -1,0 +1,13 @@
+{
+  "id": "AbuDhabi.Yas_Marina_Circuit.F1",
+  "name": "Yas Marina Circuit",
+  "length_km": 5.281,
+  "turns": 16,
+  "location": {
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "circuit": "Yas Marina Circuit",
+    "timezone": "Asia/Dubai"
+  },
+  "image": "tracks/AbuDhabi.Yas_Marina_Circuit.F1.png"
+}

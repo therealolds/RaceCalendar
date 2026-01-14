@@ -1,0 +1,11 @@
+{
+    "id":  "Portugal.WRC",
+    "name":  "Rally de Portugal",
+    "location":  {
+                     "city":  "",
+                     "country":  "Portugal",
+                     "circuit":  "Rally de Portugal",
+                     "timezone":  "Europe/Lisbon"
+                 },
+    "image":  "tracks/Portugal.WRC.webp"
+}

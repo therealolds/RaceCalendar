@@ -1,0 +1,13 @@
+{
+  "id": "USA.Las_Vegas_street_circuit.F1",
+  "name": "Las Vegas Strip Circuit",
+  "length_km": 6.201,
+  "turns": 17,
+  "location": {
+    "city": "Las Vegas",
+    "country": "USA",
+    "circuit": "Las Vegas Strip Circuit",
+    "timezone": "America/Los_Angeles"
+  },
+  "image": "tracks/USA.Las_Vegas_street_circuit.F1.svg"
+}

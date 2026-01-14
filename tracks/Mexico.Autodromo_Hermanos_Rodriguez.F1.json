@@ -1,0 +1,14 @@
+{
+  "id": "Mexico.Autodromo_Hermanos_Rodriguez.F1",
+  "name": "Autodromo Hermanos Rodriguez",
+  "length_km": 4.304,
+  "turns": 17,
+  "location": {
+    "city": "Mexico City",
+    "country": "Mexico",
+    "circuit": "Autodromo Hermanos Rodriguez",
+    "timezone": "America/Mexico_City"
+  },
+  "image": "tracks/Mexico.Autodromo_Hermanos_Rodriguez.F1.svg"
+}
+

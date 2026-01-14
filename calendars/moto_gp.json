@@ -1,0 +1,74 @@
+{
+  "championship": "Moto GP",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Thailand.Buriram_circuit_map.MotoGP",
+      "name": "Thailand",
+      "date": "2026-03-01",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-02-27", "time": "10:45" },
+          { "name": "Practice", "date": "2026-02-27", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-02-28", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-02-28", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-02-28", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-02-28", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-03-01", "time": "15:00" },
+          { "name": "Grand Prix", "date": "2026-03-01", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Brazil.Jacarepagua.MotoGP",
+      "name": "Brazil",
+      "date": "2026-03-22",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Austin.COTA.MotoGP",
+      "name": "USA",
+      "date": "2026-03-29",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Qatar.Lusail_International_Circuit.MotoGP",
+      "name": "Qatar",
+      "date": "2026-04-12",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Spain.Jerez.MotoGP",
+      "name": "Spain",
+      "date": "2026-04-26",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "France.Bugatti_Circuit.MotoGP",
+      "name": "France",
+      "date": "2026-05-10",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    }
+  ]
+}

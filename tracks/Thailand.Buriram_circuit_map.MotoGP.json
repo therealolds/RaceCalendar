@@ -1,0 +1,13 @@
+{
+    "id":  "Thailand.Buriram_circuit_map.MotoGP",
+    "name":  "Chang International Circuit",
+    "length_km":  4.554,
+    "turns":  12,
+    "location":  {
+                     "city":  "Buriram",
+                     "country":  "Thailand",
+                     "circuit":  "Chang International Circuit",
+                     "timezone":  "Asia/Bangkok"
+                 },
+    "image":  "tracks/Thailand.Buriram_circuit_map.MotoGP.svg"
+}
