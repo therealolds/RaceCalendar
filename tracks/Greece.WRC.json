@@ -1,0 +1,11 @@
+{
+    "id":  "Greece.WRC",
+    "name":  "Acropolis Rally Greece",
+    "location":  {
+                     "city":  "",
+                     "country":  "Greece",
+                     "circuit":  "Acropolis Rally Greece",
+                     "timezone":  "Europe/Athens"
+                 },
+    "image":  "tracks/Greece.WRC.webp"
+}

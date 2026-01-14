@@ -1,0 +1,11 @@
+{
+    "id":  "Paraguay.WRC",
+    "name":  "Rally del Paraguay",
+    "location":  {
+                     "city":  "",
+                     "country":  "Paraguay",
+                     "circuit":  "Rally del Paraguay",
+                     "timezone":  "America/Asuncion"
+                 },
+    "image":  "tracks/Paraguay.WRC.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Brazil.Jacarepagua.MotoGP",
+  "name": "Jacarepagua",
+  "length_km": 4.933,
+  "turns": 11,
+  "location": {
+    "city": "Jacarepagua",
+    "country": "Brasil",
+    "circuit": "Jacarepagua",
+    "timezone": "America/Sao_Paulo"
+  },
+  "image": "tracks/Brazil.Jacarepagua.MotoGP.svg"
+}

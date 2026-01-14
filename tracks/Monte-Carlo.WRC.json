@@ -1,0 +1,11 @@
+{
+    "id":  "Monte-Carlo.WRC",
+    "name":  "Rallye Monte-Carlo",
+    "location":  {
+                     "city":  "Monte-Carlo",
+                     "country":  "Monte-Carlo",
+                     "circuit":  "Rallye Monte-Carlo",
+                     "timezone":  "Europe/Monaco"
+                 },
+    "image":  "tracks/Monte-Carlo.WRC.webp"
+}

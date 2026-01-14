@@ -1,0 +1,394 @@
+{
+  "championship": "Formula 1",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Testing - Round 1",
+      "date": "2026-02-13",
+      "starDate": "2026-02-11",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Testing - Day 1", "date": "2026-02-11"},
+          { "name": "Testing - Day 2", "date": "2026-02-12"},
+          { "name": "Testing - Day 3", "date": "2026-02-13"}
+        ]
+      }
+    },
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Testing - Round 2",
+      "date": "2026-02-20",
+      "starDate": "2026-02-18",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Testing - Day 4", "date": "2026-02-18"},
+          { "name": "Testing - Day 5", "date": "2026-02-19"},
+          { "name": "Testing - Day 6", "date": "2026-02-20"}
+        ]
+      }
+    },
+    {
+      "idtrack": "Australia.Albert_Park_Circuit.F1",
+      "name": "Australian Grand Prix",
+      "date": "2026-03-08",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-03-06", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-03-06", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-03-07", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-03-07", "time": "16:00" },
+          { "name": "Race", "date": "2026-03-08", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "China.Shanghai_International_Racing_Circuit.F1",
+      "name": "Chinese Grand Prix",
+      "date": "2026-03-15",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-03-13", "time": "11:30" },
+          { "name": "Sprint Qualifying", "date": "2026-03-13", "time": "15:30" },
+          { "name": "Sprint", "date": "2026-03-14", "time": "11:00" },
+          { "name": "Qualifying", "date": "2026-03-14", "time": "15:00" },
+          { "name": "Race", "date": "2026-03-15", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Japan.Suzuka.F1",
+      "name": "Japan GP",
+      "date": "2026-03-29",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-03-27", "time": "11:30" },
+          { "name": "Free Practice 2", "date": "2026-03-27", "time": "15:00" },
+          { "name": "Free Practice 3", "date": "2026-03-28", "time": "11:30" },
+          { "name": "Qualifying", "date": "2026-03-28", "time": "15:00" },
+          { "name": "Race", "date": "2026-03-29", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "Bahrain GP",
+      "date": "2026-04-12",
+      "time": "18:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-04-10", "time": "14:30" },
+          { "name": "Free Practice 2", "date": "2026-04-10", "time": "18:00" },
+          { "name": "Free Practice 3", "date": "2026-04-11", "time": "15:30" },
+          { "name": "Qualifying", "date": "2026-04-11", "time": "19:00" },
+          { "name": "Race", "date": "2026-04-12", "time": "18:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Saudi_Arabia.Jeddah_Street_Circuit.F1",
+      "name": "Saudi Arabian GP",
+      "date": "2026-04-19",
+      "time": "20:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-04-17", "time": "16:30" },
+          { "name": "Free Practice 2", "date": "2026-04-17", "time": "20:00" },
+          { "name": "Free Practice 3", "date": "2026-04-18", "time": "16:30" },
+          { "name": "Qualifying", "date": "2026-04-18", "time": "20:00" },
+          { "name": "Race", "date": "2026-04-19", "time": "20:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA_Miami.Miami_International_Autodrome.F1",
+      "name": "USA - Miami GP",
+      "date": "2026-05-03",
+      "time": "16:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-05-01", "time": "12:30" },
+          { "name": "Sprint Qualifying", "date": "2026-05-01", "time": "16:30" },
+          { "name": "Sprint", "date": "2026-05-02", "time": "12:00" },
+          { "name": "Qualifying", "date": "2026-05-02", "time": "16:00" },
+          { "name": "Race", "date": "2026-05-03", "time": "16:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Canada.Circuit_Gilles_Villeneuve.F1",
+      "name": "Canada GP",
+      "date": "2026-05-24",
+      "time": "16:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-05-22", "time": "12:30" },
+          { "name": "Sprint Qualifying", "date": "2026-05-22", "time": "16:30" },
+          { "name": "Sprint", "date": "2026-05-23", "time": "12:00" },
+          { "name": "Qualifying", "date": "2026-05-23", "time": "16:00" },
+          { "name": "Race", "date": "2026-05-24", "time": "16:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Monaco.Monte_Carlo.F1",
+      "name": "Monaco GP",
+      "date": "2026-06-07",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-06-05", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-06-05", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-06-06", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-06-06", "time": "16:00" },
+          { "name": "Race", "date": "2026-06-07", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Spain.Circuit_de_Catalunya.F1",
+      "name": "Spain - Barcellona GP",
+      "date": "2026-06-14",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-06-12", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-06-12", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-06-13", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-06-13", "time": "16:00" },
+          { "name": "Race", "date": "2026-06-14", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Circuit_Red_Bull_Ring.F1",
+      "name": "Austrian GP",
+      "date": "2026-06-28",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-06-26", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-06-26", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-06-27", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-06-27", "time": "16:00" },
+          { "name": "Race", "date": "2026-06-28", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "UK.Circuit_Silverstone.F1",
+      "name": "Bristish GP",
+      "date": "2026-07-05",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-07-03", "time": "12:30" },
+          { "name": "Sprint Qualifying", "date": "2026-07-03", "time": "16:30" },
+          { "name": "Sprint", "date": "2026-07-04", "time": "12:00" },
+          { "name": "Qualifying", "date": "2026-07-04", "time": "16:00" },
+          { "name": "Race", "date": "2026-07-05", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Belgium.Spa-Francorchamps.F1",
+      "name": "Belgian GP",
+      "date": "2026-07-19",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-07-17", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-07-17", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-07-18", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-07-18", "time": "16:00" },
+          { "name": "Race", "date": "2026-07-19", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Hungary.Hungaroring.F1",
+      "name": "Hungary GP",
+      "date": "2026-07-26",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-07-24", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-07-24", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-07-25", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-07-25", "time": "16:00" },
+          { "name": "Race", "date": "2026-07-26", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Netherlands.Zandvoort_Circuit.F1",
+      "name": "Dutch GP",
+      "date": "2026-08-23",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-08-21", "time": "12:30" },
+          { "name": "Sprint Qualifying", "date": "2026-08-21", "time": "16:30" },
+          { "name": "Sprint", "date": "2026-08-22", "time": "12:00" },
+          { "name": "Qualifying", "date": "2026-08-22", "time": "16:00" },
+          { "name": "Race", "date": "2026-08-23", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Monza.F1",
+      "name": "Italian GP",
+      "date": "2026-09-06",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-09-04", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-09-04", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-09-05", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-09-05", "time": "16:00" },
+          { "name": "Race", "date": "2026-09-06", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Spain.Madring.F1",
+      "name": "Spain - Madrid GP",
+      "date": "2026-09-13",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-09-11", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-09-11", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-09-12", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-09-12", "time": "16:00" },
+          { "name": "Race", "date": "2026-09-13", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Azerbaijan.Baku_Formula_One_circuit.F1",
+      "name": "Azerbaijan GP",
+      "date": "2026-09-26",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-09-24", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-09-24", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-09-25", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-09-25", "time": "16:00" },
+          { "name": "Race", "date": "2026-09-26", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Singapore.Marina_Bay_circuit.F1",
+      "name": "Singapore GP",
+      "date": "2026-10-11",
+      "time": "20:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-10-09", "time": "17:30" },
+          { "name": "Sprint Qualifying", "date": "2026-10-09", "time": "20:30" },
+          { "name": "Sprint", "date": "2026-10-10", "time": "17:00" },
+          { "name": "Qualifying", "date": "2026-10-10", "time": "21:00" },
+          { "name": "Race", "date": "2026-10-11", "time": "20:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Austin.COTA.F1",
+      "name": "USA - Austin GP",
+      "date": "2026-10-25",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-10-23", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-10-23", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-10-24", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-10-24", "time": "16:00" },
+          { "name": "Race", "date": "2026-10-25", "time": "15:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Mexico.Autodromo_Hermanos_Rodriguez.F1",
+      "name": "Mexico GP",
+      "date": "2026-11-01",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-10-30", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-10-30", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-10-31", "time": "11:30" },
+          { "name": "Qualifying", "date": "2026-10-31", "time": "15:00" },
+          { "name": "Race", "date": "2026-11-01", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Brazil.Autodromo_Jose_Carlos_Pace_(AKA_Interlagos).F1",
+      "name": "Braszil GP",
+      "date": "2026-11-08",
+      "time": "14:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-11-06", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-11-07", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-11-07", "time": "11:30" },
+          { "name": "Qualifying", "date": "2026-11-08", "time": "15:00" },
+          { "name": "Race", "date": "2026-11-08", "time": "14:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Las_Vegas_street_circuit.F1",
+      "name": "USA - Las Vegas GP",
+      "date": "2026-11-21",
+      "time": "20:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-11-19", "time": "16:30" },
+          { "name": "Free Practice 2", "date": "2026-11-19", "time": "20:00" },
+          { "name": "Free Practice 3", "date": "2026-11-20", "time": "16:30" },
+          { "name": "Qualifying", "date": "2026-11-20", "time": "20:00" },
+          { "name": "Race", "date": "2026-11-21", "time": "20:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Qatar.Lusail_International_Circuit.F1",
+      "name": "Qatar GP",
+      "date": "2026-11-29",
+      "time": "19:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-11-27", "time": "16:30" },
+          { "name": "Free Practice 2", "date": "2026-11-27", "time": "20:00" },
+          { "name": "Free Practice 3", "date": "2026-11-28", "time": "17:30" },
+          { "name": "Qualifying", "date": "2026-11-28", "time": "21:00" },
+          { "name": "Race", "date": "2026-11-29", "time": "19:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "AbuDhabi.Yas_Marina_Circuit.F1",
+      "name": "Abu Dhabi GP",
+      "date": "2026-12-06",
+      "time": "17:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-12-04", "time": "13:30" },
+          { "name": "Free Practice 2", "date": "2026-12-04", "time": "17:00" },
+          { "name": "Free Practice 3", "date": "2026-12-05", "time": "14:30" },
+          { "name": "Qualifying", "date": "2026-12-05", "time": "18:00" },
+          { "name": "Race", "date": "2026-12-06", "time": "17:00" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+    "id":  "Estonia.WRC",
+    "name":  "Rally Estonia",
+    "location":  {
+                     "city":  "",
+                     "country":  "Estonia",
+                     "circuit":  "Rally Estonia",
+                     "timezone":  "Europe/Tallinn"
+                 },
+    "image":  "tracks/Estonia.WRC.webp"
+}

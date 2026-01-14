@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Belgium.Spa-Francorchamps.F1",
+    "name":  "Circuit de Spa-Francorchamps",
+    "length_km":  7.004,
+    "turns":  19,
+    "location":  {
+                     "city":  "Stavelot",
+                     "country":  "Belgium",
+                     "circuit":  "Circuit de Spa-Francorchamps",
+                     "timezone":  "Europe/Brussels"
+                 },
+    "image":  "tracks/Belgium.Spa-Francorchamps.F1.svg"
+}

@@ -1,0 +1,11 @@
+{
+    "id":  "Kenya.WRC",
+    "name":  "Safari Rally Kenya",
+    "location":  {
+                     "city":  "",
+                     "country":  "Kenya",
+                     "circuit":  "Safari Rally Kenya",
+                     "timezone":  "Africa/Nairobi"
+                 },
+    "image":  "tracks/Kenya.WRC.webp"
+}

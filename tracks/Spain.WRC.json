@@ -1,0 +1,11 @@
+{
+    "id":  "Spain.WRC",
+    "name":  "Rally Islas Canarias",
+    "location":  {
+                     "city":  "",
+                     "country":  "Spain",
+                     "circuit":  "Rally Islas Canarias",
+                     "timezone":  "Europe/Madrid"
+                 },
+    "image":  "tracks/Spain.WRC.webp"
+}

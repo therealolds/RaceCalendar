@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaceCalendar</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Dark mode support: automatic via prefers-color-scheme -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0b">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="topbar">
+        <li><a href="https://github.com/therealolds/RaceCalendar">RaceCalendar on GitHub</a></li>
+        <li class="welcome">Made in Modena</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home-grid">
+    <!-- TODAY -->
+    <section id="TODAY" class="section section--full">
+      <div class="center-container">
+        <h1 id="racing-view-title">Racing This Week</h1>
+        <div class="view-toggle" role="group" aria-label="Racing view toggle">
+          <button class="view-toggle__btn" type="button" data-view="today" aria-pressed="false">Today</button>
+          <button class="view-toggle__btn is-active" type="button" data-view="week" aria-pressed="true">This Week</button>
+        </div>
+        <div class="filter-toggle" role="group" aria-label="Featured filter toggle">
+          <button class="filter-toggle__btn view-toggle__btn" type="button" data-filter="all" aria-pressed="false">All</button>
+          <button class="filter-toggle__btn view-toggle__btn is-active" type="button" data-filter="featured" aria-pressed="true">Only Featured</button>
+        </div>
+        <div id="today-races" class="today-list series-grid" hidden aria-hidden="true">Loading...</div>
+        <div id="week-races" class="today-list series-grid">Loading...</div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section--full tag-section" id="section-featured">
+      <div class="center-container">
+        <h2>Featured</h2>
+        <div class="series-grid" id="grid-featured"></div>
+      </div>
+    </section>
+
+    <!-- Motorsport -->
+    <section class="section--full tag-section" id="section-motorsport">
+      <div class="center-container">
+        <h2>Motorsport</h2>
+        <div class="series-grid" id="grid-motorsport"></div>
+      </div>
+    </section>
+
+    <!-- Sailing and boats-->
+    <section class="section--full tag-section" id="section-nautical">
+      <div class="center-container">
+        <h2>Sailing & Nautical</h2>
+        <div class="series-grid" id="grid-nautical"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/series.js"></script>
+  <script src="scripts/render.js"></script>
+  <script src="scripts/calendar.js"></script>
+  <script src="scripts/home.js"></script>
+
+    <footer>
+    <nav>
+      <ul class="topbar topbar--footer">
+        <li class="topbar-left"><a href="pages/tracks.html">Tracks</a></li>
+        <li class="topbar-center"><a href="https://www.linkedin.com/in/therealolds/">Author: Marco Vecchi</a></li>
+        <li class="topbar-right"><a href="pages/trivia.html">Trivia</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+
+
+
+</html>
+
+

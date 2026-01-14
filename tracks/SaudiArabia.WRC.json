@@ -1,0 +1,11 @@
+{
+    "id":  "SaudiArabia.WRC",
+    "name":  "Rally Saudi Arabia",
+    "location":  {
+                     "city":  "",
+                     "country":  "Saudi Arabia",
+                     "circuit":  "Rally Saudi Arabia",
+                     "timezone":  "Asia/Riyadh"
+                 },
+    "image":  "tracks/SaudiArabia.WRC.webp"
+}

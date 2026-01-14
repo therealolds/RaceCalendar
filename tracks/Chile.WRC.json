@@ -1,0 +1,11 @@
+{
+    "id":  "Chile.WRC",
+    "name":  "Rally Chile",
+    "location":  {
+                     "city":  "",
+                     "country":  "Chile",
+                     "circuit":  "Rally Chile",
+                     "timezone":  "America/Santiago"
+                 },
+    "image":  "tracks/Chile.WRC.webp"
+}

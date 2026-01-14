@@ -1,0 +1,11 @@
+{
+    "id":  "Finland.WRC",
+    "name":  "Rally Finland",
+    "location":  {
+                     "city":  "",
+                     "country":  "Finland",
+                     "circuit":  "Rally Finland",
+                     "timezone":  "Europe/Helsinki"
+                 },
+    "image":  "tracks/Finland.WRC.webp"
+}

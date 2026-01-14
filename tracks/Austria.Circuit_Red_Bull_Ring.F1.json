@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Austria.Circuit_Red_Bull_Ring.F1",
+    "name":  "Red Bull Ring",
+    "length_km":  4.326,
+    "turns":  10,
+    "location":  {
+                     "city":  "Spielberg",
+                     "country":  "Austria",
+                     "circuit":  "Red Bull Ring",
+                     "timezone":  "Europe/Vienna"
+                 },
+    "image":  "tracks/Austria.Circuit_Red_Bull_Ring.F1.svg"
+}

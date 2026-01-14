@@ -1,0 +1,13 @@
+{
+  "id": "Qatar.Lusail_International_Circuit.F1",
+  "name": "Lusail International Circuit",
+  "length_km": 5.419,
+  "turns": 16,
+  "location": {
+    "city": "Lusail",
+    "country": "Qatar",
+    "circuit": "Lusail International Circuit",
+    "timezone": "Asia/Qatar"
+  },
+  "image": "tracks/Qatar.Lusail_International_Circuit.F1.svg"
+}

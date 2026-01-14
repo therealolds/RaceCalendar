@@ -1,0 +1,173 @@
+{
+  "championship": "WRC",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Monte-Carlo.WRC",
+      "name": "Rallye Monte-Carlo",
+      "date": "2026-01-25",
+      "time": "13:15",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Shakedown (4.25 km), GAP", "date": "2026-01-21", "time": "14:01" },
+          { "name": "Day 2 - Official Start, Monaco / Quai Albert 1er", "date": "2026-01-22", "time": "14:30" },
+          { "name": "Day 2 - SS 1 Toudon / Saint-Antonin (21.90 km)", "date": "2026-01-22", "time": "16:05" },
+          { "name": "Day 2 - SS 2 Esclangon / Seyne-les-Alpes (23.80 km)", "date": "2026-01-22", "time": "18:35" },
+          { "name": "Day 2 - SS 3 Vaumeilh / Claret 1 (15.06 km)", "date": "2026-01-22", "time": "20:35" },
+          { "name": "Day 2 - Flexi-Service (GAP)", "date": "2026-01-22"},
+          { "name": "Day 3 - Service (GAP)", "date": "2026-01-23"},
+          { "name": "Day 3 - SS 4 Laborel / Chauvac-Laux-Montaux 1 (17.95 km)", "date": "2026-01-23", "time": "09:04" },
+          { "name": "Day 3 - SS 5 St-Nazaire-le-Désert / La Motte-Chalancon 1 (28.70 km)", "date": "2026-01-23", "time": "10:32" },
+          { "name": "Day 3 - SS 6 La-Bâtie-des-Fonts / Aspremont 1 (17.79 km)", "date": "2026-01-23", "time": "11:50" },
+          { "name": "Day 3 - Service (GAP)", "date": "2026-01-23"},
+          { "name": "Day 3 - SS 7 Laborel / Chauvac-Laux-Montaux 2 (17.95 km)", "date": "2026-01-23", "time": "15:16" },
+          { "name": "Day 3 - SS 8 St-Nazaire-le-Désert / La Motte-Chalancon 2 (28.70 km)", "date": "2026-01-23", "time": "16:44" },
+          { "name": "Day 3 - SS 9 La-Bâtie-des-Fonts / Aspremont 1 (17.79 km)", "date": "2026-01-23", "time": "18:05" },
+          { "name": "Day 3 - Flexi-Service (GAP)", "date": "2026-01-23"},
+          { "name": "Day 4 - Service (GAP)", "date": "2026-01-24"},
+          { "name": "Day 4 - SSS 10 La Bréole / Bellaffaire 1 (29.93 km)", "date": "2026-01-24", "time": "08:31" },
+          { "name": "Day 4 - SS 11 Vaumeilh / Claret 2 (15.06 km)", "date": "2026-01-24", "time": "09:55" },
+          { "name": "Day 4 - Service (GAP)", "date": "2026-01-24"},
+          { "name": "Day 4 - SS 12 La Bréole / Bellaffaire 2 (29.93 km)", "date": "2026-01-24", "time": "12:31" },
+          { "name": "Day 4 - Remote Service (Château-Arnoux)", "date": "2026-01-24"},
+          { "name": "Day 4 - SSS 13 Monaco Circuit (2.69 km)", "date": "2026-01-24", "time": "18:35" },
+          { "name": "Day 5 - Remote Service (Monaco)", "date": "2026-01-25"},
+          { "name": "Day 5 - SS 14 Col de Braus / La Cabanette 1 (12.50 km)", "date": "2026-01-25", "time": "08:05" },
+          { "name": "Day 5 - SS 15 La Bollène-Vésubie / Moulinet 1 (23.45 km)", "date": "2026-01-25", "time": "09:35" },
+          { "name": "Day 5 - SS 16 Col de Braus / La Cabanette 1 (12.50 km)", "date": "2026-01-25", "time": "11:09" },
+          { "name": "Day 5 - Wolf Power Stage - SS 17 La Bollène-Vésubie / Moulinet 2 (23.45 km)", "date": "2026-01-25", "time": "13:15" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Sweden.WRC",
+      "name": "Rally Sweden",
+      "date": "2026-02-15",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Kenya.WRC",
+      "name": "Safari Rally Kenya",
+      "date": "2026-03-15",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Croatia.WRC",
+      "name": "Croatia Rally",
+      "date": "2026-04-12",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Spain.WRC",
+      "name": "Rally Islas Canarias",
+      "date": "2026-04-26",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Portugal.WRC",
+      "name": "Rally de Portugal",
+      "date": "2026-05-10",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Japan.WRC",
+      "name": "Rally Japan",
+      "date": "2026-05-31",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Greece.WRC",
+      "name": "Acropolis Rally Greece",
+      "date": "2026-06-28",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Estonia.WRC",
+      "name": "Rally Estonia",
+      "date": "2026-07-19",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Finland.WRC",
+      "name": "Rally Finland",
+      "date": "2026-08-02",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Paraguay.WRC",
+      "name": "Rally del Paraguay",
+      "date": "2026-08-30",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Chile.WRC",
+      "name": "Rally Chile",
+      "date": "2026-09-13",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Italia.WRC",
+      "name": "Rally Italia Sardegna",
+      "date": "2026-10-04",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "SaudiArabia.WRC",
+      "name": "Rally Saudi Arabia",
+      "date": "2026-11-14",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    }
+  ]
+}

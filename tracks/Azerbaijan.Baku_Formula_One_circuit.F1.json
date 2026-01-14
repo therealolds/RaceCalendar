@@ -1,0 +1,13 @@
+{
+    "id":  "Azerbaijan.Baku_Formula_One_circuit.F1",
+    "name":  "Baku City Circuit",
+    "length_km":  6.003,
+    "turns":  20,
+    "location":  {
+                     "city":  "Baku",
+                     "country":  "Azerbaijan",
+                     "circuit":  "Baku City Circuit",
+                     "timezone":  "Asia/Baku"
+                 },
+    "image":  "tracks/Azerbaijan.Baku_Formula_One_circuit.F1.svg"
+}

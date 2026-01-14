@@ -1,0 +1,13 @@
+{
+    "id":  "Spain.Jerez.MotoGP",
+    "name":  "Circuito Angel Nieto",
+    "length_km":  4.423,
+    "turns":  13,
+    "location":  {
+                     "city":  "Jerez de la Frontera",
+                     "country":  "Spain",
+                     "circuit":  "Circuito Angel Nieto",
+                     "timezone":  "Europe/Madrid"
+                 },
+    "image":  "tracks/Spain.Jerez.MotoGP.svg"
+}

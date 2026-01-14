@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Prix Off Shore</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section tile bg-gp_offshore">
+      <div class="center-container">
+        <h2><a href="https://www.grandprixoffshorecittadicervia.it/" target="_blank" rel="noopener noreferrer">Grand Prix Off Shore</a></h2>
+        <span class="logo-panel">
+          <img src="../logos/gp_offshore.png" alt="Grand Prix Off Shore logo" loading="lazy" />
+        </span>
+        <div id="next-gp_offshore" class="next-race next-race--overlay">Loading...</div>
+      </div>
+    </section>
+    <h1>Grand Prix Off Shore</h1>
+    <div id="calendar" class="calendar-container">Loading races...</div>
+  </main>
+
+  <script src="../scripts/render.js"></script>
+  <script src="../scripts/calendar.js"></script>
+  <script>
+    loadNextRace('../calendars/gp_offshore.json', 'next-gp_offshore', false);
+    loadFullCalendar('../calendars/gp_offshore.json', 'calendar');
+  </script>
+</body>
+
+</html>
+

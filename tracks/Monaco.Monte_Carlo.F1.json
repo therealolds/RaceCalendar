@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Monaco.Monte_Carlo.F1",
+    "name":  "Circuit de Monaco",
+    "length_km":  3.337,
+    "turns":  19,
+    "location":  {
+                     "city":  "Monaco",
+                     "country":  "Moncao",
+                     "circuit":  "Circuit de Monaco",
+                     "timezone":  "Europe/Monaco"
+                 },
+    "image":  "tracks/Monaco.Monte_Carlo.F1.svg"
+}

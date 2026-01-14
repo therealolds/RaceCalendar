@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Italy.Monza.F1",
+    "name":  "Monza",
+    "length_km":  5.793,
+    "turns":  11,
+    "location":  {
+                     "city":  "Monza",
+                     "country":  "Italy",
+                     "circuit":  "Autodromo nazionale Monza",
+                     "timezone":  "Europe/Rome"
+                 },
+    "image":  "tracks/Italy.Monza.F1.png"
+}
