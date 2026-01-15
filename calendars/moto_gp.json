@@ -69,6 +69,16 @@
         "sessions": [
         ]
       }
+    },
+    {
+      "idtrack": "Spain.Circuit_de_Catalunya.MotoGP",
+      "name": "Spain",
+      "date": "2026-05-17",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
     }
   ]
 }
