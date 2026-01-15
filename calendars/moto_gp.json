@@ -6,7 +6,7 @@
       "idtrack": "Thailand.Buriram_circuit_map.MotoGP",
       "name": "Thailand",
       "date": "2026-03-01",
-      "time": "",
+      "time": "15:00",
       "additionalInfo": {
         "sessions": [
           { "name": "Free Practice Nr. 1", "date": "2026-02-27", "time": "10:45" },
@@ -84,6 +84,26 @@
       "idtrack": "Italy.Mugello_Racing_Circuit.MotoGP",
       "name": "Italy",
       "date": "2026-05-31",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Hungary.Balaton_Park_Circuit.MotoGP",
+      "name": "Hungary",
+      "date": "2026-06-07",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Czech_Republic.Brno_(Masarykuv_okruh).MotoGP",
+      "name": "Czechia",
+      "date": "2026-06-21",
       "time": "",
       "additionalInfo": {
         "sessions": [

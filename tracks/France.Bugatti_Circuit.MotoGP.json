@@ -1,6 +1,8 @@
 {
     "id":  "France.Bugatti_Circuit.MotoGP",
     "name":  "Bugatti Circuit",
+          "length_km": 4.185,
+  "turns": 11,
     "location":  {
                      "city":  "Le Mans",
                      "country":  "France",
