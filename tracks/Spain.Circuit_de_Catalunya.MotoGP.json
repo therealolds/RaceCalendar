@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Spain.Circuit_de_Catalunya.MotoGP",
+    "name":  "Circuit de Barcelona-Catalunya",
+    "length_km":  4.657,
+    "turns":  14,
+    "location":  {
+                     "city":  "Barcelona",
+                     "country":  "Spain",
+                     "circuit":  "Circuit de Barcelona-Catalunya",
+                     "timezone":  "Europe/Madrid"
+                 },
+    "image":  "tracks/Spain.Circuit_de_Catalunya.MotoGP.svg"
+}
