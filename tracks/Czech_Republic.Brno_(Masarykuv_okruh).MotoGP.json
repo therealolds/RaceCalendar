@@ -1,0 +1,13 @@
+{
+    "id":  "Czech_Republic.Brno_(Masarykuv_okruh).MotoGP",
+    "name":  "Brno Circuit",
+      "length_km": 5.403,
+  "turns": 14,
+    "location":  {
+                     "city":  "Brno",
+                     "country":  "Czech Republic",
+                     "circuit":  "Brno Circuit",
+                     "timezone":  "Europe/Prague"
+                 },
+    "image":  "tracks/Czech_Republic.Brno_(Masarykuv_okruh).MotoGP.svg"
+}

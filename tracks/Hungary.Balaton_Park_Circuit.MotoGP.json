@@ -1,0 +1,13 @@
+{
+    "id":  "Hungary.Balaton_Park_Circuit.MotoGP",
+    "name":  "Balaton Park Circuit",
+          "length_km": 4.075,
+  "turns": 17,
+    "location":  {
+                     "city":  "Balatonfőkajár",
+                     "country":  "Hungary",
+                     "circuit":  "Balaton Park Circuit",
+                     "timezone":  "Europe/Budapest"
+                 },
+    "image":  "tracks/Hungary.Balaton_Park_Circuit.MotoGP.svg"
+}
