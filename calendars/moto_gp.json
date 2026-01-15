@@ -79,6 +79,16 @@
         "sessions": [
         ]
       }
+    },
+    {
+      "idtrack": "Italy.Mugello_Racing_Circuit.MotoGP",
+      "name": "Italy",
+      "date": "2026-05-31",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
     }
   ]
 }
