@@ -1,0 +1,13 @@
+﻿{
+    "id":  "Italy.Mugello_Racing_Circuit.MotoGP",
+    "name":  "Mugello",
+    "length_km":  5.245,
+    "turns":  15,
+    "location":  {
+                     "city":  "Scarperia e San Piero",
+                     "country":  "Italy",
+                     "circuit":  "Autodromo internazionale del Mugello",
+                     "timezone":  "Europe/Rome"
+                 },
+    "image":  "tracks/Italy.Mugello_Racing_Circuit.MotoGP.svg"
+}
