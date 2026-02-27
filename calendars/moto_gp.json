@@ -42,9 +42,17 @@
       "idtrack": "USA.Austin.COTA.MotoGP",
       "name": "USA",
       "date": "2026-03-29",
-      "time": "",
+      "time": "15:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-03-27", "time": "10:45" },
+          { "name": "Practice", "date": "2026-03-27", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-03-28", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-03-28", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-03-28", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-03-28", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-03-29", "time": "10:40" },
+          { "name": "Grand Prix", "date": "2026-03-29", "time": "15:00" }
         ]
       }
     },
@@ -52,9 +60,17 @@
       "idtrack": "Qatar.Lusail_International_Circuit.MotoGP",
       "name": "Qatar",
       "date": "2026-04-12",
-      "time": "",
+      "time": "20:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-04-10", "time": "15:45" },
+          { "name": "Practice", "date": "2026-04-10", "time": "20:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-04-11", "time": "15:00" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-04-11", "time": "15:40" },
+          { "name": "Qualifying Nr. 2", "date": "2026-04-11", "time": "16:05" },
+          { "name": "Sprint", "date": "2026-04-11", "time": "20:00" },
+          { "name": "Warm Up", "date": "2026-04-12", "time": "15:40" },
+          { "name": "Grand Prix", "date": "2026-04-12", "time": "20:00" }
         ]
       }
     },
