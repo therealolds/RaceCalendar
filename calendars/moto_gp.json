@@ -6,7 +6,7 @@
       "idtrack": "Thailand.Buriram_circuit_map.MotoGP",
       "name": "Thailand",
       "date": "2026-03-01",
-      "time": "",
+      "time": "15:00",
       "additionalInfo": {
         "sessions": [
           { "name": "Free Practice Nr. 1", "date": "2026-02-27", "time": "10:45" },
@@ -27,6 +27,14 @@
       "time": "",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-03-20", "time": "11:05" },
+          { "name": "Practice", "date": "2026-03-20", "time": "15:20" },
+          { "name": "Free Practice Nr. 2", "date": "2026-03-21", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-03-21", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-03-21", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-03-21", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-03-22", "time": "10:40" },
+          { "name": "Grand Prix", "date": "2026-03-22", "time": "15:00" }
         ]
       }
     },
@@ -74,6 +82,36 @@
       "idtrack": "Spain.Circuit_de_Catalunya.MotoGP",
       "name": "Spain",
       "date": "2026-05-17",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Mugello_Racing_Circuit.MotoGP",
+      "name": "Italy",
+      "date": "2026-05-31",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Hungary.Balaton_Park_Circuit.MotoGP",
+      "name": "Hungary",
+      "date": "2026-06-07",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+        ]
+      }
+    },
+    {
+      "idtrack": "Czech_Republic.Brno_(Masarykuv_okruh).MotoGP",
+      "name": "Czechia",
+      "date": "2026-06-21",
       "time": "",
       "additionalInfo": {
         "sessions": [
