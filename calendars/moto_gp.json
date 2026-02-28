@@ -78,9 +78,17 @@
       "idtrack": "Spain.Jerez.MotoGP",
       "name": "Spain",
       "date": "2026-04-26",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-04-24", "time": "10:45" },
+          { "name": "Practice", "date": "2026-04-24", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-04-25", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-04-25", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-04-25", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-04-25", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-04-26", "time": "09:40" },
+          { "name": "Grand Prix", "date": "2026-04-26", "time": "14:00" }
         ]
       }
     },
@@ -88,9 +96,17 @@
       "idtrack": "France.Bugatti_Circuit.MotoGP",
       "name": "France",
       "date": "2026-05-10",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-05-08", "time": "10:45" },
+          { "name": "Practice", "date": "2026-05-08", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-05-09", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-05-09", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-05-09", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-05-09", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-05-08", "time": "09:40" },
+          { "name": "Grand Prix", "date": "2026-05-08", "time": "14:00" }
         ]
       }
     },
@@ -98,9 +114,17 @@
       "idtrack": "Spain.Circuit_de_Catalunya.MotoGP",
       "name": "Spain",
       "date": "2026-05-17",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-05-15", "time": "10:45" },
+          { "name": "Practice", "date": "2026-05-15", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-05-16", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-05-16", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-05-16", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-05-16", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-05-17", "time": "09:40" },
+          { "name": "Grand Prix", "date": "2026-05-17", "time": "14:00" }
         ]
       }
     },
@@ -108,9 +132,17 @@
       "idtrack": "Italy.Mugello_Racing_Circuit.MotoGP",
       "name": "Italy",
       "date": "2026-05-31",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-05-29", "time": "10:45" },
+          { "name": "Practice", "date": "2026-05-29", "time": "15:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-05-30", "time": "10:10" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-05-30", "time": "10:50" },
+          { "name": "Qualifying Nr. 2", "date": "2026-05-30", "time": "11:15" },
+          { "name": "Sprint", "date": "2026-05-16", "time": "15:00" },
+          { "name": "Warm Up", "date": "2026-05-31", "time": "09:40" },
+          { "name": "Grand Prix", "date": "2026-05-31", "time": "14:00" }
         ]
       }
     },
@@ -118,7 +150,7 @@
       "idtrack": "Hungary.Balaton_Park_Circuit.MotoGP",
       "name": "Hungary",
       "date": "2026-06-07",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
         ]
@@ -128,7 +160,7 @@
       "idtrack": "Czech_Republic.Brno_(Masarykuv_okruh).MotoGP",
       "name": "Czechia",
       "date": "2026-06-21",
-      "time": "",
+      "time": "14:00",
       "additionalInfo": {
         "sessions": [
         ]
