@@ -79,14 +79,14 @@
       "idtrack": "USA_Miami.Miami_International_Autodrome.F1",
       "name": "USA - Miami GP",
       "date": "2026-05-03",
-      "time": "16:00",
+      "time": "13:00",
       "additionalInfo": {
         "sessions": [
           { "name": "Free Practice 1", "date": "2026-05-01", "time": "12:30" },
           { "name": "Sprint Qualifying", "date": "2026-05-01", "time": "16:30" },
           { "name": "Sprint", "date": "2026-05-02", "time": "12:00" },
           { "name": "Qualifying", "date": "2026-05-02", "time": "16:00" },
-          { "name": "Race", "date": "2026-05-03", "time": "16:00" }
+          { "name": "Race", "date": "2026-05-03", "time": "13:00" }
         ]
       }
     },
