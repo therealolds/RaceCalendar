@@ -455,6 +455,23 @@ h1 a:hover {
   cursor: pointer;
   font-size: 1.1em;
   transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.accordion-header::after {
+  content: '▾';
+  margin-left: auto;
+  padding-left: 0.75em;
+  font-size: 1.1em;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.accordion-header[data-expanded="false"]::after {
+  transform: rotate(-90deg);
 }
 
 .accordion-header:hover {
@@ -470,13 +487,18 @@ h1 a:hover {
 /* --- Buttons --- */
 .view-details-btn {
   margin-top: 0.5em;
-  padding: 0.4em 1em;
+  padding: 0.6em 1.2em;
   border: none;
   background: var(--secondary-color);
   color: white;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .view-details-btn:hover {
@@ -556,6 +578,11 @@ h1 a:hover {
   font-size: 0.95rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filter-toggle__btn {
@@ -822,4 +849,128 @@ footer .topbar {
   line-height: 1.5;
 }
 
+/* ========================
+   RACE SESSION LIST
+   ======================== */
+.race-session-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25em 0 0;
+}
+
+.race-session-list li {
+  padding: 0.2em 0;
+  font-size: 0.9em;
+}
+
+/* ========================
+   BOTTOM NAVIGATION BAR
+   ======================== */
+body {
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(56px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: stretch;
+  z-index: 1000;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.7rem;
+  min-height: 44px;
+  transition: color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav__item svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.bottom-nav__item:hover,
+.bottom-nav__item.is-active {
+  color: var(--accent);
+}
+
+/* ========================
+   PAGE HEADER (series pages)
+   ======================== */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  height: 52px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.95rem;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page-header__back:hover {
+  text-decoration: underline;
+}
+
+.page-header__title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ========================
+   SITE HEADER (index)
+   ======================== */
+.site-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ========================
+   FOOTER CREDIT
+   ======================== */
+.footer-credit {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.footer-credit a {
+  color: var(--muted);
+}
 
