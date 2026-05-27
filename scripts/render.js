@@ -2,6 +2,14 @@
 // showDetails: true -> used on dedicated pages (e.g. f1.html, wrc.html)
 // showDetails: false -> used on main page (index.html)
 
+const rcTrackCache = new Map();
+function rcFetchTrack(id) {
+  if (!rcTrackCache.has(id)) {
+    rcTrackCache.set(id, fetch(`../tracks/${id}.json`).then(r => r.json()));
+  }
+  return rcTrackCache.get(id);
+}
+
 
 const rcDateFmt = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' });
 const rcTimeFmt = new Intl.DateTimeFormat(undefined, { timeStyle: 'short' });
@@ -99,8 +107,7 @@ function renderRaceCard(container, championship, race, labelText, showDetails = 
 
     // If circuit-based (F1, WEC, MotoGP)
     if (race.idtrack && String(race.idtrack).trim() !== "") {
-      fetch(`../tracks/${race.idtrack}.json`)
-        .then(res => res.json())
+      rcFetchTrack(race.idtrack)
         .then(track => {
           const loc = track.location || {};
           trackInfoDiv.innerHTML = `
@@ -169,7 +176,7 @@ function ensureModal() {
       if (e.target === backdrop) close();
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape' && backdrop.classList.contains('is-open')) close();
     });
   }
   return {
