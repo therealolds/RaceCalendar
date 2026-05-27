@@ -213,14 +213,7 @@ function loadTodayRaces(items, showDetails = false) {
           tile.className = `section tile ${series.bgClass}`;
           tile.innerHTML = `
             <div class="center-container">
-              <h2>
-                <a href="${series.site}" target="_blank" rel="noopener noreferrer">
-                  ${series.name}
-                </a>
-              </h2>
-              <a href="${series.page}" class="logo-panel">
-                <img src="${series.logo}" alt="${series.name} logo" loading="lazy">
-              </a>
+              <h2><a href="${series.page}">${series.name}</a></h2>
               <div class="next-race next-race--overlay"></div>
             </div>
           `;
@@ -368,14 +361,7 @@ function loadWeekRaces(items, showDetails = false) {
           tile.className = `section tile ${series.bgClass}`;
           tile.innerHTML = `
             <div class="center-container">
-              <h2>
-                <a href="${series.site}" target="_blank" rel="noopener noreferrer">
-                  ${series.name}
-                </a>
-              </h2>
-              <a href="${series.page}" class="logo-panel">
-                <img src="${series.logo}" alt="${series.name} logo" loading="lazy">
-              </a>
+              <h2><a href="${series.page}">${series.name}</a></h2>
               <div class="next-race next-race--overlay"></div>
             </div>
           `;
