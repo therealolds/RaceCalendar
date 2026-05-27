@@ -1,69 +1,10 @@
-// Parse race date/time as local track time (IANA timezone) and return a UTC Date.
 const rcTimeZoneCache = new Map();
-
-function getTimeZoneOffsetMs(timeZone, date) {
-  const dtf = new Intl.DateTimeFormat('en-US', {
-    timeZone,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
-  });
-  const parts = dtf.formatToParts(date).reduce((acc, part) => {
-    if (part.type !== 'literal') acc[part.type] = part.value;
-    return acc;
-  }, {});
-  const asUtc = Date.UTC(
-    Number(parts.year),
-    Number(parts.month) - 1,
-    Number(parts.day),
-    Number(parts.hour),
-    Number(parts.minute),
-    Number(parts.second)
-  );
-  return asUtc - date.getTime();
-}
-
-function parseUtcOffsetMinutes(timeZone) {
-  const match = String(timeZone || '').match(/^UTC([+-])(\d{1,2})(?::?(\d{2}))?$/i);
-  if (!match) return null;
-  const sign = match[1] === '-' ? -1 : 1;
-  const hours = Number(match[2] || 0);
-  const minutes = Number(match[3] || 0);
-  return sign * (hours * 60 + minutes);
-}
-
-function makeDateInTimeZone(y, m, d, hh, mm, timeZone) {
-  const utcGuess = new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
-  let offset = getTimeZoneOffsetMs(timeZone, utcGuess);
-  let corrected = new Date(utcGuess.getTime() - offset);
-  const offset2 = getTimeZoneOffsetMs(timeZone, corrected);
-  if (offset2 !== offset) {
-    corrected = new Date(utcGuess.getTime() - offset2);
+const rcFetchCache = new Map();
+function fetchCalendar(url) {
+  if (!rcFetchCache.has(url)) {
+    rcFetchCache.set(url, fetch(url).then(r => r.json()));
   }
-  return corrected;
-}
-
-function parseEventDateTime(dateStr, timeStr, timeZone) {
-  if (!dateStr) return new Date(NaN);
-  if (String(dateStr).includes('T')) {
-    return new Date(dateStr);
-  }
-  const [y, m, d] = String(dateStr).split('-').map(Number);
-  const [hh, mm] = String(timeStr || '00:00').split(':').map(Number);
-  if (timeZone) {
-    const offsetMinutes = parseUtcOffsetMinutes(timeZone);
-    if (offsetMinutes !== null) {
-      return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0) - offsetMinutes * 60000);
-    }
-    if (String(timeZone).includes('/')) {
-      return makeDateInTimeZone(y, m, d, hh, mm, timeZone);
-    }
-  }
-  return new Date(Date.UTC(y, (m || 1) - 1, d || 1, hh || 0, mm || 0));
+  return rcFetchCache.get(url);
 }
 
 function getCalendarBasePath(calendarFile) {
@@ -207,7 +148,7 @@ function loadTodayRaces(items, showDetails = false) {
 
   Promise.allSettled(
     sources.map(async src => {
-      const data = await fetch(src.json).then(res => res.json());
+      const data = await fetchCalendar(src.json);
       const basePath = getCalendarBasePath(src.json);
       const timezones = await preloadTrackTimezones(data, basePath);
       return { src, data, timezones };
@@ -330,7 +271,7 @@ function loadWeekRaces(items, showDetails = false) {
 
   Promise.allSettled(
     sources.map(async src => {
-      const data = await fetch(src.json).then(res => res.json());
+      const data = await fetchCalendar(src.json);
       const basePath = getCalendarBasePath(src.json);
       const timezones = await preloadTrackTimezones(data, basePath);
       return { src, data, timezones };
@@ -457,8 +398,7 @@ function loadNextRace(calendarFile, containerId, showDetails = false, seriesMeta
   const container = document.getElementById(containerId);
   container.textContent = "Loading next race...";
 
-  fetch(calendarFile)
-    .then(res => res.json())
+  fetchCalendar(calendarFile)
     .then(async data => {
       const basePath = getCalendarBasePath(calendarFile);
       const timezones = await preloadTrackTimezones(data, basePath);
@@ -524,15 +464,14 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
   const container = document.getElementById(containerId);
   container.textContent = "Loading races...";
 
-  fetch(calendarFile)
-    .then(res => res.json())
+  fetchCalendar(calendarFile)
     .then(async data => {
       const basePath = getCalendarBasePath(calendarFile);
       const timezones = await preloadTrackTimezones(data, basePath);
       container.textContent = "";
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      const seriesMeta = options.series || options;
+      const seriesMeta = options;
 
       // --- Sort all races by UTC timestamp ---
       const sortedRaces = [...data.races].sort((a, b) => {
@@ -581,7 +520,7 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
         });
       } else {
         const noToday = document.createElement("p");
-        noToday.textContent = "No racing today :(";
+        noToday.textContent = "No races today.";
         noToday.style.textAlign = "center";
         container.appendChild(noToday);
       }
@@ -598,14 +537,18 @@ function loadFullCalendar(calendarFile, containerId, showDetails = true, options
     });
 }
 
-// === Helper: Create an Accordion (ASCII-safe icons) ===
+// === Helper: Create an Accordion ===
 function createAccordion(titleText, raceList, championship, showDetails, labelText) {
   const accordion = document.createElement("div");
   accordion.className = "accordion";
 
   const header = document.createElement("button");
   header.className = "accordion-header";
-  header.textContent = `${titleText} v`;
+  header.setAttribute("data-expanded", "false");
+
+  const labelSpan = document.createElement("span");
+  labelSpan.textContent = titleText;
+  header.appendChild(labelSpan);
 
   const panel = document.createElement("div");
   panel.className = "accordion-panel";
@@ -614,7 +557,7 @@ function createAccordion(titleText, raceList, championship, showDetails, labelTe
   header.addEventListener("click", () => {
     const isOpen = panel.style.display === "block";
     panel.style.display = isOpen ? "none" : "block";
-    header.textContent = isOpen ? `${titleText} >` : `${titleText} v`;
+    header.setAttribute("data-expanded", isOpen ? "false" : "true");
   });
 
   raceList.forEach(item => {
