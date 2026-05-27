@@ -6,7 +6,6 @@
 /* ========================
    1. THEME VARIABLES
    ======================== */
-@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
 
 /* Automatic light/dark detection via OS/browser */
 :root { color-scheme: light dark; }
@@ -14,37 +13,33 @@
 /* --- Light Theme (edit these to adjust colors) --- */
 :root {
   /* Page & text */
-  --bg: #ec920b09;        /* Page background */
-  --fg: #111111;        /* Default text color */
-  --muted: #666666;     /* Secondary text */
+  --bg: #f5f5f5;          /* Page background */
+  --fg: #111111;          /* Default text color */
+  --muted: #666666;       /* Secondary text */
 
   /* Surfaces & borders */
-  --surface: #f5f5f5;   /* Cards, panels */
-  --border: #e6e6e6;    /* Dividers, outlines */
+  --surface: #f5f5f5;     /* Cards, panels */
+  --border: #e6e6e6;      /* Dividers, outlines */
 
   /* Brand / accents */
-  --accent: #d90429;    /* Links, emphasis */
-  --brand-1: #ffc06e;   /* Former primary */
-  --brand-2: #f5c800;   /* Former secondary */
+  --accent: #d90429;      /* Links, emphasis */
+  --brand-1: #ffc06e;     /* Primary brand color */
+  --brand-2: #f5c800;     /* Secondary brand color */
+
+  /* Subtle tints (alternating rows, fills) */
+  --tint-a: rgba(0, 0, 0, 0.02);
+  --tint-b: rgba(0, 0, 0, 0.04);
 
   /* Overlays & shadows */
-  --tile-fg: #ffffff;               /* Text over image tiles */
-  --glass-bg: rgba(255, 255, 255, 0.18); /* Frosted panels */
+  --overlay-hl: var(--overlay-hl);  /* Accent text on dark image overlays */
+  --tile-fg: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.18);
   --glass-border: rgba(255, 255, 255, 0.527);
   --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.10);
   --shadow-2: 0 6px 18px rgba(0, 0, 0, 0.25);
   --toggle-bg: rgba(255, 255, 255, 0.8);
   --toggle-border: #cfcfcf;
   --toggle-fg: #111111;
-
-  /* Legacy variable aliases (keep existing components working) */
-  --base-color: var(--surface);
-  --text-color: var(--fg);
-  --primary-color: var(--brand-1);
-  --secondary-color: var(--brand-2);
-  --color-1: rgba(0, 0, 0, 0.02);
-  --color-2: rgba(0, 0, 0, 0.04);
-  --color-3: var(--surface);
 }
 
 /* --- Dark Theme Overrides --- */
@@ -83,7 +78,7 @@ hr, .divider { border-color: var(--border); }
 
 html {
   font-family: 'Momo Trust Display', sans-serif;
-  color: var(--text-color);
+  color: var(--fg);
 }
 
 /* ========================
@@ -275,7 +270,7 @@ h1 a:hover {
 }
 
 .next-race--overlay h3 {
-  color: #cfd5ff;
+  color: var(--overlay-hl);
 }
 
 /* Remove extra card layers inside overlay */
@@ -324,7 +319,7 @@ h1 a:hover {
 
 /* --- Race Card --- */
 .race-card {
-  background: var(--color-2);
+  background: var(--tint-b);
   padding: 1em;
   border-radius: 10px;
   text-align: center;
@@ -334,12 +329,12 @@ h1 a:hover {
 
 .race-card h3 {
   margin-bottom: 0.3em;
-  color: var(--secondary-color);
+  color: var(--brand-2);
 }
 
 /* --- Next Race --- */
 .next-race {
-  background: var(--color-1);
+  background: var(--tint-a);
   padding: 1em 1.5em;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -349,7 +344,7 @@ h1 a:hover {
 }
 
 .next-race h3 {
-  color: var(--secondary-color);
+  color: var(--brand-2);
   margin-bottom: 0.3em;
 }
 
@@ -363,14 +358,14 @@ h1 a:hover {
 }
 
 .home-grid .section .next-race h3 {
-  color: #cfd5ff;
+  color: var(--overlay-hl);
 }
 
 /* --- Track Card --- */
 .track-card {
   margin-top: 1em;
   padding: 1em;
-  background: var(--color-3);
+  background: var(--surface);
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -390,7 +385,7 @@ h1 a:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
-  background: var(--color-1);
+  background: var(--tint-a);
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   width: min(900px, 95%);
@@ -406,7 +401,7 @@ h1 a:hover {
 
 .race-details {
   flex: 1 1 250px;
-  background: var(--color-2);
+  background: var(--tint-b);
   padding: 1em;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -414,7 +409,7 @@ h1 a:hover {
 }
 
 .race-details h4 {
-  color: var(--secondary-color);
+  color: var(--brand-2);
   margin-bottom: 0.5em;
   text-align: center;
 }
@@ -446,8 +441,8 @@ h1 a:hover {
 
 .accordion-header {
   width: 100%;
-  background: var(--color-2);
-  color: var(--secondary-color);
+  background: var(--tint-b);
+  color: var(--brand-2);
   font-weight: bold;
   text-align: left;
   padding: 1em 1.2em;
@@ -475,11 +470,11 @@ h1 a:hover {
 }
 
 .accordion-header:hover {
-  background: var(--color-3);
+  background: var(--surface);
 }
 
 .accordion-panel {
-  background: var(--color-1);
+  background: var(--tint-a);
   padding: 1.5em;
   display: none;
 }
@@ -489,7 +484,7 @@ h1 a:hover {
   margin-top: 0.5em;
   padding: 0.6em 1.2em;
   border: none;
-  background: var(--secondary-color);
+  background: var(--brand-2);
   color: white;
   border-radius: 8px;
   cursor: pointer;
@@ -502,7 +497,7 @@ h1 a:hover {
 }
 
 .view-details-btn:hover {
-  background: var(--primary-color);
+  background: var(--brand-1);
   color: #000;
 }
 
@@ -545,7 +540,7 @@ h1 a:hover {
 #TODAY .center-container > h1 {
   text-align: left;
   margin-bottom: 0.75rem;
-  color: var(--text-color);
+  color: var(--fg);
   text-shadow: none;
 }
 
@@ -619,13 +614,13 @@ h1 a:hover {
 /* Ensure the plain fallback message is readable on light backgrounds */
 #TODAY #today-races > p,
 #TODAY #week-races > p {
-  color: var(--text-color);
+  color: var(--fg);
 }
 
 .tag-section>.center-container>h2 {
   text-align: left;
   margin-bottom: 0.75rem;
-  color: var(--text-color);
+  color: var(--fg);
   text-shadow: none;
 }
 
@@ -688,8 +683,8 @@ h1 a:hover {
 
 .rc-modal {
   position: relative;
-  background: var(--base-color);
-  color: var(--text-color);
+  background: var(--surface);
+  color: var(--fg);
   border-radius: 12px;
   width: min(720px, 92%);
   max-height: 80vh;
@@ -711,7 +706,7 @@ h1 a:hover {
 }
 
 .rc-modal-body h4 {
-  color: var(--secondary-color);
+  color: var(--brand-2);
   margin-bottom: 0.5em;
 }
 
@@ -789,7 +784,7 @@ footer .topbar {
   width: 100%;
   max-width: 100%;
   border-radius: 10px;
-  background: var(--color-1);
+  background: var(--tint-a);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
@@ -868,6 +863,23 @@ footer .topbar {
    ======================== */
 body {
   padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  z-index: 2000;
+  display: none;
+}
+.offline-banner.is-visible {
+  display: block;
 }
 
 .bottom-nav {

@@ -1,4 +1,4 @@
-const CACHE = 'racecalendar-v2';
+const CACHE = 'racecalendar-v3';
 
 const SHELL = [
   './',
@@ -12,6 +12,7 @@ const SHELL = [
   './scripts/home.js',
   './scripts/tracks.js',
   './scripts/trivia.js',
+  './scripts/nav.js',
   './pages/f1.html',
   './pages/moto_gp.html',
   './pages/wrc.html',
@@ -21,6 +22,15 @@ const SHELL = [
   './pages/gp_offshore.html',
   './pages/tracks.html',
   './pages/trivia.html',
+  './calendars/f1.json',
+  './calendars/moto_gp.json',
+  './calendars/wrc.json',
+  './calendars/wec.json',
+  './calendars/dakar.json',
+  './calendars/americas_cup.json',
+  './calendars/gp_offshore.json',
+  './trivia.json',
+  './tracks/tracks.json',
 ];
 
 self.addEventListener('install', e => {
