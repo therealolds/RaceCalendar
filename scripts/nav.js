@@ -1,19 +1,4 @@
 (function () {
-  // Font loading — injected here so it applies to every page without @import in CSS
-  var pc1 = document.createElement('link');
-  pc1.rel = 'preconnect';
-  pc1.href = 'https://fonts.googleapis.com';
-  document.head.appendChild(pc1);
-  var pc2 = document.createElement('link');
-  pc2.rel = 'preconnect';
-  pc2.href = 'https://fonts.gstatic.com';
-  pc2.crossOrigin = '';
-  document.head.appendChild(pc2);
-  var fontLink = document.createElement('link');
-  fontLink.rel = 'stylesheet';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap';
-  document.head.appendChild(fontLink);
-
   // Offline indicator
   var banner = document.createElement('div');
   banner.className = 'offline-banner';
