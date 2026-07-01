@@ -1,0 +1,93 @@
+[
+  {
+    "id": "f1",
+    "name": "Formula 1",
+    "shortName": "F1",
+    "tag": "motorsport",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/f1.json",
+    "logo": "logos/F1.png",
+    "background": "backgrounds/f1.jpg",
+    "site": "https://www.formula1.com/",
+    "accent": "#e10600"
+  },
+  {
+    "id": "moto_gp",
+    "name": "Moto GP",
+    "shortName": "MotoGP",
+    "tag": "motorsport",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/moto_gp.json",
+    "logo": "logos/Moto_GP.png",
+    "background": "backgrounds/moto_gp.jpg",
+    "site": "https://www.motogp.com/",
+    "accent": "#ff7a00"
+  },
+  {
+    "id": "wrc",
+    "name": "World Rally Championship",
+    "shortName": "WRC",
+    "tag": "motorsport",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/wrc.json",
+    "logo": "logos/WRC.svg",
+    "background": "backgrounds/wrc.png",
+    "site": "https://www.wrc.com/en",
+    "accent": "#1a73e8"
+  },
+  {
+    "id": "wec",
+    "name": "World Endurance Championship",
+    "shortName": "WEC",
+    "tag": "motorsport",
+    "featured": false,
+    "multiDay": false,
+    "calendar": "calendars/wec.json",
+    "logo": "logos/WEC.png",
+    "background": "backgrounds/wec.jpg",
+    "site": "https://www.fiawec.com/en/",
+    "accent": "#3d6bff"
+  },
+  {
+    "id": "dakar",
+    "name": "Dakar",
+    "shortName": "Dakar",
+    "tag": "motorsport",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/dakar.json",
+    "logo": "logos/dakar_logo.jpg",
+    "background": "backgrounds/dakar.jpg",
+    "site": "https://www.dakar.com/en/",
+    "accent": "#dfa528"
+  },
+  {
+    "id": "americas_cup",
+    "name": "America's Cup",
+    "shortName": "America's Cup",
+    "tag": "nautical",
+    "featured": false,
+    "multiDay": false,
+    "calendar": "calendars/americas_cup.json",
+    "logo": "logos/americas_cup_logo.png",
+    "background": "backgrounds/americas_cup.jpg",
+    "site": "https://www.americascup.com/",
+    "accent": "#0aa9a2"
+  },
+  {
+    "id": "gp_offshore",
+    "name": "Grand Prix Off Shore",
+    "shortName": "Offshore",
+    "tag": "nautical",
+    "featured": false,
+    "multiDay": false,
+    "calendar": "calendars/gp_offshore.json",
+    "logo": "logos/gp_offshore.png",
+    "background": "",
+    "site": "https://www.grandprixoffshorecittadicervia.it/",
+    "accent": "#00b4d8"
+  }
+]

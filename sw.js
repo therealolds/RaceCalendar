@@ -1,64 +1,70 @@
-const CACHE = 'racecalendar-v3';
+const CACHE = 'racecalendar-v4';
 
+// Static app shell. Calendars, logos and backgrounds are added dynamically
+// from series.json, so adding a series never requires touching this file.
 const SHELL = [
   './',
   './index.html',
+  './calendars.html',
+  './series.html',
+  './tracks.html',
+  './trivia.html',
+  './more.html',
   './style.css',
   './manifest.json',
-  './scripts/series.js',
-  './scripts/utils.js',
-  './scripts/render.js',
-  './scripts/calendar.js',
-  './scripts/home.js',
-  './scripts/tracks.js',
-  './scripts/trivia.js',
-  './scripts/nav.js',
-  './pages/f1.html',
-  './pages/moto_gp.html',
-  './pages/wrc.html',
-  './pages/wec.html',
-  './pages/dakar.html',
-  './pages/americas_cup.html',
-  './pages/gp_offshore.html',
-  './pages/tracks.html',
-  './pages/trivia.html',
-  './calendars/f1.json',
-  './calendars/moto_gp.json',
-  './calendars/wrc.json',
-  './calendars/wec.json',
-  './calendars/dakar.json',
-  './calendars/americas_cup.json',
-  './calendars/gp_offshore.json',
+  './series.json',
   './trivia.json',
-  './tracks/tracks.json',
+  './scripts/data.js',
+  './scripts/ui.js',
+  './scripts/page-home.js',
+  './scripts/page-calendars.js',
+  './scripts/page-series.js',
+  './scripts/page-tracks.js',
+  './scripts/page-trivia.js',
 ];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
-  self.skipWaiting();
+  e.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await cache.addAll(SHELL);
+    try {
+      const series = await (await fetch('./series.json')).json();
+      const extra = series
+        .flatMap(s => [s.calendar, s.logo, s.background])
+        .filter(Boolean)
+        .map(p => './' + p);
+      await Promise.allSettled(extra.map(url => cache.add(url)));
+    } catch {
+      // offline install of extras is best-effort
+    }
+    self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
       Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// Stale-while-revalidate: serve cached immediately, update in background
+// Stale-while-revalidate: serve cached immediately, refresh in background.
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.open(CACHE).then(cache =>
-      cache.match(e.request).then(cached => {
-        const network = fetch(e.request).then(response => {
-          if (response.ok) cache.put(e.request, response.clone());
-          return response;
-        }).catch(() => null);
-        return cached || network;
+  e.respondWith((async () => {
+    const cache = await caches.open(CACHE);
+    let cached = await cache.match(e.request);
+    if (!cached && e.request.mode === 'navigate') {
+      // series.html?id=x → fall back to the cached template
+      cached = await cache.match(e.request, { ignoreSearch: true });
+    }
+    const network = fetch(e.request)
+      .then(response => {
+        if (response.ok) cache.put(e.request, response.clone());
+        return response;
       })
-    )
-  );
+      .catch(() => cached || new Response('Offline', { status: 503 }));
+    return cached || network;
+  })());
 });
