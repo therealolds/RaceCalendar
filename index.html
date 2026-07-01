@@ -3,95 +3,57 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>RaceCalendar</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
-  <!-- Dark mode support: automatic via prefers-color-scheme -->
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b0b">
-  <!-- PWA -->
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101013">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="RaceCalendar">
   <link rel="apple-touch-icon" href="icons/app-icon.svg">
 </head>
 
 <body>
-  <header class="site-header">
-    <nav>
-      <ul class="topbar">
-        <li><a href="https://github.com/therealolds/RaceCalendar">RaceCalendar on GitHub</a></li>
-        <li class="welcome">Made in Modena</li>
-      </ul>
-    </nav>
+  <header class="app-header">
+    <div class="wrap app-header__row">
+      <h1 class="app-header__title">🏁 RaceCalendar</h1>
+      <span class="app-header__tag">Made in Modena</span>
+    </div>
+    <div class="checker"></div>
   </header>
 
-  <main class="home-grid">
-    <!-- TODAY -->
-    <section id="TODAY" class="section section--full">
-      <div class="center-container">
-        <h1 id="racing-view-title">Racing This Week</h1>
-        <div class="view-toggle" role="group" aria-label="Racing view toggle">
-          <button class="view-toggle__btn" type="button" data-view="today" aria-pressed="false">Today</button>
-          <button class="view-toggle__btn is-active" type="button" data-view="week" aria-pressed="true">This Week</button>
-        </div>
-        <div class="filter-toggle" role="group" aria-label="Featured filter toggle">
-          <button class="filter-toggle__btn view-toggle__btn" type="button" data-filter="all" aria-pressed="false">All</button>
-          <button class="filter-toggle__btn view-toggle__btn is-active" type="button" data-filter="featured" aria-pressed="true">Only Featured</button>
-        </div>
-        <div id="today-races" class="today-list series-grid" hidden aria-hidden="true">Loading...</div>
-        <div id="week-races" class="today-list series-grid">Loading...</div>
+  <main class="wrap">
+    <div class="toolbar">
+      <div class="seg" data-active="1" role="group" aria-label="Today or this week">
+        <span class="seg__thumb"></span>
+        <button class="seg__btn" type="button" data-view="today" aria-pressed="false">Today</button>
+        <button class="seg__btn is-active" type="button" data-view="week" aria-pressed="true">This Week</button>
       </div>
+      <div class="toolbar__row">
+        <span class="toolbar__range" id="range-label"></span>
+        <button class="chip is-active" type="button" id="featured-chip" aria-pressed="true">★ Featured only</button>
+      </div>
+    </div>
+
+    <section id="race-list" aria-live="polite">
+      <div class="empty">Loading calendars…</div>
     </section>
 
-    <!-- Featured -->
-    <section class="section--full tag-section" id="section-featured">
-      <div class="center-container">
-        <h2>Featured</h2>
-        <div class="series-grid" id="grid-featured"></div>
-      </div>
+    <h2 class="section-title">Coming up</h2>
+    <section id="up-next" class="up-next-list">
+      <div class="empty">Loading…</div>
     </section>
 
-    <!-- Motorsport -->
-    <section class="section--full tag-section" id="section-motorsport">
-      <div class="center-container">
-        <h2>Motorsport</h2>
-        <div class="series-grid" id="grid-motorsport"></div>
-      </div>
-    </section>
-
-    <!-- Sailing and boats-->
-    <section class="section--full tag-section" id="section-nautical">
-      <div class="center-container">
-        <h2>Sailing & Nautical</h2>
-        <div class="series-grid" id="grid-nautical"></div>
-      </div>
-    </section>
+    <footer class="page-footer">
+      All times are shown in your local timezone.<br>
+      <a href="https://www.linkedin.com/in/therealolds/">Marco Vecchi</a> ·
+      <a href="https://github.com/therealolds/RaceCalendar">GitHub</a>
+    </footer>
   </main>
 
-  <script src="scripts/series.js"></script>
-  <script src="scripts/utils.js"></script>
-  <script src="scripts/render.js"></script>
-  <script src="scripts/calendar.js"></script>
-  <script src="scripts/home.js"></script>
-
-  <footer>
-    <p class="footer-credit"><a href="https://www.linkedin.com/in/therealolds/">Author: Marco Vecchi</a></p>
-  </footer>
-
-  <script src="scripts/nav.js"></script>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-  </script>
-
+  <script type="module" src="scripts/page-home.js"></script>
 </body>
 
-
-
 </html>
-
-

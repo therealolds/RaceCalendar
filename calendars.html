@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Calendars — RaceCalendar</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101013">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RaceCalendar">
+  <link rel="apple-touch-icon" href="icons/app-icon.svg">
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="wrap wrap--wide app-header__row">
+      <h1 class="app-header__title">Calendars</h1>
+    </div>
+    <div class="checker"></div>
+  </header>
+
+  <main class="wrap wrap--wide" id="calendars-root" style="padding-top:16px">
+    <div class="empty">Loading…</div>
+  </main>
+
+  <script type="module" src="scripts/page-calendars.js"></script>
+</body>
+
+</html>

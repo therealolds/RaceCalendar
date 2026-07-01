@@ -10,10 +10,10 @@
   "background_color": "#ffffff",
   "theme_color": "#d90429",
   "shortcuts": [
-    { "name": "Formula 1",  "url": "./pages/f1.html",        "description": "F1 2026 calendar" },
-    { "name": "MotoGP",     "url": "./pages/moto_gp.html",   "description": "MotoGP 2026 calendar" },
-    { "name": "WRC",        "url": "./pages/wrc.html",        "description": "WRC 2025 calendar" },
-    { "name": "Tracks",     "url": "./pages/tracks.html",     "description": "Race circuit database" }
+    { "name": "Formula 1",  "url": "./series.html?id=f1",      "description": "F1 calendar" },
+    { "name": "MotoGP",     "url": "./series.html?id=moto_gp", "description": "MotoGP calendar" },
+    { "name": "WRC",        "url": "./series.html?id=wrc",     "description": "WRC calendar" },
+    { "name": "Tracks",     "url": "./tracks.html",            "description": "Race circuit database" }
   ],
   "icons": [
     {
