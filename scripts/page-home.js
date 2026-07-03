@@ -6,7 +6,7 @@ import {
 } from './data.js';
 import {
   initShell, el, escapeHtml, sessionListEl,
-  fmtDayShort, fmtRange, timeLabel, relLabel
+  fmtDayShort, fmtRange, timeLabel, relLabel, applyTheme
 } from './ui.js';
 
 const state = {
@@ -210,6 +210,19 @@ function initControls() {
     chip.setAttribute('aria-pressed', String(state.featuredOnly));
     render();
   });
+
+  const themeChip = document.getElementById('theme-chip');
+  const syncThemeChip = () => {
+    const vintage = document.documentElement.dataset.theme !== 'modern';
+    themeChip.classList.toggle('is-active', vintage);
+    themeChip.setAttribute('aria-pressed', String(vintage));
+  };
+  themeChip.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'modern' ? 'vintage' : 'modern';
+    applyTheme(next, { save: true });
+    syncThemeChip();
+  });
+  syncThemeChip();
 }
 
 // --- Boot ---------------------------------------------------------------------------

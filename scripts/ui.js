@@ -96,6 +96,39 @@ export function sessionListEl(sessions, timeZone, maxItems = Infinity) {
   return ul;
 }
 
+// --- Theme (vintage default / modern) ----------------------------------------
+
+// A tiny inline script in each page's <head> applies the saved theme before
+// first paint; this module owns the rest (persistence, theme-color metas).
+const THEME_KEY = 'rc-theme';
+
+const THEME_COLORS = {
+  vintage: { light: '#fbf7ea', dark: '#1d1c19' },
+  modern: { light: '#ffffff', dark: '#101013' }
+};
+
+export function savedTheme() {
+  try {
+    return localStorage.getItem(THEME_KEY) === 'modern' ? 'modern' : 'vintage';
+  } catch {
+    return 'vintage';
+  }
+}
+
+export function applyTheme(theme, { save = false } = {}) {
+  document.documentElement.dataset.theme = theme;
+  const colors = THEME_COLORS[theme] || THEME_COLORS.vintage;
+  document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+    const scheme = (meta.media || '').includes('dark') ? 'dark' : 'light';
+    meta.setAttribute('content', colors[scheme]);
+  });
+  if (save) {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch { /* storage unavailable (private mode) — theme still applies */ }
+  }
+}
+
 // --- App shell -------------------------------------------------------------------
 
 const NAV_ITEMS = [
@@ -139,6 +172,7 @@ function initSmartBack() {
 // Injects offline banner + bottom nav and registers the service worker.
 // `active` is one of 'home' | 'calendars' | 'more'.
 export function initShell(active) {
+  applyTheme(savedTheme());
   initSmartBack();
   const banner = el('div', 'offline-banner', "You're offline — showing cached data");
   document.body.prepend(banner);
