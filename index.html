@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>RaceCalendar</title>
   <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("rc-theme")==="modern"?"modern":"vintage"}catch(e){}</script>
   <link rel="manifest" href="manifest.json">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101013">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf7ea">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1c19">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="RaceCalendar">
   <link rel="apple-touch-icon" href="icons/app-icon.svg">
@@ -33,7 +34,10 @@
       </div>
       <div class="toolbar__row">
         <span class="toolbar__range" id="range-label"></span>
-        <button class="chip is-active" type="button" id="featured-chip" aria-pressed="true">★ Featured only</button>
+        <div class="chip-row">
+          <button class="chip is-active" type="button" id="theme-chip" aria-pressed="true">♠ Vintage</button>
+          <button class="chip is-active" type="button" id="featured-chip" aria-pressed="true">★ Featured only</button>
+        </div>
       </div>
     </div>
 
