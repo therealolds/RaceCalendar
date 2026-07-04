@@ -1,4 +1,5 @@
-/* Trivia page: questions grouped by tag, answers expand inline. */
+/* Trivia page: one button per category deals a random question; pressing
+   again (or tapping the card) reveals the answer, then deals the next. */
 
 import { fetchJSON } from './data.js';
 import { initShell, el, escapeHtml } from './ui.js';
@@ -16,13 +17,43 @@ function titleize(tag) {
     .replace(/\b\w/g, m => m.toUpperCase());
 }
 
-function triviaItem(item) {
-  const details = el('details', 'trivia-item');
-  details.innerHTML = `
-    <summary>${escapeHtml(item.question || 'Untitled question')}</summary>
-    <p class="trivia-item__answer">${escapeHtml(item.answer || 'No answer provided.')}</p>
-  `;
-  return details;
+function categorySection(tag, items) {
+  const group = el('section', 'trivia-group');
+  group.appendChild(el('h2', 'section-title', escapeHtml(TAG_LABELS[tag] || titleize(tag))));
+
+  const btn = el('button', 'trivia-draw', 'Draw a question');
+  btn.type = 'button';
+  const card = el('details', 'trivia-item');
+  card.hidden = true;
+
+  let lastId = null;
+  const draw = () => {
+    let pick;
+    do {
+      pick = items[Math.floor(Math.random() * items.length)];
+    } while (items.length > 1 && pick.id === lastId);
+    lastId = pick.id;
+    card.open = false;
+    card.innerHTML = `
+      <summary>${escapeHtml(pick.question || 'Untitled question')}</summary>
+      <p class="trivia-item__answer">${escapeHtml(pick.answer || 'No answer provided.')}</p>
+    `;
+    card.hidden = false;
+    btn.textContent = 'Check the answer';
+  };
+
+  btn.addEventListener('click', () => {
+    if (card.hidden || card.open) draw();
+    else card.open = true;              // toggle listener updates the label
+  });
+  // keep the button label honest when the card itself is tapped
+  card.addEventListener('toggle', () => {
+    btn.textContent = card.open ? 'Another question' : 'Check the answer';
+  });
+
+  group.appendChild(btn);
+  group.appendChild(card);
+  return group;
 }
 
 async function main() {
@@ -49,10 +80,7 @@ async function main() {
     });
 
     tags.forEach(tag => {
-      const group = el('section', 'trivia-group');
-      group.appendChild(el('h2', 'section-title', escapeHtml(TAG_LABELS[tag] || titleize(tag))));
-      grouped.get(tag).forEach(item => group.appendChild(triviaItem(item)));
-      root.appendChild(group);
+      root.appendChild(categorySection(tag, grouped.get(tag)));
     });
   } catch (err) {
     console.error(err);

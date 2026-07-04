@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "F1.1",
     "tag": "motorsport",
@@ -18,9 +18,129 @@
     "answer": "Ferrari holds the record for most constructors' championships."
   },
   {
+    "id": "F1.4",
+    "tag": "motorsport",
+    "question": "Which drivers share the record for most F1 World Championships?",
+    "answer": "Michael Schumacher and Lewis Hamilton, with seven titles each."
+  },
+  {
+    "id": "F1.5",
+    "tag": "motorsport",
+    "question": "Juan Manuel Fangio won five titles — with how many different constructors?",
+    "answer": "Four: Alfa Romeo, Mercedes, Ferrari and Maserati. No other driver has won the championship with so many different teams."
+  },
+  {
+    "id": "F1.6",
+    "tag": "motorsport",
+    "question": "What is the 'Triple Crown of Motorsport', and who is the only driver to have won it?",
+    "answer": "The Monaco Grand Prix, the Indianapolis 500 and the 24 Hours of Le Mans. Graham Hill is the only driver to have won all three."
+  },
+  {
+    "id": "F1.7",
+    "tag": "motorsport",
+    "question": "Which circuit did Jackie Stewart nickname 'The Green Hell'?",
+    "answer": "The Nürburgring Nordschleife — over 20 km of twisting road through the Eifel forests, with more than 150 corners."
+  },
+  {
+    "id": "MM.1",
+    "tag": "motorsport",
+    "question": "What route did the Mille Miglia follow?",
+    "answer": "Roughly 1,000 miles on open public roads from Brescia down to Rome and back — hence the name. It ran from 1927 to 1957."
+  },
+  {
+    "id": "MM.2",
+    "tag": "motorsport",
+    "question": "Who set the all-time Mille Miglia record in 1955?",
+    "answer": "Stirling Moss, with navigator Denis Jenkinson reading pace notes from a roller-map, covered the 1,000 miles in 10h07m in a Mercedes-Benz 300 SLR — averaging nearly 158 km/h on public roads."
+  },
+  {
+    "id": "LeMans.1",
+    "tag": "motorsport",
+    "question": "When was the 24 Hours of Le Mans first held?",
+    "answer": "In 1923. It is the world's oldest active endurance race."
+  },
+  {
+    "id": "Indy.1",
+    "tag": "motorsport",
+    "question": "What does the winner of the Indianapolis 500 traditionally drink in victory lane?",
+    "answer": "A bottle of milk — a tradition started by Louis Meyer, who drank buttermilk after winning in 1936."
+  },
+  {
+    "id": "TargaFlorio.1",
+    "tag": "motorsport",
+    "question": "What was the Targa Florio?",
+    "answer": "A legendary road race around the mountains of Sicily, founded by Vincenzo Florio in 1906 — making it one of the oldest motor races in the world."
+  },
+  {
+    "id": "Monza.1",
+    "tag": "motorsport",
+    "question": "Why is Monza special among racing circuits?",
+    "answer": "Opened in 1922, it was the third purpose-built circuit in the world after Brooklands and Indianapolis, and it is nicknamed 'The Temple of Speed'."
+  },
+  {
+    "id": "MotoGP.1",
+    "tag": "motorsport",
+    "question": "Who holds the record for most premier-class motorcycle world titles?",
+    "answer": "Giacomo Agostini, with eight premier-class championships and fifteen world titles overall."
+  },
+  {
+    "id": "WRC.1",
+    "tag": "motorsport",
+    "question": "Who won nine consecutive World Rally Championship titles?",
+    "answer": "Sébastien Loeb, from 2004 to 2012, all with Citroën."
+  },
+  {
     "id": "AmericasCup.1",
     "tag": "nautical",
     "question": "What is the America's Cup trophy commonly called?",
     "answer": "It is known as the Auld Mug."
+  },
+  {
+    "id": "AmericasCup.2",
+    "tag": "nautical",
+    "question": "Where does the name 'America's Cup' come from?",
+    "answer": "From the schooner America, which won the cup in the first race around the Isle of Wight in 1851 — not from the country."
+  },
+  {
+    "id": "AmericasCup.3",
+    "tag": "nautical",
+    "question": "What was the longest winning streak in the history of sport?",
+    "answer": "The New York Yacht Club held the America's Cup for 132 years, from 1851 until 1983, when Australia II finally took it away."
+  },
+  {
+    "id": "AmericasCup.4",
+    "tag": "nautical",
+    "question": "What secret weapon did Australia II carry in 1983?",
+    "answer": "A revolutionary winged keel, kept hidden under a skirt whenever the boat was out of the water. It helped end the New York Yacht Club's 132-year hold on the cup."
+  },
+  {
+    "id": "VendeeGlobe.1",
+    "tag": "nautical",
+    "question": "What makes the Vendée Globe the toughest race in sailing?",
+    "answer": "It is sailed solo, non-stop and without assistance around the world — one skipper, one boat, roughly three months alone at sea."
+  },
+  {
+    "id": "OceanRace.1",
+    "tag": "nautical",
+    "question": "What was The Ocean Race originally called?",
+    "answer": "The Whitbread Round the World Race, first run in 1973. It later became the Volvo Ocean Race before taking its current name."
+  },
+  {
+    "id": "SydneyHobart.1",
+    "tag": "nautical",
+    "question": "When does the Sydney to Hobart yacht race start each year?",
+    "answer": "On Boxing Day, 26 December, when the fleet sails out of Sydney Harbour bound for Tasmania."
+  },
+  {
+    "id": "Seamanship.1",
+    "tag": "nautical",
+    "question": "Which side of a boat is 'starboard', and what colour marks it?",
+    "answer": "Starboard is the right-hand side looking forward, marked by a green light; port is the left side, marked by red."
+  },
+  {
+    "id": "Seamanship.2",
+    "tag": "nautical",
+    "question": "How fast is one knot?",
+    "answer": "One nautical mile per hour — about 1.852 km/h. The name comes from the knotted rope sailors once paid out to measure speed."
   }
 ]

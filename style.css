@@ -1013,6 +1013,28 @@ details.past-fold:not([open]) { border-bottom: none; }
    ------------------------------------------------------------ */
 .trivia-group { margin-bottom: 24px; }
 
+/* the dealer button: draws a question, then checks the answer */
+.trivia-draw {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  font-size: 0.95rem;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.trivia-draw:active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
 .trivia-item {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -1553,6 +1575,7 @@ html[data-theme="modern"] .drive-stage { border: none; }
 html[data-theme="modern"] .lights-msg,
 html[data-theme="modern"] .drive-overlay__sub { font-style: normal; }
 html[data-theme="modern"] .drive-btn { border: 1px solid var(--border); }
+html[data-theme="modern"] .trivia-draw { border: 1px solid var(--border); }
 
 html[data-theme="modern"] .range-reset {
   border-radius: 999px;

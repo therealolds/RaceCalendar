@@ -21,6 +21,10 @@ const CAR_AHEAD = 30;     // the car sits this far ahead of the camera
 // period liveries for the traffic
 const TRAFFIC_COLORS = ['#2f5a9e', '#2e6b47', '#d9a441', '#b9b4a6', '#e8e2cf'];
 
+// roadside dressing: spectators' clothes and farmhouse walls
+const CROWD_COLORS = ['#7a4a3a', '#44548a', '#8a8060', '#57683f', '#a8683a', '#6f4a66'];
+const HOUSE_WALLS = ['#d8c49a', '#c9a87a', '#e0d3ae', '#b98d6b'];
+
 // --- Day-night cycle ----------------------------------------------------------
 // An 8 km loop: midday at 0, sunset at 2, night at 4, dawn at 6, midday
 // again at 8. Each look holds for its 2 km band and blends into the next
@@ -48,7 +52,7 @@ const SKY_KEYS = [
     skyTop: hex('#0c0b07'), skyBot: hex('#262010'), haze: hex('#12100a'),
     grassA: hex('#1b190c'), grassB: hex('#151708'), tarmac: hex('#453f32'),
     kerbA: hex('#c62f1e'), kerbB: hex('#e8e2cf'),
-    stars: 1, night: 1, view: 1150
+    stars: 1, night: 1, view: 780
   },
   { // dawn: the sun creeping back up
     skyTop: hex('#2f3554'), skyBot: hex('#d4885c'), haze: hex('#b87a5a'),
@@ -81,7 +85,7 @@ function sunPos(km) {
 }
 
 // how far the headlights carry at night, world px
-const headlightAt = z => clamp((850 - z) / 650, 0, 1);
+const headlightAt = z => clamp((560 - z) / 440, 0, 1);
 
 const canvas = document.getElementById('road');
 const ctx = canvas.getContext('2d');
@@ -106,12 +110,15 @@ let s = 0;                // camera world position, px
 let speed = 0;            // px/s
 let runT = 0;             // seconds since green light
 let dist = 0;             // metres
+let skyDist = 0;          // metres on the day-night clock (see step)
 let carX = 0, carVX = 0;  // world lateral position / velocity
 let roadHalf = 80;
 let traffic = [];         // { w: world position px, lane: -1|0|1, v: px/s, color }
 let spills = [];          // { w, lane } — static oil patches on the tarmac
+let scenery = [];         // trees, houses, crowds along the verges
 let slipT = 0;            // seconds of slide left after hitting oil
 let nextSpawnS = 0;
+let nextSceneryS = 0;
 
 const OIL_SHARE = 0.15;   // this share of hazard spawns is oil instead of a car
 
@@ -159,21 +166,58 @@ function spawnHazard() {
   const w = s + Z_MAX + 100;                 // just beyond the haze
   const lane = [-1, 0, 1][Math.floor(Math.random() * 3)];
   if (Math.random() < OIL_SHARE) {
-    spills.push({ w, lane });
+    spills.push({ kind: 'oil', w, lane });
     return;
   }
   traffic.push({
-    w, lane,
+    kind: 'car', w, lane,
     v: speed * (0.5 + Math.random() * 0.2),  // slower — you do the passing
     color: TRAFFIC_COLORS[Math.floor(Math.random() * TRAFFIC_COLORS.length)]
   });
 }
 
+// lateral world position of a scenery item: pinned to the verge, so it
+// follows the road's curves at a fixed offset past the kerb
+function sceneryX(d) {
+  return centerAt(Math.round(d.w / ROW)) + d.side * (roadHalf + d.off);
+}
+
+function spawnSceneryAt(w) {
+  const r = Math.random();
+  const d = { w, side: Math.random() < 0.5 ? -1 : 1 };
+  if (r < 0.5) {
+    d.kind = 'tree';
+    d.round = Math.random() < 0.35;          // umbrella pine, else cypress
+    d.off = 30 + Math.random() * 80;
+    d.h = 0.8 + Math.random() * 0.5;
+  } else if (r < 0.77) {
+    d.kind = 'crowd';
+    d.off = 24 + Math.random() * 18;         // packed right up to the kerb
+    d.figs = Array.from({ length: 6 + Math.floor(Math.random() * 4) }, (_, i) => ({
+      dx: i * 13 + Math.random() * 6 - 3,
+      h: 17 + Math.random() * 6,
+      color: CROWD_COLORS[Math.floor(Math.random() * CROWD_COLORS.length)],
+      flag: Math.random() < 0.3,
+      ph: Math.random() * Math.PI * 2
+    }));
+  } else {
+    d.kind = 'house';
+    d.off = 80 + Math.random() * 90;
+    d.wall = HOUSE_WALLS[Math.floor(Math.random() * HOUSE_WALLS.length)];
+    d.tower = Math.random() < 0.18;          // the village campanile
+    d.flip = Math.random() < 0.5;
+  }
+  scenery.push(d);
+}
+
 function step(dt) {
   runT += dt;
-  speed = 200 + Math.min(runT * 3.5, 280);   // ramps up over ~80 s
+  speed = 200 + Math.min(runT * 1.8, 280);   // gentle ramp, tops out at ~155 s
   s += speed * dt;
   dist += speed * dt * M_PER_PX;
+  // the sky runs on the old, faster ramp so sunset/night/dawn still land
+  // at the same moments of a run even though the car accelerates slower
+  skyDist += (200 + Math.min(runT * 3.5, 280)) * dt * M_PER_PX;
   ensureRows();
 
   // on oil there is no steering and almost no grip — the car just slides
@@ -195,9 +239,14 @@ function step(dt) {
     const gap = 1500 - Math.min(runT * 9, 800);
     nextSpawnS = s + gap * (0.8 + Math.random() * 0.5);
   }
+  if (s >= nextSceneryS) {
+    spawnSceneryAt(s + Z_MAX + 120);
+    nextSceneryS = s + 100 + Math.random() * 240;
+  }
   for (const t of traffic) t.w += t.v * dt;
   traffic = traffic.filter(t => t.w > s - 60);
   spills = spills.filter(o => o.w > s - 60);
+  scenery = scenery.filter(d => d.w > s - 80);
   for (const t of traffic) {
     if (Math.abs(t.w - (s + CAR_AHEAD)) < 32 && Math.abs(carX - laneX(t)) < 24) {
       crash('traffic');
@@ -262,6 +311,104 @@ function drawSky(hy, pal, sun) {
     ctx.fill();
     ctx.globalAlpha = 1;
   }
+}
+
+// roadside tree: a slim cypress, or an umbrella pine when d.round
+function drawTree(d, x, y, sc) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(sc * d.h, sc * d.h);
+  if (d.round) {
+    ctx.fillStyle = '#5a4326';
+    ctx.fillRect(-2.5, -28, 5, 28);
+    ctx.fillStyle = '#3d5a2b';
+    ctx.beginPath();
+    ctx.ellipse(0, -36, 26, 13, 0, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    ctx.fillStyle = '#5a4326';
+    ctx.fillRect(-2, -6, 4, 6);
+    ctx.fillStyle = '#2b452a';
+    ctx.beginPath();
+    ctx.ellipse(0, -52, 10, 46, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.restore();
+}
+
+// rural farmhouse — ochre walls, terracotta roof, sometimes a campanile
+function drawHouse(d, x, y, sc, nightAmt) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(sc * (d.flip ? -1 : 1), sc);
+  if (d.tower) {
+    ctx.fillStyle = d.wall;
+    ctx.fillRect(34, -110, 24, 58);
+    ctx.fillStyle = '#42341f';
+    ctx.fillRect(40, -104, 12, 15);          // open bell arch
+    ctx.fillStyle = '#9e4426';
+    ctx.beginPath();
+    ctx.moveTo(31, -110);
+    ctx.lineTo(46, -124);
+    ctx.lineTo(61, -110);
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.fillStyle = d.wall;
+  ctx.fillRect(-55, -52, 110, 52);
+  ctx.fillStyle = '#9e4426';
+  ctx.beginPath();
+  ctx.moveTo(-62, -52);
+  ctx.lineTo(0, -84);
+  ctx.lineTo(62, -52);
+  ctx.closePath();
+  ctx.fill();
+  ctx.fillStyle = '#42341f';
+  ctx.fillRect(-9, -24, 18, 24);             // door
+  // windows: dark by day, lamplit after dusk (kept bright through the
+  // night dimming — ctx.restore() puts the caller's alpha back)
+  if (nightAmt > 0.35) {
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = 'rgba(255, 209, 106, 0.95)';
+  }
+  ctx.fillRect(-40, -42, 13, 13);
+  ctx.fillRect(27, -42, 13, 13);
+  ctx.restore();
+}
+
+// spectators bobbing behind a low barrier, a few waving the tricolore
+function drawCrowd(d, x, y, sc) {
+  const w = d.figs.length * 13;
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(sc, sc);
+  ctx.translate(-w / 2, 0);
+  for (const g of d.figs) {
+    const bob = Math.sin(runT * 7 + g.ph) * 2.2;
+    ctx.fillStyle = g.color;
+    ctx.fillRect(g.dx - 4.5, -g.h + bob, 9, g.h - 5);
+    ctx.fillStyle = '#dfb28a';
+    ctx.beginPath();
+    ctx.arc(g.dx, -g.h - 4 + bob, 4.4, 0, Math.PI * 2);
+    ctx.fill();
+    if (g.flag) {
+      ctx.fillStyle = '#8a7a5a';
+      ctx.fillRect(g.dx + 5, -g.h - 16 + bob, 1.6, 13);
+      ctx.fillStyle = '#2e6b47';
+      ctx.fillRect(g.dx + 6.6, -g.h - 16 + bob, 3.4, 6.5);
+      ctx.fillStyle = '#e8e2cf';
+      ctx.fillRect(g.dx + 10, -g.h - 16 + bob, 3.4, 6.5);
+      ctx.fillStyle = '#c62f1e';
+      ctx.fillRect(g.dx + 13.4, -g.h - 16 + bob, 3.4, 6.5);
+    }
+  }
+  // the barrier rail in front of them
+  ctx.fillStyle = '#b9b4a6';
+  ctx.fillRect(-6, -9, w + 12, 3);
+  ctx.fillStyle = '#8a8274';
+  ctx.fillRect(-6, -6, 3, 6);
+  ctx.fillRect(w + 3, -6, 3, 6);
+  ctx.restore();
 }
 
 // an oil spill lying flat on the tarmac, foreshortened into an ellipse
@@ -334,7 +481,7 @@ function drawRearCar(x, y, sc, color, lean = 0, tail = 0) {
 
 function drawFrame() {
   const hy = horizonY();
-  const km = dist / 1000;
+  const km = skyDist / 1000;
   const pal = palette(km);
   const nightAmt = pal.night;
   drawSky(hy, pal, sunPos(km));
@@ -358,7 +505,7 @@ function drawFrame() {
 
     // at night only the headlight pool is lit; beyond it the road fades out
     const k = nightAmt > 0.02
-      ? 1 - nightAmt * (1 - (0.22 + 0.78 * headlightAt(z)))
+      ? 1 - nightAmt * (1 - (0.12 + 0.88 * headlightAt(z)))
       : 1;
 
     // grass, in alternating bands for the sense of speed
@@ -380,32 +527,25 @@ function drawFrame() {
     }
   }
 
-  // oil spills sit on the road, so they go under the traffic
-  for (const o of [...spills].sort((a, b) => b.w - a.w)) {
-    const z = o.w - s - CAR_AHEAD;
+  // scenery, spills and traffic in one far-to-near painter's pass, so a
+  // near tree occludes a distant car; at night everything emerges from
+  // the dark together, taillights and lit windows first
+  const items = [...scenery, ...spills, ...traffic].sort((a, b) => b.w - a.w);
+  for (const it of items) {
+    const z = it.w - s - CAR_AHEAD;
     if (z < 25 || z > pal.view) continue;
     const f = Z_NEAR / (z + Z_NEAR);
     const y = hy + f * (H - hy);
-    const x = W / 2 + (laneX(o) - carX) * f * LS;
+    const wx = it.kind === 'car' || it.kind === 'oil' ? laneX(it) : sceneryX(it);
+    const x = W / 2 + (wx - carX) * f * LS;
     if (nightAmt > 0.02) {
-      ctx.globalAlpha = 1 - nightAmt * (1 - (0.3 + 0.7 * headlightAt(z)));
+      ctx.globalAlpha = 1 - nightAmt * (1 - (0.16 + 0.84 * headlightAt(z)));
     }
-    drawSpill(x, y, f);
-    ctx.globalAlpha = 1;
-  }
-
-  // traffic, far to near; at night cars emerge from the dark, taillights first
-  const sorted = [...traffic].sort((a, b) => b.w - a.w);
-  for (const t of sorted) {
-    const z = t.w - s - CAR_AHEAD;
-    if (z < 25 || z > pal.view) continue;
-    const f = Z_NEAR / (z + Z_NEAR);
-    const y = hy + f * (H - hy);
-    const x = W / 2 + (laneX(t) - carX) * f * LS;
-    if (nightAmt > 0.02) {
-      ctx.globalAlpha = 1 - nightAmt * (1 - (0.3 + 0.7 * headlightAt(z)));
-    }
-    drawRearCar(x, y, f, t.color, 0, nightAmt);
+    if (it.kind === 'car') drawRearCar(x, y, f, it.color, 0, nightAmt);
+    else if (it.kind === 'oil') drawSpill(x, y, f);
+    else if (it.kind === 'tree') drawTree(it, x, y, f);
+    else if (it.kind === 'house') drawHouse(it, x, y, f, nightAmt);
+    else drawCrowd(it, x, y, f);
     ctx.globalAlpha = 1;
   }
 
@@ -468,7 +608,7 @@ function updateDash() {
 function reset() {
   cancelAnimationFrame(raf);
   phase = 'ready';
-  s = 0; runT = 0; dist = 0;
+  s = 0; runT = 0; dist = 0; skyDist = 0;
   speed = 200;
   rows = []; baseIdx = 0;
   genCenter = W / 2; genHeading = 0;
@@ -478,6 +618,11 @@ function reset() {
   nextSpawnS = 1600;
   steerL = false; steerR = false;
   ensureRows();
+  // dress the opening stretch so the start line isn't an empty plain
+  scenery = []; nextSceneryS = 0;
+  for (let w = 400; w < Z_MAX + 100; w += 100 + Math.random() * 240) {
+    spawnSceneryAt(w);
+  }
   drawFrame();
   updateDash();
   const best = Number(localStorage.getItem(BEST_KEY)) || 0;
