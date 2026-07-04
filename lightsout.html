@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>RaceCalendar</title>
+  <title>Lights Out — RaceCalendar</title>
   <link rel="stylesheet" href="style.css">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem("rc-theme")==="modern"?"modern":"vintage"}catch(e){}</script>
   <link rel="manifest" href="manifest.json">
@@ -18,19 +18,32 @@
 
 <body>
   <header class="page-head">
-    <a href="calendars.html" class="page-head__back" aria-label="Back to calendars">
+    <a href="games.html" class="page-head__back" aria-label="Back">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
     </a>
-    <span class="page-head__title" id="page-title">Series</span>
+    <span class="page-head__title">Lights Out</span>
   </header>
 
-  <div id="hero-slot"></div>
+  <main class="wrap" style="padding-top:16px">
+    <div class="lights-stage" id="stage" role="button" tabindex="0"
+      aria-label="Reaction test. Tap or press space to start, then tap again the instant the lights go out.">
+      <div class="lights-gantry" id="gantry" aria-hidden="true"></div>
+      <div class="lights-clock" id="clock">0.000</div>
+      <div class="lights-msg" id="msg">Tap to start</div>
+    </div>
 
-  <main class="wrap" id="series-root">
-    <div class="empty">Loading…</div>
+    <p class="lights-best" id="best" hidden></p>
+
+    <section class="lights-help">
+      <p>The five lights come on one by one. When they all go out — tap!
+        The stopwatch measures your reaction time. Tap too early and it’s
+        a jump start. An F1 driver reacts in about 0.2 seconds.</p>
+    </section>
+
+    <footer class="page-footer">It’s lights out and away we go!</footer>
   </main>
 
-  <script type="module" src="scripts/page-series.js"></script>
+  <script type="module" src="scripts/page-lightsout.js"></script>
 </body>
 
 </html>

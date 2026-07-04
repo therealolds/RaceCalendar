@@ -12,12 +12,34 @@ import {
 const state = {
   view: 'week',       // 'today' | 'week'
   featuredOnly: true,
+  refDate: null,      // local-midnight Date when browsing another day; null = follow today
   cals: []
 };
 
 const listEl = document.getElementById('race-list');
 const upNextEl = document.getElementById('up-next');
 const rangeLabelEl = document.getElementById('range-label');
+const rangePickerEl = document.querySelector('.range-picker');
+const rangeInputEl = document.getElementById('range-input');
+const rangeResetEl = document.getElementById('range-reset');
+
+// --- Reference date ("are you free to meet up on Sept 15th?") -------------------
+
+function refDay() {
+  return state.refDate || today();
+}
+
+// yyyy-mm-dd in local time, for the native date input
+function isoDay(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function syncRangeControls() {
+  const custom = Boolean(state.refDate);
+  rangeInputEl.value = isoDay(refDay());
+  rangePickerEl.classList.toggle('is-custom', custom);
+  rangeResetEl.hidden = !custom;
+}
 
 // --- Collect what's happening on a given local day -----------------------------
 
@@ -85,13 +107,15 @@ function emptyState(html) {
 // --- Views ------------------------------------------------------------------------
 
 function renderToday() {
-  const day = today();
+  const day = refDay();
   rangeLabelEl.textContent = fmtDayShort(day);
   listEl.innerHTML = '';
 
   const entries = collectDay(day);
   if (!entries.length) {
-    listEl.appendChild(emptyState('<span class="empty__emoji">😴</span>No racing today.<br>Check “This Week” or the list below.'));
+    listEl.appendChild(emptyState(state.refDate
+      ? '<span class="empty__emoji">🍾</span>No racing on this day — you’re free.'
+      : '<span class="empty__emoji">😴</span>No racing today.<br>Check “This Week” or the list below.'));
     return;
   }
   const wrap = el('div', 'race-list');
@@ -101,7 +125,7 @@ function renderToday() {
 
 function renderWeek() {
   const now = today();
-  const monday = new Date(now);
+  const monday = new Date(refDay());
   monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7));
 
   const sunday = new Date(monday);
@@ -131,11 +155,14 @@ function renderWeek() {
   }
 
   if (!any) {
-    listEl.appendChild(emptyState('<span class="empty__emoji">😴</span>No racing this week.<br>See what’s coming up below.'));
+    listEl.appendChild(emptyState(state.refDate
+      ? '<span class="empty__emoji">🍾</span>No racing that week — you’re free.'
+      : '<span class="empty__emoji">😴</span>No racing this week.<br>See what’s coming up below.'));
   }
 }
 
 function render() {
+  syncRangeControls();
   state.view === 'today' ? renderToday() : renderWeek();
 }
 
@@ -202,6 +229,26 @@ function initControls() {
     render();
   };
   buttons.forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+
+  // date check: tap the range label to open the native date picker
+  rangeInputEl.addEventListener('click', () => {
+    try { rangeInputEl.showPicker(); } catch { /* older browsers: default focus behaviour */ }
+  });
+  rangeInputEl.addEventListener('change', () => {
+    if (!rangeInputEl.value) {
+      state.refDate = null;
+      render();
+      return;
+    }
+    const [y, m, d] = rangeInputEl.value.split('-').map(Number);
+    const picked = new Date(y, m - 1, d);
+    state.refDate = picked.getTime() === today().getTime() ? null : picked;
+    render();
+  });
+  rangeResetEl.addEventListener('click', () => {
+    state.refDate = null;
+    render();
+  });
 
   const chip = document.getElementById('featured-chip');
   chip.addEventListener('click', () => {

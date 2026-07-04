@@ -103,7 +103,7 @@ export function sessionListEl(sessions, timeZone, maxItems = Infinity) {
 const THEME_KEY = 'rc-theme';
 
 const THEME_COLORS = {
-  vintage: { light: '#fbf7ea', dark: '#1d1c19' },
+  vintage: { light: '#fdfcf8', dark: '#1d1c19' },
   modern: { light: '#ffffff', dark: '#101013' }
 };
 
@@ -133,12 +133,12 @@ export function applyTheme(theme, { save = false } = {}) {
 
 const NAV_ITEMS = [
   {
-    id: 'home', label: 'Home', href: 'index.html',
-    icon: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>'
-  },
-  {
     id: 'calendars', label: 'Calendars', href: 'calendars.html',
     icon: '<rect x="3" y="4" width="18" height="17" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>'
+  },
+  {
+    id: 'home', label: 'Pit box', href: 'index.html',
+    icon: '<path d="M3 21V8.5L12 3l9 5.5V21"/><path d="M6.5 21v-8.5h11V21"/><line x1="6.5" y1="15.5" x2="17.5" y2="15.5"/><line x1="6.5" y1="18.25" x2="17.5" y2="18.25"/>'
   },
   {
     id: 'more', label: 'More', href: 'more.html',
