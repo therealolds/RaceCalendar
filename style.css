@@ -268,9 +268,10 @@ h1, h2, h3 {
 
 .toolbar__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px 10px;
   min-height: 32px;
 }
 
@@ -365,6 +366,7 @@ h1, h2, h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-left: auto;
 }
 
 /* ------------------------------------------------------------
@@ -1244,6 +1246,13 @@ details.past-fold:not([open]) { border-bottom: none; }
   /* thin antique-gold coachline inside the panel edge */
   box-shadow: inset 0 0 0 2.5px rgba(156, 124, 46, 0.4), var(--shadow-lg);
   text-align: center;
+  /* it doubles as the brake pedal: hold to brake */
+  cursor: pointer;
+  touch-action: none;
+}
+
+.dash:active {
+  box-shadow: inset 0 0 0 2.5px rgba(198, 47, 30, 0.55), var(--shadow-lg);
 }
 
 .dash__speedo {
@@ -1269,6 +1278,48 @@ details.past-fold:not([open]) { border-bottom: none; }
   color: #e8e2cf;
   font-variant-numeric: lining-nums tabular-nums;
   letter-spacing: 0.12em;
+}
+
+/* brake drum temperature: fills as the brakes drag, blinks red on fade */
+.dash__brake {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.dash__brake-label {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #d3ab5e;
+}
+
+.dash__brake-track {
+  flex: 1;
+  height: 7px;
+  background: #14110b;
+  border: 1px solid #3b382e;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dash__brake-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #d3ab5e, #c86a2e 60%, #c62f1e);
+}
+
+.dash__brake.is-fade .dash__brake-fill {
+  background: #c62f1e;
+  animation: brake-fade-blink 0.5s step-end infinite;
+}
+
+@keyframes brake-fade-blink {
+  50% { opacity: 0.35; }
 }
 
 .drive-btn {

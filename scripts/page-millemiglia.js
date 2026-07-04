@@ -95,6 +95,9 @@ const overlaySub = document.getElementById('overlay-sub');
 const btnL = document.getElementById('steer-left');
 const btnR = document.getElementById('steer-right');
 const odoEl = document.getElementById('odo');
+const dashEl = document.querySelector('.dash');
+const brakeGaugeEl = document.getElementById('brake-gauge');
+const brakeFillEl = document.getElementById('brake-fill');
 let needleEl = null;
 
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -102,6 +105,7 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 let W = 0, H = 0;
 let phase = 'ready';      // ready | run | crash
 let steerL = false, steerR = false;
+let brakePedal = false;   // holding the dashboard — a mouse can't press both buttons
 let raf = 0, lastT = 0;
 let stars = [];
 
@@ -117,6 +121,8 @@ let traffic = [];         // { w: world position px, lane: -1|0|1, v: px/s, colo
 let spills = [];          // { w, lane } — static oil patches on the tarmac
 let scenery = [];         // trees, houses, crowds along the verges
 let slipT = 0;            // seconds of slide left after hitting oil
+let brakeHeat = 0;        // drum temperature, 0..1
+let brakeFade = false;    // overheated: no brakes until the drums cool
 let nextSpawnS = 0;
 let nextSceneryS = 0;
 
@@ -212,7 +218,23 @@ function spawnSceneryAt(w) {
 
 function step(dt) {
   runT += dt;
-  speed = 200 + Math.min(runT * 1.8, 280);   // gentle ramp, tops out at ~155 s
+  // the throttle wants this much; braking drags below it, then the car
+  // pulls back up once the pedal is released
+  const targetSpeed = 200 + Math.min(runT * 1.8, 280);  // ramp tops out at ~155 s
+  // both steering inputs together — or holding the dashboard — = brake.
+  // 1955 drum brakes: they bite until the drums overheat, then fade to
+  // nothing until they cool. No braking while sliding on oil — the
+  // wheels have no grip to give.
+  const braking = (brakePedal || (steerL && steerR)) && slipT <= 0 && !brakeFade;
+  if (braking) {
+    speed = Math.max(speed - 380 * dt, targetSpeed * 0.35);
+    brakeHeat += dt / 2.4;                   // ~2.4 s of dragging to overheat
+    if (brakeHeat >= 1) { brakeHeat = 1; brakeFade = true; }
+  } else {
+    speed = Math.min(targetSpeed, speed + 150 * dt);
+    brakeHeat = Math.max(0, brakeHeat - dt / 7);  // cooling is much slower
+    if (brakeFade && brakeHeat <= 0.55) brakeFade = false;
+  }
   s += speed * dt;
   dist += speed * dt * M_PER_PX;
   // the sky runs on the old, faster ramp so sunset/night/dawn still land
@@ -601,6 +623,8 @@ function updateDash() {
   const kmh = phase === 'run' ? clamp(speed * M_PER_PX * 3.6, 0, 300) : 0;
   needleEl.setAttribute('transform', `rotate(${-120 + (kmh / 300) * 240} 50 46)`);
   odoEl.textContent = (dist / 1000).toFixed(1).padStart(6, '0');
+  brakeFillEl.style.width = `${(brakeHeat * 100).toFixed(1)}%`;
+  brakeGaugeEl.classList.toggle('is-fade', brakeFade);
 }
 
 // --- Game flow ---------------------------------------------------------------
@@ -615,8 +639,9 @@ function reset() {
   curv = 0; targetCurv = 0; curvRun = 600;   // opening straight
   carX = W / 2; carVX = 0;
   traffic = []; spills = []; slipT = 0;
+  brakeHeat = 0; brakeFade = false;
   nextSpawnS = 1600;
-  steerL = false; steerR = false;
+  steerL = false; steerR = false; brakePedal = false;
   ensureRows();
   // dress the opening stretch so the start line isn't an empty plain
   scenery = []; nextSceneryS = 0;
@@ -702,6 +727,8 @@ function bindSteer(btn, set) {
 
 bindSteer(btnL, v => { steerL = v; });
 bindSteer(btnR, v => { steerR = v; });
+// the dash doubles as the brake pedal: hold it to brake
+bindSteer(dashEl, v => { brakePedal = v; });
 
 overlay.addEventListener('pointerdown', e => {
   e.preventDefault();
