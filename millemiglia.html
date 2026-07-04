@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mille Miglia — RaceCalendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("rc-theme")==="modern"?"modern":"vintage"}catch(e){}</script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfcf8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1c19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RaceCalendar">
+  <link rel="apple-touch-icon" href="icons/app-icon.svg">
+</head>
+
+<body>
+  <header class="page-head">
+    <a href="games.html" class="page-head__back" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-head__title">Mille Miglia</span>
+  </header>
+
+  <main class="wrap" style="padding-top:16px">
+    <div class="drive-stage">
+      <canvas class="drive-canvas" id="road"></canvas>
+      <div class="drive-overlay" id="overlay">
+        <div class="drive-overlay__title" id="overlay-title">Mille Miglia</div>
+        <div class="drive-overlay__sub" id="overlay-sub">Tap to drive</div>
+      </div>
+    </div>
+
+    <div class="drive-cluster">
+      <button class="drive-btn" id="steer-left" type="button" aria-label="Steer left">◀</button>
+      <div class="dash" aria-hidden="true">
+        <svg class="dash__speedo" id="speedo" viewBox="0 0 100 74"></svg>
+        <div class="dash__odo"><span id="odo">0000.0</span> km</div>
+      </div>
+      <button class="drive-btn" id="steer-right" type="button" aria-label="Steer right">▶</button>
+    </div>
+
+    <section class="drive-help">
+      <p>The car drives itself — and keeps getting faster. Hold the buttons
+        (or the arrow keys) to steer, stay on the road, and slip past the
+        slower cars. Distance is your score.</p>
+    </section>
+
+    <footer class="page-footer">Open roads, no speed limits — it’s 1955.</footer>
+  </main>
+
+  <script type="module" src="scripts/page-millemiglia.js"></script>
+</body>
+
+</html>

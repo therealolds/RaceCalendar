@@ -1,7 +1,7 @@
 /* =============================================================
    RACECALENDAR — MOBILE-FIRST STYLESHEET
-   Vintage print theme: ivory newsprint, near-black ink rules,
-   poster red. Boxes are framed like an old newspaper page —
+   Vintage print theme: paper-white newsprint, near-black ink
+   rules, poster red. Boxes are framed like a newspaper page —
    square corners, hard rules, offset "print" shadows.
    Design tokens up top; one section per component below.
    ============================================================= */
@@ -31,15 +31,15 @@
 :root {
   color-scheme: light dark;
 
-  --bg: #f4eeda;          /* ivory newsprint */
-  --surface: #fbf7ea;
-  --surface-2: #ebe4cd;
-  --border: #d8d1b8;      /* light rule: dividers, dashed lines */
-  --line: #46402f;        /* dark ink rule: frames, headers */
-  --fg: #211d14;          /* near-black ink, not brown */
-  --muted: #6e6753;
+  --bg: #f7f5ee;          /* fresh newsprint — paper white, faint warm cast */
+  --surface: #fdfcf8;     /* near-white sheet */
+  --surface-2: #eeebe0;
+  --border: #ddd8c8;      /* light rule: dividers, dashed lines */
+  --line: #35311f;        /* dark ink rule: frames, headers — crisp on white */
+  --fg: #1d1a12;          /* near-black ink, not brown */
+  --muted: #6d675a;
   --accent: #c62f1e;      /* poster red */
-  --accent-fg: #fbf7ea;
+  --accent-fg: #fdfcf8;
   --gold: #9c7c2e;        /* antique gold — the 007 / casino flourish */
 
   /* hard offset "print" shadows — no soft blur */
@@ -278,6 +278,63 @@ h1, h2, h3 {
   font-size: 0.85rem;
   font-style: italic;
   color: var(--muted);
+}
+
+/* date check: the range label doubles as a native date input, so any
+   day can be looked up ("free to meet up on Sept 15th?") */
+.range-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.range-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.range-picker__icon { width: 15px; height: 15px; flex-shrink: 0; }
+
+.range-picker__label {
+  border-bottom: 1px dashed currentColor;
+  white-space: nowrap;
+}
+
+/* invisible native input stretched over the label — the actual tap
+   target, so mobile opens the platform date picker */
+.range-picker__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* browsing a picked date, not today */
+.range-picker.is-custom { color: var(--accent); }
+
+.range-reset {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-fg);
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  min-height: 28px;
+  white-space: nowrap;
 }
 
 .chip {
@@ -565,7 +622,7 @@ h1, h2, h3 {
   background-color: var(--surface-2);
   background-size: cover;
   background-position: center;
-  color: #fbf7ea;
+  color: #fdfcf8;
   text-decoration: none;
   box-shadow: var(--shadow);
   isolation: isolate;
@@ -630,7 +687,7 @@ h1, h2, h3 {
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--line);
-  color: #fbf7ea;
+  color: #fdfcf8;
   isolation: isolate;
 }
 
@@ -671,11 +728,11 @@ h1, h2, h3 {
 .hero__meta { font-size: 0.85rem; font-style: italic; opacity: 0.92; }
 
 .hero__site {
-  color: #fbf7ea;
+  color: #fdfcf8;
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  border: 1px solid rgba(251, 247, 234, 0.7);
+  border: 1px solid rgba(253, 252, 248, 0.7);
   border-radius: var(--radius);
   padding: 6px 12px;
   white-space: nowrap;
@@ -998,6 +1055,218 @@ details.past-fold:not([open]) { border-bottom: none; }
 }
 
 /* ------------------------------------------------------------
+   10b. Lights Out game
+   The stage is deliberately night-dark in both themes — race
+   start under floodlights. Everything else follows the tokens.
+   ------------------------------------------------------------ */
+.lights-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 340px;
+  padding: 24px 16px;
+  text-align: center;
+  background: #14110b;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lights-gantry {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.lights-col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 8px 7px;
+  background: #201d16;
+  border: 1px solid #38342a;
+  border-radius: var(--radius-sm);
+}
+
+.lights-lamp {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2c2820;
+  box-shadow: inset 0 0 0 1px rgba(253, 252, 248, 0.07);
+}
+
+.lights-col.is-on .lights-lamp {
+  background: #e03a24;
+  box-shadow: 0 0 14px rgba(224, 58, 36, 0.55);
+}
+
+.lights-clock {
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fdfcf8;
+}
+
+.lights-stage.is-go .lights-clock { color: #58b368; }
+
+.lights-msg {
+  min-height: 1.5em;
+  margin-top: 4px;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: rgba(253, 252, 248, 0.72);
+}
+
+.lights-stage.is-jump .lights-msg { color: #e03a24; font-weight: 700; }
+
+.lights-best {
+  margin-top: 14px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--gold);
+}
+
+.lights-help,
+.drive-help {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------
+   10c. Mille Miglia game
+   Canvas road at night; big thumb-sized steer buttons below.
+   ------------------------------------------------------------ */
+.drive-stage {
+  position: relative;
+  background: #14110b;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.drive-canvas {
+  display: block;
+  width: 100%;
+  height: min(62vh, 520px);
+  touch-action: none;
+}
+
+.drive-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+  background: rgba(20, 17, 11, 0.55);
+  color: #fdfcf8;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drive-overlay[hidden] { display: none; }
+
+.drive-overlay__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.drive-overlay__sub {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* steering buttons flanking the dashboard binnacle, which overlaps
+   the bottom of the road view like a real cockpit cowl */
+.drive-cluster {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: stretch;
+  margin-top: -26px;
+  position: relative;
+  z-index: 2;
+  padding-inline: 2px;
+}
+
+.dash {
+  width: 150px;
+  padding: 9px 12px 8px;
+  background: #201d16;
+  border: 1px solid #3b382e;
+  border-radius: 14px 14px var(--radius) var(--radius);
+  /* thin antique-gold coachline inside the panel edge */
+  box-shadow: inset 0 0 0 2.5px rgba(156, 124, 46, 0.4), var(--shadow-lg);
+  text-align: center;
+}
+
+.dash__speedo {
+  display: block;
+  width: 112px;
+  margin: 0 auto;
+}
+
+.dash__odo {
+  margin-top: 5px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #d3ab5e;
+}
+
+.dash__odo span {
+  display: inline-block;
+  padding: 1px 6px;
+  background: #14110b;
+  border: 1px solid #3b382e;
+  border-radius: 2px;
+  color: #e8e2cf;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.12em;
+}
+
+.drive-btn {
+  min-height: 96px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 1.7rem;
+  color: var(--fg);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.drive-btn:active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+/* ------------------------------------------------------------
    11. More page (menu)
    ------------------------------------------------------------ */
 .menu-list {
@@ -1261,6 +1530,21 @@ html[data-theme="modern"] .bottom-nav__item {
   letter-spacing: normal;
   font-size: 0.68rem;
   font-weight: 600;
+}
+
+/* gold is transparent in modern — restyle the game accents */
+html[data-theme="modern"] .lights-best { color: var(--accent); }
+html[data-theme="modern"] .lights-stage,
+html[data-theme="modern"] .drive-stage { border: none; }
+html[data-theme="modern"] .lights-msg,
+html[data-theme="modern"] .drive-overlay__sub { font-style: normal; }
+html[data-theme="modern"] .drive-btn { border: 1px solid var(--border); }
+
+html[data-theme="modern"] .range-reset {
+  border-radius: 999px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.78rem;
 }
 
 /* the vintage italics read as plain text here */
