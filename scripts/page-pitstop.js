@@ -1,14 +1,19 @@
 /* Pit Stop: wheel-change time attack.
    A wheel sits at a random spot in the dark garage. Drag the alignment
-   ring over it, fire the gun to unwind it; the fresh wheel rolls in,
-   line up again and wind it on. Four tyres against the stopwatch.
-   Fire the gun off-centre and the nut cross-threads — stop over. */
+   ring over it and fire the correct gun: unwind the old wheel, then wind
+   the fresh one on as it rolls in. Four tyres against the stopwatch.
+   Firing off-centre or grabbing the wrong gun ruins the stop. Amateur
+   and pro modes set how much centre error the gun forgives. */
 
 import { initShell } from './ui.js';
 
-const BEST_KEY = 'rc-pitstop-best';
+const MODE_KEY = 'rc-pitstop-mode';
 const TYRES = 4;
 const ROLL_V = 950;       // wheel roll-in / roll-out speed, px/s
+
+// gun tolerance as a share of the wheel radius, per difficulty;
+// best times are kept per mode — they aren't comparable
+const MODES = { amateur: 0.15, pro: 0.05 };
 
 const canvas = document.getElementById('pit');
 const ctx = canvas.getContext('2d');
@@ -17,16 +22,18 @@ const overlayTitle = document.getElementById('overlay-title');
 const overlaySub = document.getElementById('overlay-sub');
 const clockEl = document.getElementById('pit-clock');
 const statusEl = document.getElementById('pit-status');
-const gunBtn = document.getElementById('gun');
+const gunUnwind = document.getElementById('gun-unwind');
+const gunWind = document.getElementById('gun-wind');
+const modeSeg = document.getElementById('pit-mode');
+const modeBtns = [...modeSeg.querySelectorAll('.seg__btn')];
 
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 const dist = (ax, ay, bx, by) => Math.hypot(ax - bx, ay - by);
 
 let W = 0, H = 0;
 let R = 70;               // wheel radius, set from the canvas size
-let TOL = 21;             // allowed centre error when the gun fires — R * 0.3,
-                          // forgiving enough to hit in a hurry, tight enough
-                          // that a careless slam cross-threads
+let mode = localStorage.getItem(MODE_KEY) === 'pro' ? 'pro' : 'amateur';
+let TOL = 10;             // allowed centre error when the gun fires — R * MODES[mode]
 let phase = 'ready';      // ready | run | crash | done
 let raf = 0, lastT = 0, t0 = 0;
 let tyre = 1;
@@ -155,15 +162,25 @@ function draw() {
 
 function hud() {
   statusEl.textContent = `Tyre ${tyre}/${TYRES} — ${action === 'unwind' ? 'old wheel off' : 'new wheel on'}`;
-  gunBtn.textContent = action === 'unwind' ? '↺ Unwind' : '↻ Wind';
+}
+
+function setGunsDisabled(v) {
+  gunUnwind.disabled = v;
+  gunWind.disabled = v;
 }
 
 // --- Game flow -------------------------------------------------------------------
 
-function fire() {
+const bestKey = () => `rc-pitstop-best-${mode}`;
+
+function fire(pressed) {
   if (phase !== 'run' || wheel.mode !== 'seated') return;
+  if (pressed !== action) {
+    fail('wrong');
+    return;
+  }
   if (dist(wheel.x, wheel.y, outline.x, outline.y) > TOL) {
-    fail();
+    fail('miss');
     return;
   }
   flashT = 0.3; flashX = wheel.x; flashY = wheel.y;
@@ -180,15 +197,19 @@ function fire() {
   hud();
 }
 
-function fail() {
+function fail(kind) {
   phase = 'crash';
   cancelAnimationFrame(raf);
   draw();                                 // the ring turns red where it missed
-  gunBtn.disabled = false;
+  setGunsDisabled(false);
   const secs = ((performance.now() - t0) / 1000).toFixed(2);
-  overlayTitle.textContent = '💥 Cross-threaded!';
-  overlaySub.textContent =
-    `The gun slipped off tyre ${tyre} after ${secs} s · Tap to try again`;
+  overlayTitle.textContent = kind === 'wrong' ? '💥 Wrong gun!' : '💥 Cross-threaded!';
+  overlaySub.textContent = (kind === 'wrong'
+    ? (action === 'unwind'
+      ? 'You wound down on a wheel that had to come off'
+      : 'You unwound the fresh wheel straight back off')
+    : `The gun slipped off tyre ${tyre}`) +
+    ` — ${secs} s in · Tap to try again`;
   overlay.hidden = false;
 }
 
@@ -204,10 +225,10 @@ function finish() {
   phase = 'done';
   cancelAnimationFrame(raf);
   clockEl.textContent = (ms / 1000).toFixed(2);
-  gunBtn.disabled = false;
-  const best = Number(localStorage.getItem(BEST_KEY)) || Infinity;
+  setGunsDisabled(false);
+  const best = Number(localStorage.getItem(bestKey())) || Infinity;
   const newBest = ms < best;
-  if (newBest) localStorage.setItem(BEST_KEY, String(Math.round(ms)));
+  if (newBest) localStorage.setItem(bestKey(), String(Math.round(ms)));
   overlayTitle.textContent = '🏁 Wheels on — send it!';
   overlaySub.textContent = `${(ms / 1000).toFixed(2)} s · ` +
     (newBest ? '★ New personal best!' : verdict(ms)) + ' · Tap for another stop';
@@ -226,10 +247,10 @@ function reset() {
   draw();
   hud();
   clockEl.textContent = '0.00';
-  gunBtn.disabled = false;
-  const best = Number(localStorage.getItem(BEST_KEY)) || 0;
+  setGunsDisabled(false);
+  const best = Number(localStorage.getItem(bestKey())) || 0;
   overlayTitle.textContent = 'Pit Stop';
-  overlaySub.textContent =
+  overlaySub.textContent = `${mode === 'pro' ? 'Pro' : 'Amateur'} crew · ` +
     (best ? `Personal best: ${(best / 1000).toFixed(2)} s · ` : '') + 'Tap to start the clock';
   overlay.hidden = false;
 }
@@ -240,7 +261,7 @@ function frame(t) {
   step(dt);
   draw();
   clockEl.textContent = ((t - t0) / 1000).toFixed(2);
-  gunBtn.disabled = wheel.mode !== 'seated';  // no firing at a rolling wheel
+  setGunsDisabled(wheel.mode !== 'seated');   // no firing at a rolling wheel
   if (phase === 'run') raf = requestAnimationFrame(frame);
 }
 
@@ -261,8 +282,21 @@ function resize() {
   canvas.height = Math.round(H * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   R = clamp(Math.min(W, H) * 0.17, 48, 78);
-  TOL = R * 0.3;
+  TOL = R * MODES[mode];
   reset();
+}
+
+function setMode(m) {
+  mode = m;
+  localStorage.setItem(MODE_KEY, m);
+  TOL = R * MODES[mode];
+  modeSeg.dataset.active = m === 'pro' ? '1' : '0';
+  modeBtns.forEach(b => {
+    const on = b.dataset.mode === m;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-pressed', String(on));
+  });
+  reset();   // switching difficulty mid-run voids the stop
 }
 
 // --- Input -----------------------------------------------------------------------
@@ -286,26 +320,37 @@ canvas.addEventListener('pointermove', e => {
   canvas.addEventListener(ev, () => { drag = null; }));
 canvas.addEventListener('contextmenu', e => e.preventDefault());
 
-gunBtn.addEventListener('pointerdown', e => {
-  e.preventDefault();
-  if (phase !== 'run') start();
-  else fire();
-});
-gunBtn.addEventListener('contextmenu', e => e.preventDefault());
+// two guns — pressing the right one for the moment is part of the job
+function bindGun(btn, does) {
+  btn.addEventListener('pointerdown', e => {
+    e.preventDefault();
+    if (phase !== 'run') start();
+    else fire(does);
+  });
+  btn.addEventListener('contextmenu', e => e.preventDefault());
+}
+bindGun(gunUnwind, 'unwind');
+bindGun(gunWind, 'wind');
+
+modeBtns.forEach(b => b.addEventListener('click', () => {
+  if (b.dataset.mode !== mode) setMode(b.dataset.mode);
+}));
 
 overlay.addEventListener('pointerdown', e => {
   e.preventDefault();
   start();
 });
 
-// keyboard: arrows nudge the ring (shift for fine moves), space/enter fires
+// keyboard: arrows nudge the ring (shift for fine moves), Z unwinds,
+// X winds, space/enter starts
 window.addEventListener('keydown', e => {
   if (e.key === ' ' || e.key === 'Enter') {
     e.preventDefault();
-    if (phase === 'run') fire();
-    else start();
+    if (phase !== 'run') start();
     return;
   }
+  if (phase === 'run' && (e.key === 'z' || e.key === 'Z')) { fire('unwind'); return; }
+  if (phase === 'run' && (e.key === 'x' || e.key === 'X')) { fire('wind'); return; }
   if (phase !== 'run' || !e.key.startsWith('Arrow')) return;
   e.preventDefault();
   const px = e.shiftKey ? 2 : 8;
@@ -322,3 +367,4 @@ window.addEventListener('resize', resize);
 
 initShell('more');
 resize();
+setMode(mode);   // paints the saved difficulty onto the toggle

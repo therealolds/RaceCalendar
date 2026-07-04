@@ -1384,8 +1384,9 @@ details.past-fold:not([open]) { border-bottom: none; }
 
 .pit-cluster {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
+  gap: 10px 14px;
   margin-top: 12px;
 }
 
@@ -1402,6 +1403,7 @@ details.past-fold:not([open]) { border-bottom: none; }
 .pit-gun:disabled { opacity: 0.45; }
 
 .pit-status {
+  margin-left: auto;
   font-family: var(--font-display);
   font-size: 0.85rem;
   font-weight: 700;
@@ -1409,6 +1411,8 @@ details.past-fold:not([open]) { border-bottom: none; }
   letter-spacing: 0.07em;
   color: var(--muted);
 }
+
+.pit-mode { margin-top: 12px; }
 
 /* ------------------------------------------------------------
    11. More page (menu)
