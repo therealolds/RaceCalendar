@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pit Stop — RaceCalendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("rc-theme")==="modern"?"modern":"vintage"}catch(e){}</script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfcf8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1c19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RaceCalendar">
+  <link rel="apple-touch-icon" href="icons/app-icon.svg">
+</head>
+
+<body>
+  <header class="page-head">
+    <a href="games.html" class="page-head__back" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-head__title">Pit Stop</span>
+  </header>
+
+  <main class="wrap" style="padding-top:16px">
+    <div class="drive-stage">
+      <canvas class="drive-canvas pit-canvas" id="pit"></canvas>
+      <div class="pit-clock" id="pit-clock" aria-hidden="true">0.00</div>
+      <div class="drive-overlay" id="overlay">
+        <div class="drive-overlay__title" id="overlay-title">Pit Stop</div>
+        <div class="drive-overlay__sub" id="overlay-sub">Tap to start the clock</div>
+      </div>
+    </div>
+
+    <div class="pit-cluster">
+      <button class="drive-btn pit-gun" id="gun" type="button">↺ Unwind</button>
+      <div class="pit-status" id="pit-status" aria-live="polite">Tyre 1/4</div>
+    </div>
+
+    <section class="drive-help">
+      <p>Drag the alignment ring over the wheel (or nudge it with the arrow
+        keys), then hit the gun: <em>unwind</em> the old wheel, line up the
+        fresh one as it rolls in, and <em>wind</em> it on. Four tyres against
+        the stopwatch. Fire the gun off-centre and you cross-thread the
+        nut — stop over.</p>
+    </section>
+
+    <footer class="page-footer">Box box box!</footer>
+  </main>
+
+  <script type="module" src="scripts/page-pitstop.js"></script>
+</body>
+
+</html>
