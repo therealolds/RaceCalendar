@@ -38,6 +38,10 @@
       <div class="dash" aria-hidden="true">
         <svg class="dash__speedo" id="speedo" viewBox="0 0 100 74"></svg>
         <div class="dash__odo"><span id="odo">0000.0</span> km</div>
+        <div class="dash__brake" id="brake-gauge">
+          <span class="dash__brake-label">freni</span>
+          <span class="dash__brake-track"><span class="dash__brake-fill" id="brake-fill"></span></span>
+        </div>
       </div>
       <button class="drive-btn" id="steer-right" type="button" aria-label="Steer right">▶</button>
     </div>
@@ -45,7 +49,10 @@
     <section class="drive-help">
       <p>The car drives itself — and keeps getting faster. Hold the buttons
         (or the arrow keys) to steer, stay on the road, and slip past the
-        slower cars — but not on the oil. Distance is your score.</p>
+        slower cars — but not on the oil. Squeeze both together — or hold
+        the dashboard — to brake, but mind the <em>freni</em> gauge: drag
+        the drums too long and they overheat, and you'll have no brakes
+        until they cool. Distance is your score.</p>
     </section>
 
     <footer class="page-footer">Open roads, no speed limits — it’s 1955.</footer>
