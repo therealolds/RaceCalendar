@@ -1354,6 +1354,63 @@ details.past-fold:not([open]) { border-bottom: none; }
 }
 
 /* ------------------------------------------------------------
+   10d. Pit Stop game
+   Dark garage canvas; the wheel gun sits bottom-left like the
+   real thing, stopwatch pinned top-right.
+   ------------------------------------------------------------ */
+.pit-canvas {
+  height: min(56vh, 440px);
+  cursor: grab;
+}
+
+.pit-canvas:active { cursor: grabbing; }
+
+.pit-clock {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 2px 9px;
+  background: rgba(20, 17, 11, 0.75);
+  border: 1px solid #3b382e;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fdfcf8;
+  pointer-events: none;
+}
+
+.pit-cluster {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.pit-gun {
+  min-height: 64px;
+  padding-inline: 22px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.pit-gun:disabled { opacity: 0.45; }
+
+.pit-status {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------
    11. More page (menu)
    ------------------------------------------------------------ */
 .menu-list {
