@@ -35,16 +35,24 @@
     </div>
 
     <div class="pit-cluster">
-      <button class="drive-btn pit-gun" id="gun" type="button">↺ Unwind</button>
+      <button class="drive-btn pit-gun" id="gun-unwind" type="button">↺ Unwind</button>
+      <button class="drive-btn pit-gun" id="gun-wind" type="button">↻ Wind</button>
       <div class="pit-status" id="pit-status" aria-live="polite">Tyre 1/4</div>
+    </div>
+
+    <div class="seg pit-mode" id="pit-mode" data-active="0" role="group" aria-label="Difficulty">
+      <span class="seg__thumb"></span>
+      <button class="seg__btn is-active" type="button" data-mode="amateur" aria-pressed="true">Amateur</button>
+      <button class="seg__btn" type="button" data-mode="pro" aria-pressed="false">Pro</button>
     </div>
 
     <section class="drive-help">
       <p>Drag the alignment ring over the wheel (or nudge it with the arrow
-        keys), then hit the gun: <em>unwind</em> the old wheel, line up the
-        fresh one as it rolls in, and <em>wind</em> it on. Four tyres against
-        the stopwatch. Fire the gun off-centre and you cross-thread the
-        nut — stop over.</p>
+        keys), then hit the right gun — <em>unwind</em> (or Z) takes the old
+        wheel off, <em>wind</em> (or X) locks the fresh one on. Four tyres
+        against the stopwatch. Fire off-centre and you cross-thread the nut;
+        grab the wrong gun and the stop is ruined too. Pro crews get a third
+        of the amateur tolerance.</p>
     </section>
 
     <footer class="page-footer">Box box box!</footer>
