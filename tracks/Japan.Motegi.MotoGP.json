@@ -1,0 +1,10 @@
+{
+    "id": "Japan.Motegi.MotoGP",
+    "name": "Mobility Resort Motegi",
+    "location": {
+        "city": "Motegi",
+        "country": "Japan",
+        "circuit": "Mobility Resort Motegi",
+        "timezone": "Asia/Tokyo"
+    }
+}

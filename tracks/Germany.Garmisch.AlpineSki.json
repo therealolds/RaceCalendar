@@ -1,0 +1,10 @@
+{
+    "id": "Germany.Garmisch.AlpineSki",
+    "name": "Kandahar",
+    "location": {
+        "city": "Garmisch-Partenkirchen",
+        "country": "Germany",
+        "circuit": "Kandahar",
+        "timezone": "Europe/Berlin"
+    }
+}

@@ -1,0 +1,486 @@
+{
+  "championship": "FIS Alpine Ski World Cup 2026/27",
+  "races": [
+    {
+      "idtrack": "Austria.Soelden.AlpineSki",
+      "name": "Sölden — season opener",
+      "startDate": "2026-10-24",
+      "date": "2026-10-25",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2026-10-24", "time": "" },
+          { "name": "Giant Slalom — Men", "date": "2026-10-25", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Finland.Levi.AlpineSki",
+      "name": "Levi",
+      "startDate": "2026-11-14",
+      "date": "2026-11-15",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Slalom — Women", "date": "2026-11-14", "time": "" },
+          { "name": "Slalom — Men", "date": "2026-11-15", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Gurgl.AlpineSki",
+      "name": "Gurgl",
+      "startDate": "2026-11-21",
+      "date": "2026-11-22",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Slalom — Women", "date": "2026-11-21", "time": "" },
+          { "name": "Slalom — Men", "date": "2026-11-22", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Copper_Mountain.AlpineSki",
+      "name": "Copper Mountain (men)",
+      "startDate": "2026-11-28",
+      "date": "2026-11-29",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Men", "date": "2026-11-28", "time": "" },
+          { "name": "Giant Slalom — Men", "date": "2026-11-29", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Killington.AlpineSki",
+      "name": "Killington (women)",
+      "startDate": "2026-11-28",
+      "date": "2026-11-29",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2026-11-28", "time": "" },
+          { "name": "Slalom — Women", "date": "2026-11-29", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Beaver_Creek.AlpineSki",
+      "name": "Beaver Creek — Birds of Prey (men)",
+      "startDate": "2026-12-03",
+      "date": "2026-12-06",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Men", "date": "2026-12-03", "time": "" },
+          { "name": "Downhill — Men", "date": "2026-12-04", "time": "" },
+          { "name": "Super-G — Men", "date": "2026-12-05", "time": "" },
+          { "name": "Giant Slalom — Men", "date": "2026-12-06", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Canada.Tremblant.AlpineSki",
+      "name": "Mont-Tremblant (women)",
+      "startDate": "2026-12-05",
+      "date": "2026-12-06",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2026-12-05", "time": "" },
+          { "name": "Giant Slalom — Women", "date": "2026-12-06", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Beaver_Creek.AlpineSki",
+      "name": "Beaver Creek (women)",
+      "startDate": "2026-12-11",
+      "date": "2026-12-13",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Women", "date": "2026-12-11", "time": "" },
+          { "name": "Downhill — Women", "date": "2026-12-12", "time": "" },
+          { "name": "Super-G — Women", "date": "2026-12-13", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "France.Val_d_Isere.AlpineSki",
+      "name": "Val d'Isère (men)",
+      "startDate": "2026-12-12",
+      "date": "2026-12-13",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men", "date": "2026-12-12", "time": "" },
+          { "name": "Slalom — Men", "date": "2026-12-13", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Val_Gardena.AlpineSki",
+      "name": "Val Gardena — Saslong (men)",
+      "startDate": "2026-12-18",
+      "date": "2026-12-19",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Men", "date": "2026-12-18", "time": "" },
+          { "name": "Downhill — Men", "date": "2026-12-19", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Switzerland.St_Moritz.AlpineSki",
+      "name": "St. Moritz (women)",
+      "startDate": "2026-12-18",
+      "date": "2026-12-20",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Women", "date": "2026-12-18", "time": "" },
+          { "name": "Super-G — Women", "date": "2026-12-19", "time": "" },
+          { "name": "Giant Slalom — Women", "date": "2026-12-20", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Alta_Badia.AlpineSki",
+      "name": "Alta Badia (men)",
+      "startDate": "2026-12-20",
+      "date": "2026-12-21",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men", "date": "2026-12-20", "time": "" },
+          { "name": "Slalom — Men (night)", "date": "2026-12-21", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "France.Courchevel.AlpineSki",
+      "name": "Courchevel (women)",
+      "date": "2026-12-22",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Slalom — Women", "date": "2026-12-22", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Madonna_di_Campiglio.AlpineSki",
+      "name": "Madonna di Campiglio — 3Tre (men)",
+      "date": "2026-12-23",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Slalom — Men (night)", "date": "2026-12-23", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Gosau.AlpineSki",
+      "name": "Gosau (women)",
+      "startDate": "2026-12-28",
+      "date": "2026-12-29",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2026-12-28", "time": "" },
+          { "name": "Slalom — Women", "date": "2026-12-29", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Bormio.AlpineSki",
+      "name": "Bormio — Stelvio (men)",
+      "startDate": "2026-12-28",
+      "date": "2026-12-29",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Men", "date": "2026-12-28", "time": "" },
+          { "name": "Super-G — Men", "date": "2026-12-29", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Slovenia.Kranjska_Gora.AlpineSki",
+      "name": "Kranjska Gora (men)",
+      "startDate": "2027-01-02",
+      "date": "2027-01-03",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men", "date": "2027-01-02", "time": "" },
+          { "name": "Slalom — Men", "date": "2027-01-03", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Flachau.AlpineSki",
+      "name": "Flachau (women)",
+      "startDate": "2027-01-04",
+      "date": "2027-01-05",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women (night)", "date": "2027-01-04", "time": "" },
+          { "name": "Slalom — Women (night)", "date": "2027-01-05", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Val_di_Fassa.AlpineSki",
+      "name": "Val di Fassa (women)",
+      "startDate": "2027-01-09",
+      "date": "2027-01-10",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Women", "date": "2027-01-09", "time": "" },
+          { "name": "Super-G — Women", "date": "2027-01-10", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Switzerland.Adelboden.AlpineSki",
+      "name": "Adelboden — Chuenisbärgli (men)",
+      "startDate": "2027-01-09",
+      "date": "2027-01-10",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men", "date": "2027-01-09", "time": "" },
+          { "name": "Slalom — Men", "date": "2027-01-10", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Cortina_d_Ampezzo.AlpineSki",
+      "name": "Cortina d'Ampezzo (women)",
+      "startDate": "2027-01-15",
+      "date": "2027-01-17",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Women", "date": "2027-01-15", "time": "" },
+          { "name": "Downhill — Women", "date": "2027-01-16", "time": "" },
+          { "name": "Super-G — Women", "date": "2027-01-17", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Switzerland.Wengen.AlpineSki",
+      "name": "Wengen — Lauberhorn (men)",
+      "startDate": "2027-01-15",
+      "date": "2027-01-17",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Men", "date": "2027-01-15", "time": "" },
+          { "name": "Downhill — Men", "date": "2027-01-16", "time": "" },
+          { "name": "Slalom — Men", "date": "2027-01-17", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Kronplatz.AlpineSki",
+      "name": "Kronplatz (women)",
+      "date": "2027-01-19",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2027-01-19", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Kitzbuehel.AlpineSki",
+      "name": "Kitzbühel — Hahnenkamm (men)",
+      "startDate": "2027-01-22",
+      "date": "2027-01-24",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Men", "date": "2027-01-22", "time": "" },
+          { "name": "Downhill — Men (Streif)", "date": "2027-01-23", "time": "" },
+          { "name": "Slalom — Men", "date": "2027-01-24", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Slovakia.Jasna.AlpineSki",
+      "name": "Jasná (women)",
+      "startDate": "2027-01-23",
+      "date": "2027-01-24",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2027-01-23", "time": "" },
+          { "name": "Slalom — Women", "date": "2027-01-24", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Schladming.AlpineSki",
+      "name": "Schladming — Nightrace (men)",
+      "startDate": "2027-01-26",
+      "date": "2027-01-27",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men (night)", "date": "2027-01-26", "time": "" },
+          { "name": "Slalom — Men (night)", "date": "2027-01-27", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Slovenia.Kranjska_Gora.AlpineSki",
+      "name": "Kranjska Gora (women)",
+      "startDate": "2027-01-29",
+      "date": "2027-01-30",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2027-01-29", "time": "" },
+          { "name": "Slalom — Women", "date": "2027-01-30", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "France.Chamonix.AlpineSki",
+      "name": "Chamonix (men)",
+      "date": "2027-01-30",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Slalom — Men", "date": "2027-01-30", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Switzerland.Crans_Montana.AlpineSki",
+      "name": "FIS Alpine World Ski Championships — Crans-Montana",
+      "startDate": "2027-02-01",
+      "date": "2027-02-14",
+      "time": ""
+    },
+    {
+      "idtrack": "Germany.Garmisch.AlpineSki",
+      "name": "Garmisch-Partenkirchen — Kandahar (men)",
+      "startDate": "2027-02-20",
+      "date": "2027-02-21",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Men", "date": "2027-02-20", "time": "" },
+          { "name": "Super-G — Men", "date": "2027-02-21", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Switzerland.Lenzerheide.AlpineSki",
+      "name": "Lenzerheide (women)",
+      "startDate": "2027-02-20",
+      "date": "2027-02-21",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Super-G — Women", "date": "2027-02-20", "time": "" },
+          { "name": "Super-G — Women", "date": "2027-02-21", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Austria.Saalbach.AlpineSki",
+      "name": "Saalbach (men)",
+      "startDate": "2027-02-27",
+      "date": "2027-02-28",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Men", "date": "2027-02-27", "time": "" },
+          { "name": "Super-G — Men", "date": "2027-02-28", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Germany.Garmisch.AlpineSki",
+      "name": "Garmisch-Partenkirchen (women)",
+      "startDate": "2027-02-27",
+      "date": "2027-02-28",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Women", "date": "2027-02-27", "time": "" },
+          { "name": "Downhill — Women", "date": "2027-02-28", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Norway.Kvitfjell.AlpineSki",
+      "name": "Kvitfjell (men)",
+      "startDate": "2027-03-06",
+      "date": "2027-03-07",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Men", "date": "2027-03-06", "time": "" },
+          { "name": "Super-G — Men", "date": "2027-03-07", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Andorra.Soldeu.AlpineSki",
+      "name": "Soldeu (women)",
+      "startDate": "2027-03-06",
+      "date": "2027-03-07",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Women", "date": "2027-03-06", "time": "" },
+          { "name": "Slalom — Women", "date": "2027-03-07", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Norway.Narvik.AlpineSki",
+      "name": "Narvik (women)",
+      "startDate": "2027-03-12",
+      "date": "2027-03-13",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Downhill — Women", "date": "2027-03-12", "time": "" },
+          { "name": "Super-G — Women", "date": "2027-03-13", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Sweden.Aare.AlpineSki",
+      "name": "Åre (men)",
+      "startDate": "2027-03-13",
+      "date": "2027-03-14",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Giant Slalom — Men", "date": "2027-03-13", "time": "" },
+          { "name": "Slalom — Men", "date": "2027-03-14", "time": "" }
+        ]
+      }
+    },
+    {
+      "idtrack": "USA.Sun_Valley.AlpineSki",
+      "name": "World Cup Finals — Sun Valley",
+      "startDate": "2027-03-20",
+      "date": "2027-03-25",
+      "time": ""
+    }
+  ]
+}

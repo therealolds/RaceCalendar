@@ -1,0 +1,18 @@
+{
+  "championship": "IRONMAN Italy Emilia-Romagna",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Italy.Cervia.IRONMAN",
+      "name": "IRONMAN Italy Emilia-Romagna",
+      "date": "2026-09-20",
+      "time": "07:30",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "IRONMAN 70.3 Italy Emilia-Romagna", "date": "2026-09-19", "time": "" },
+          { "name": "IRONMAN Italy (full distance)", "date": "2026-09-20", "time": "07:30" }
+        ]
+      }
+    }
+  ]
+}

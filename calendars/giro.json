@@ -1,0 +1,13 @@
+{
+  "championship": "Giro d'Italia",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Giro.2026",
+      "name": "Giro d'Italia",
+      "startDate": "2026-05-08",
+      "date": "2026-05-31",
+      "time": ""
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+    "id": "Germany.Sachsenring.MotoGP",
+    "name": "Sachsenring",
+    "location": {
+        "city": "Hohenstein-Ernstthal",
+        "country": "Germany",
+        "circuit": "Sachsenring",
+        "timezone": "Europe/Berlin"
+    }
+}

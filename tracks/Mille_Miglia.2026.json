@@ -1,0 +1,10 @@
+{
+    "id": "Mille_Miglia.2026",
+    "name": "1000 Miglia 2026 route",
+    "location": {
+        "city": "Brescia → Rome → Brescia",
+        "country": "Italy",
+        "circuit": "1000 Miglia 2026 route",
+        "timezone": "Europe/Rome"
+    }
+}

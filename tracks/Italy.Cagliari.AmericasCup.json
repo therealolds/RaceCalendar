@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Cagliari.AmericasCup",
+    "name": "Gulf of Cagliari",
+    "location": {
+        "city": "Cagliari",
+        "country": "Italy",
+        "circuit": "Gulf of Cagliari race course",
+        "timezone": "Europe/Rome"
+    }
+}

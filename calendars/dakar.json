@@ -1,10 +1,11 @@
 {
   "championship": "Dakar",
+  "year": 2026,
   "races": [
     {
       "name": "Dakar",
       "date": "2026-01-16",
-      "starDate": "2026-01-03",
+      "startDate": "2026-01-03",
       "time": "",
       "idtrack": "Dakar.2026",
       "additionalInfo": {

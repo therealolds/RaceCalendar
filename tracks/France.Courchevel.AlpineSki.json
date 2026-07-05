@@ -1,0 +1,10 @@
+{
+    "id": "France.Courchevel.AlpineSki",
+    "name": "Stade Emile Allais",
+    "location": {
+        "city": "Courchevel",
+        "country": "France",
+        "circuit": "Stade Emile Allais",
+        "timezone": "Europe/Paris"
+    }
+}

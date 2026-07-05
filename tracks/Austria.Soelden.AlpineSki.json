@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Soelden.AlpineSki",
+    "name": "Rettenbach Glacier",
+    "location": {
+        "city": "Sölden",
+        "country": "Austria",
+        "circuit": "Rettenbach Glacier",
+        "timezone": "Europe/Vienna"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "id": "USA.Copper_Mountain.AlpineSki",
+    "name": "Copper Mountain",
+    "location": {
+        "city": "Copper Mountain, Colorado",
+        "country": "USA",
+        "circuit": "Copper Mountain",
+        "timezone": "America/Denver"
+    }
+}

@@ -90,6 +90,12 @@
     "answer": "Sébastien Loeb, from 2004 to 2012, all with Citroën."
   },
   {
+    "id": "MM.3",
+    "tag": "motorsport",
+    "question": "What is the 1000 Miglia today?",
+    "answer": "Since 1977 it has run as a historic regularity race, open only to car models that took part in the original 1927–1957 editions. Around 400 classics still cover the Brescia–Rome–Brescia route every year — Enzo Ferrari called it 'the most beautiful race in the world'."
+  },
+  {
     "id": "AmericasCup.1",
     "tag": "nautical",
     "question": "What is the America's Cup trophy commonly called?",
@@ -142,5 +148,155 @@
     "tag": "nautical",
     "question": "How fast is one knot?",
     "answer": "One nautical mile per hour — about 1.852 km/h. The name comes from the knotted rope sailors once paid out to measure speed."
+  },
+  {
+    "id": "Giro.1",
+    "tag": "cycling",
+    "question": "Why is the Giro d'Italia leader's jersey pink?",
+    "answer": "The maglia rosa matches the pink pages of La Gazzetta dello Sport, the newspaper that created the race. The jersey was introduced in 1931."
+  },
+  {
+    "id": "Giro.2",
+    "tag": "cycling",
+    "question": "When was the first Giro d'Italia held?",
+    "answer": "In 1909, organised by La Gazzetta dello Sport to boost its circulation. Luigi Ganna won the first edition."
+  },
+  {
+    "id": "Giro.3",
+    "tag": "cycling",
+    "question": "Who shares the record for most Giro d'Italia overall wins?",
+    "answer": "Alfredo Binda, Fausto Coppi and Eddy Merckx — five victories each."
+  },
+  {
+    "id": "TdF.1",
+    "tag": "cycling",
+    "question": "Why was the Tour de France created in 1903?",
+    "answer": "To sell newspapers: the sports daily L'Auto launched the race to beat its rival Le Vélo. It worked — circulation soared and the Tour became the biggest annual sporting event in the world."
+  },
+  {
+    "id": "TdF.2",
+    "tag": "cycling",
+    "question": "Why is the Tour de France leader's jersey yellow?",
+    "answer": "It matched the yellow paper that L'Auto, the organising newspaper, was printed on. The maillot jaune first appeared in 1919."
+  },
+  {
+    "id": "TdF.3",
+    "tag": "cycling",
+    "question": "Who shares the record of five Tour de France wins?",
+    "answer": "Jacques Anquetil, Eddy Merckx, Bernard Hinault and Miguel Induráin. Lance Armstrong's seven wins were struck from the record books for doping."
+  },
+  {
+    "id": "TdF.4",
+    "tag": "cycling",
+    "question": "What is the 'lanterne rouge'?",
+    "answer": "The last rider in the Tour's general classification — named after the red lantern once hung on the last carriage of a train. Finishing last in Paris carries its own cult prestige."
+  },
+  {
+    "id": "Cycling.1",
+    "tag": "cycling",
+    "question": "What are the three Grand Tours of cycling?",
+    "answer": "The Giro d'Italia (May), the Tour de France (July) and the Vuelta a España (late summer) — each is a three-week stage race, and winning all three in a career is one of cycling's rarest feats."
+  },
+  {
+    "id": "Ironman.1",
+    "tag": "athletic",
+    "question": "What are the distances of a full IRONMAN triathlon?",
+    "answer": "A 3.8 km swim, 180 km on the bike, then a full 42.2 km marathon — done back-to-back with the clock never stopping."
+  },
+  {
+    "id": "Ironman.2",
+    "tag": "athletic",
+    "question": "How did the IRONMAN triathlon begin?",
+    "answer": "In Hawaii in 1978, to settle a debate over whether swimmers, cyclists or runners were the fittest athletes. Fifteen men started; the deal was 'whoever finishes first, we'll call him the Iron Man'. Gordon Haller won."
+  },
+  {
+    "id": "Norseman.1",
+    "tag": "athletic",
+    "question": "How does the Norseman Xtreme Triathlon start?",
+    "answer": "Around 5 a.m., athletes jump four metres off the deck of a car ferry into the cold water of the Hardangerfjord in Eidfjord, Norway."
+  },
+  {
+    "id": "Norseman.2",
+    "tag": "athletic",
+    "question": "What do the black and white finisher shirts mean at Norseman?",
+    "answer": "Only the leading athletes are allowed to finish on top of the Gaustatoppen mountain (about 1,880 m) and earn the coveted black t-shirt; everyone else finishes on the lower plateau and gets a white one."
+  },
+  {
+    "id": "Marathon.1",
+    "tag": "athletic",
+    "question": "Why is a marathon exactly 42.195 km?",
+    "answer": "At the 1908 London Olympics the course was stretched so it could start at Windsor Castle and finish in front of the royal box in the stadium. That odd distance later became the official standard."
+  },
+  {
+    "id": "Palio.1",
+    "tag": "equestrian",
+    "question": "How long does the Palio di Siena actually last?",
+    "answer": "About 90 seconds — three laps of the Piazza del Campo, ridden bareback. Four days of trials, pageantry and rivalry build up to it."
+  },
+  {
+    "id": "Palio.2",
+    "tag": "equestrian",
+    "question": "What are the contrade of Siena?",
+    "answer": "The 17 historic city districts — each with its own name, colours and animal symbol — that compete in the Palio. Only 10 run in each race: the 7 that sat out the previous year plus 3 drawn by lot."
+  },
+  {
+    "id": "Palio.3",
+    "tag": "equestrian",
+    "question": "Can a horse win the Palio without its jockey?",
+    "answer": "Yes. A 'cavallo scosso' — a horse that has thrown its rider — still wins for its contrada if it crosses the line first. It is the horse that matters, not the jockey."
+  },
+  {
+    "id": "Palio.4",
+    "tag": "equestrian",
+    "question": "How many times a year is the Palio di Siena run?",
+    "answer": "Twice: on 2 July (Palio della Madonna di Provenzano) and 16 August (Palio dell'Assunta). It has been run in Piazza del Campo since the 17th century."
+  },
+  {
+    "id": "Ski.1",
+    "tag": "skiing",
+    "question": "What are the four disciplines of the Alpine Ski World Cup?",
+    "answer": "Two speed events — Downhill and Super-G, one run against the clock — and two technical events — Giant Slalom and Slalom, decided over two runs with tighter gates. Slalom has the tightest turns; downhill the highest speeds, up to 160 km/h."
+  },
+  {
+    "id": "Ski.2",
+    "tag": "skiing",
+    "question": "What do World Cup skiers race for over the season?",
+    "answer": "The large Crystal Globe, awarded to the men's and women's overall points leaders across all disciplines, plus small Crystal Globes for the best skier in each single discipline."
+  },
+  {
+    "id": "Ski.3",
+    "tag": "skiing",
+    "question": "What is the Streif?",
+    "answer": "The legendary Hahnenkamm downhill course in Kitzbühel, Austria — widely considered the most dangerous and prestigious race in alpine skiing, with the Mausefalle jump and the Hausbergkante among its feared sections."
+  },
+  {
+    "id": "Ski.4",
+    "tag": "skiing",
+    "question": "Which is the longest downhill on the World Cup calendar?",
+    "answer": "The Lauberhorn in Wengen, Switzerland — about 4.5 km, with racers on course for two and a half minutes, roughly a minute longer than a typical downhill."
+  },
+  {
+    "id": "Ski.5",
+    "tag": "skiing",
+    "question": "Who was the first skier to reach 100 World Cup race wins?",
+    "answer": "Mikaela Shiffrin, in 2025 — breaking the record of 86 wins held for over 30 years by Ingemar Stenmark, who took all of his victories in slalom and giant slalom alone."
+  },
+  {
+    "id": "Ski.6",
+    "tag": "skiing",
+    "question": "Who won the most consecutive overall World Cup titles?",
+    "answer": "Marcel Hirscher of Austria, with eight overall Crystal Globes in a row from 2012 to 2019 — a run no other skier, man or woman, has matched."
+  },
+  {
+    "id": "Ski.7",
+    "tag": "skiing",
+    "question": "When and how did the Alpine Ski World Cup begin?",
+    "answer": "The first season was 1966/67, created by journalist Serge Lang with race directors from France and the USA — inspired by football's World Cup, linking the season's races into one championship."
+  },
+  {
+    "id": "Ski.8",
+    "tag": "skiing",
+    "question": "Where does the World Cup season traditionally open?",
+    "answer": "On the Rettenbach glacier above Sölden, Austria, with giant slaloms in late October — the altitude guarantees snow before winter reaches the rest of the Alps."
   }
 ]

@@ -1,0 +1,10 @@
+{
+    "id": "Spain.Ricardo_Tormo.MotoGP",
+    "name": "Circuit Ricardo Tormo",
+    "location": {
+        "city": "Valencia",
+        "country": "Spain",
+        "circuit": "Circuit Ricardo Tormo",
+        "timezone": "Europe/Madrid"
+    }
+}

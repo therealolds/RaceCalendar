@@ -1,0 +1,10 @@
+{
+    "id": "Switzerland.St_Moritz.AlpineSki",
+    "name": "Corviglia",
+    "location": {
+        "city": "St. Moritz",
+        "country": "Switzerland",
+        "circuit": "Corviglia",
+        "timezone": "Europe/Zurich"
+    }
+}

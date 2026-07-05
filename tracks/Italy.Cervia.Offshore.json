@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Cervia.Offshore",
+    "name": "Cervia — Milano Marittima",
+    "location": {
+        "city": "Cervia",
+        "country": "Italy",
+        "circuit": "Porto di Cervia offshore course",
+        "timezone": "Europe/Rome"
+    }
+}

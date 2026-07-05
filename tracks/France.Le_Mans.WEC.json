@@ -1,0 +1,10 @@
+{
+    "id": "France.Le_Mans.WEC",
+    "name": "Circuit de la Sarthe",
+    "location": {
+        "city": "Le Mans",
+        "country": "France",
+        "circuit": "Circuit de la Sarthe",
+        "timezone": "Europe/Paris"
+    }
+}

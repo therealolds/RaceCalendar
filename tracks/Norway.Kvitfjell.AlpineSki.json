@@ -1,0 +1,10 @@
+{
+    "id": "Norway.Kvitfjell.AlpineSki",
+    "name": "Olympiabakken",
+    "location": {
+        "city": "Kvitfjell",
+        "country": "Norway",
+        "circuit": "Olympiabakken",
+        "timezone": "Europe/Oslo"
+    }
+}

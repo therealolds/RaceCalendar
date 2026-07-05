@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Gosau.AlpineSki",
+    "name": "Gosau",
+    "location": {
+        "city": "Gosau",
+        "country": "Austria",
+        "circuit": "Gosau",
+        "timezone": "Europe/Vienna"
+    }
+}

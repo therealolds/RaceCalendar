@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Val_Gardena.AlpineSki",
+    "name": "Saslong",
+    "location": {
+        "city": "Val Gardena",
+        "country": "Italy",
+        "circuit": "Saslong",
+        "timezone": "Europe/Rome"
+    }
+}

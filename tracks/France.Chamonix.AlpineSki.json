@@ -1,0 +1,10 @@
+{
+    "id": "France.Chamonix.AlpineSki",
+    "name": "Les Houches",
+    "location": {
+        "city": "Chamonix",
+        "country": "France",
+        "circuit": "Les Houches",
+        "timezone": "Europe/Paris"
+    }
+}

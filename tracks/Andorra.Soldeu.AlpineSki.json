@@ -1,0 +1,10 @@
+{
+    "id": "Andorra.Soldeu.AlpineSki",
+    "name": "Avet",
+    "location": {
+        "city": "Soldeu",
+        "country": "Andorra",
+        "circuit": "Avet",
+        "timezone": "Europe/Andorra"
+    }
+}

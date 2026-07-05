@@ -1,17 +1,13 @@
 {
-  "championship": "gp_offshore",
+  "championship": "Grand Prix Offshore Città di Cervia",
+  "year": 2026,
   "races": [
     {
-      "name": "Preliminary Regatta 1",
-      "date": "2026-11-02",
-      "time": "12:00",
-      "idtrack": "",
-      "additionalInfo": {
-        "sessions": [
-          { "name": "Practice", "date": "2026-05-08", "time": "12:00" },
-          { "name": "Racing", "date": "2026-11-02", "time": "12:00" }
-        ]
-      }
+      "idtrack": "Italy.Cervia.Offshore",
+      "name": "Grand Prix Offshore Città di Cervia",
+      "startDate": "2026-09-04",
+      "date": "2026-09-06",
+      "time": ""
     }
   ]
 }

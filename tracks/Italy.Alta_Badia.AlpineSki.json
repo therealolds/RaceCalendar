@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Alta_Badia.AlpineSki",
+    "name": "Gran Risa",
+    "location": {
+        "city": "Alta Badia",
+        "country": "Italy",
+        "circuit": "Gran Risa",
+        "timezone": "Europe/Rome"
+    }
+}

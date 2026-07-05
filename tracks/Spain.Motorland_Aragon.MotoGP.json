@@ -1,0 +1,10 @@
+{
+    "id": "Spain.Motorland_Aragon.MotoGP",
+    "name": "MotorLand Aragón",
+    "location": {
+        "city": "Alcañiz",
+        "country": "Spain",
+        "circuit": "MotorLand Aragón",
+        "timezone": "Europe/Madrid"
+    }
+}

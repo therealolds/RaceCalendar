@@ -1,0 +1,10 @@
+{
+    "id": "Sweden.Aare.AlpineSki",
+    "name": "Störtloppsbanan",
+    "location": {
+        "city": "Åre",
+        "country": "Sweden",
+        "circuit": "Störtloppsbanan",
+        "timezone": "Europe/Stockholm"
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "championship": "1000 Miglia",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Mille_Miglia.2026",
+      "name": "1000 Miglia",
+      "startDate": "2026-06-09",
+      "date": "2026-06-13",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Stage 1", "date": "2026-06-09", "time": "" },
+          { "name": "Stage 2 (Modena lunch stop)", "date": "2026-06-10", "time": "" },
+          { "name": "Stage 3 (Rome)", "date": "2026-06-11", "time": "" },
+          { "name": "Stage 4", "date": "2026-06-12", "time": "" },
+          { "name": "Stage 5 (finish in Brescia)", "date": "2026-06-13", "time": "" }
+        ]
+      }
+    }
+  ]
+}

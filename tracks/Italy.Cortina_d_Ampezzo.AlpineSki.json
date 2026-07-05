@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Cortina_d_Ampezzo.AlpineSki",
+    "name": "Olympia delle Tofane",
+    "location": {
+        "city": "Cortina d'Ampezzo",
+        "country": "Italy",
+        "circuit": "Olympia delle Tofane",
+        "timezone": "Europe/Rome"
+    }
+}

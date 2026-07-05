@@ -1,0 +1,10 @@
+{
+    "id": "Australia.Phillip_Island.MotoGP",
+    "name": "Phillip Island Grand Prix Circuit",
+    "location": {
+        "city": "Phillip Island",
+        "country": "Australia",
+        "circuit": "Phillip Island Grand Prix Circuit",
+        "timezone": "Australia/Melbourne"
+    }
+}

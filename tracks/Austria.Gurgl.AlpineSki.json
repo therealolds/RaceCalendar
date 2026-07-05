@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Gurgl.AlpineSki",
+    "name": "Kirchenkar",
+    "location": {
+        "city": "Gurgl",
+        "country": "Austria",
+        "circuit": "Kirchenkar",
+        "timezone": "Europe/Vienna"
+    }
+}

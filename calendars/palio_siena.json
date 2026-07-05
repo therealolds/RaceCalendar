@@ -1,0 +1,18 @@
+{
+  "championship": "Palio di Siena",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Italy.Siena.Palio",
+      "name": "Palio della Madonna di Provenzano",
+      "date": "2026-07-02",
+      "time": "19:30"
+    },
+    {
+      "idtrack": "Italy.Siena.Palio",
+      "name": "Palio dell'Assunta",
+      "date": "2026-08-16",
+      "time": "19:00"
+    }
+  ]
+}
