@@ -6,10 +6,14 @@ import { initShell, el, escapeHtml } from './ui.js';
 
 const TAG_LABELS = {
   motorsport: 'Motorsport',
-  nautical: 'Sailing & Nautical'
+  nautical: 'Sailing & Nautical',
+  cycling: 'Cycling',
+  athletic: 'Athletics & Endurance',
+  equestrian: 'Equestrian',
+  skiing: 'Skiing'
 };
 
-const TAG_ORDER = ['motorsport', 'nautical'];
+const TAG_ORDER = ['motorsport', 'nautical', 'cycling', 'athletic', 'equestrian', 'skiing'];
 
 function titleize(tag) {
   return String(tag || 'Other')

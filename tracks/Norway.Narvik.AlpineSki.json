@@ -1,0 +1,10 @@
+{
+    "id": "Norway.Narvik.AlpineSki",
+    "name": "Narviksfjellet",
+    "location": {
+        "city": "Narvik",
+        "country": "Norway",
+        "circuit": "Narviksfjellet",
+        "timezone": "Europe/Oslo"
+    }
+}

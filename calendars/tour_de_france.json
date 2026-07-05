@@ -1,0 +1,13 @@
+{
+  "championship": "Tour de France",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Tour_de_France.2026",
+      "name": "Tour de France",
+      "startDate": "2026-07-04",
+      "date": "2026-07-26",
+      "time": ""
+    }
+  ]
+}

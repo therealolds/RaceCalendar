@@ -1,0 +1,10 @@
+{
+    "id": "USA.Sun_Valley.AlpineSki",
+    "name": "Bald Mountain",
+    "location": {
+        "city": "Sun Valley, Idaho",
+        "country": "USA",
+        "circuit": "Bald Mountain",
+        "timezone": "America/Boise"
+    }
+}

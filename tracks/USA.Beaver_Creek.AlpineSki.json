@@ -1,0 +1,10 @@
+{
+    "id": "USA.Beaver_Creek.AlpineSki",
+    "name": "Birds of Prey",
+    "location": {
+        "city": "Beaver Creek, Colorado",
+        "country": "USA",
+        "circuit": "Birds of Prey",
+        "timezone": "America/Denver"
+    }
+}

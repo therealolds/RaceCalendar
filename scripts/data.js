@@ -153,7 +153,7 @@ export function raceMainDateTime(race, timeZone) {
 }
 
 function isMultiDayRace(race, series) {
-  return Boolean((series && series.multiDay) || race.startDate || race.starDate);
+  return Boolean((series && series.multiDay) || race.startDate);
 }
 
 // Start/end instants of an event. Multi-day events (rallies, Dakar) use
@@ -168,8 +168,8 @@ export function getRaceRange(race, series, timeZone) {
   let startDt = null;
   let endDt = null;
 
-  if (race.startDate || race.starDate) {
-    startDt = parseEventDateTime(race.startDate || race.starDate, race.time, timeZone);
+  if (race.startDate) {
+    startDt = parseEventDateTime(race.startDate, race.time, timeZone);
   }
   if (race.date) {
     endDt = parseEventDateTime(race.date, race.time, timeZone);

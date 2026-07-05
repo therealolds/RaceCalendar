@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Naples.AmericasCup",
+    "name": "Bay of Naples",
+    "location": {
+        "city": "Naples",
+        "country": "Italy",
+        "circuit": "Bay of Naples race course",
+        "timezone": "Europe/Rome"
+    }
+}

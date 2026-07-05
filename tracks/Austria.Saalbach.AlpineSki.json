@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Saalbach.AlpineSki",
+    "name": "Zwölferkogel",
+    "location": {
+        "city": "Saalbach-Hinterglemm",
+        "country": "Austria",
+        "circuit": "Zwölferkogel",
+        "timezone": "Europe/Vienna"
+    }
+}

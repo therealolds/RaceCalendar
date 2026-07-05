@@ -1,17 +1,25 @@
 {
-  "championship": "America's Cup",
+  "championship": "38th America's Cup",
   "races": [
     {
-      "name": "Preliminary Regatta 1",
-      "date": "2025-11-24",
-      "time": "12:00",
-      "idtrack": "",
-      "additionalInfo": {
-        "sessions": [
-          { "name": "Practice", "date": "2025-05-08", "time": "12:00" },
-          { "name": "Racing", "date": "2025-11-02", "time": "12:00" }
-        ]
-      }
+      "idtrack": "Italy.Cagliari.AmericasCup",
+      "name": "Preliminary Regatta — Cagliari",
+      "startDate": "2026-05-21",
+      "date": "2026-05-24",
+      "time": ""
+    },
+    {
+      "idtrack": "Italy.Naples.AmericasCup",
+      "name": "Preliminary Regatta — Naples",
+      "startDate": "2026-09-24",
+      "date": "2026-09-27",
+      "time": ""
+    },
+    {
+      "idtrack": "Italy.Naples.AmericasCup",
+      "name": "Louis Vuitton 38th America's Cup Match (opening day)",
+      "date": "2027-07-10",
+      "time": ""
     }
   ]
 }

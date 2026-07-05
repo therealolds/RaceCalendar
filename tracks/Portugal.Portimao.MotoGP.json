@@ -1,0 +1,10 @@
+{
+    "id": "Portugal.Portimao.MotoGP",
+    "name": "Algarve International Circuit",
+    "location": {
+        "city": "Portimão",
+        "country": "Portugal",
+        "circuit": "Algarve International Circuit",
+        "timezone": "Europe/Lisbon"
+    }
+}

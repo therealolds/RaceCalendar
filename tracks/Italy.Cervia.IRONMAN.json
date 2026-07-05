@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Cervia.IRONMAN",
+    "name": "IRONMAN Italy Emilia-Romagna course",
+    "location": {
+        "city": "Cervia",
+        "country": "Italy",
+        "circuit": "Cervia – Milano Marittima – Bertinoro",
+        "timezone": "Europe/Rome"
+    }
+}

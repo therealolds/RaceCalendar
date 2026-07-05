@@ -1,0 +1,10 @@
+{
+    "id": "San_Marino.Misano.MotoGP",
+    "name": "Misano World Circuit Marco Simoncelli",
+    "location": {
+        "city": "Misano Adriatico",
+        "country": "Italy",
+        "circuit": "Misano World Circuit Marco Simoncelli",
+        "timezone": "Europe/Rome"
+    }
+}

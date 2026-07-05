@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Val_di_Fassa.AlpineSki",
+    "name": "La VolatA",
+    "location": {
+        "city": "Val di Fassa",
+        "country": "Italy",
+        "circuit": "La VolatA",
+        "timezone": "Europe/Rome"
+    }
+}

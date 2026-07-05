@@ -1,0 +1,10 @@
+{
+    "id": "Netherlands.Assen.MotoGP",
+    "name": "TT Circuit Assen",
+    "location": {
+        "city": "Assen",
+        "country": "Netherlands",
+        "circuit": "TT Circuit Assen",
+        "timezone": "Europe/Amsterdam"
+    }
+}

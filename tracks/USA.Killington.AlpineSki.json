@@ -1,0 +1,10 @@
+{
+    "id": "USA.Killington.AlpineSki",
+    "name": "Superstar",
+    "location": {
+        "city": "Killington, Vermont",
+        "country": "USA",
+        "circuit": "Superstar",
+        "timezone": "America/New_York"
+    }
+}

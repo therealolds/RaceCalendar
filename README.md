@@ -47,8 +47,8 @@ Calendar format (`calendars/<id>.json`):
 
 Notes:
 - `date`/`time` are **local to the track** (looked up from the track's `timezone`).
-- Multi-day events (rallies, Dakar) also set `"startDate"` (the legacy `"starDate"` typo
-  still works). Sessions/stages appear on the day they happen.
+- Multi-day events (rallies, Dakar) also set `"startDate"`. Sessions/stages appear on
+  the day they happen.
 - `time` may be empty (`""`) when unknown — the site then hides the time.
 - `idtrack` may be empty for events without a fixed venue.
 

@@ -1,0 +1,10 @@
+{
+    "id": "Malaysia.Sepang.MotoGP",
+    "name": "Petronas Sepang International Circuit",
+    "location": {
+        "city": "Sepang",
+        "country": "Malaysia",
+        "circuit": "Petronas Sepang International Circuit",
+        "timezone": "Asia/Kuala_Lumpur"
+    }
+}

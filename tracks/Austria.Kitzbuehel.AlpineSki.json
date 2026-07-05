@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Kitzbuehel.AlpineSki",
+    "name": "Streif / Ganslern",
+    "location": {
+        "city": "Kitzbühel",
+        "country": "Austria",
+        "circuit": "Streif / Ganslern",
+        "timezone": "Europe/Vienna"
+    }
+}

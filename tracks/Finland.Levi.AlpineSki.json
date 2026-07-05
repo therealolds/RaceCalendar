@@ -1,0 +1,10 @@
+{
+    "id": "Finland.Levi.AlpineSki",
+    "name": "Levi Black",
+    "location": {
+        "city": "Levi",
+        "country": "Finland",
+        "circuit": "Levi Black",
+        "timezone": "Europe/Helsinki"
+    }
+}

@@ -42,6 +42,7 @@
     {
       "idtrack": "Sweden.WRC",
       "name": "Rally Sweden",
+      "startDate": "2026-02-12",
       "date": "2026-02-15",
       "time": "",
       "additionalInfo": {
@@ -52,6 +53,7 @@
     {
       "idtrack": "Kenya.WRC",
       "name": "Safari Rally Kenya",
+      "startDate": "2026-03-12",
       "date": "2026-03-15",
       "time": "",
       "additionalInfo": {
@@ -62,6 +64,7 @@
     {
       "idtrack": "Croatia.WRC",
       "name": "Croatia Rally",
+      "startDate": "2026-04-09",
       "date": "2026-04-12",
       "time": "",
       "additionalInfo": {
@@ -72,6 +75,7 @@
     {
       "idtrack": "Spain.WRC",
       "name": "Rally Islas Canarias",
+      "startDate": "2026-04-23",
       "date": "2026-04-26",
       "time": "",
       "additionalInfo": {
@@ -82,6 +86,7 @@
     {
       "idtrack": "Portugal.WRC",
       "name": "Rally de Portugal",
+      "startDate": "2026-05-07",
       "date": "2026-05-10",
       "time": "",
       "additionalInfo": {
@@ -92,6 +97,7 @@
     {
       "idtrack": "Japan.WRC",
       "name": "Rally Japan",
+      "startDate": "2026-05-28",
       "date": "2026-05-31",
       "time": "",
       "additionalInfo": {
@@ -102,6 +108,7 @@
     {
       "idtrack": "Greece.WRC",
       "name": "Acropolis Rally Greece",
+      "startDate": "2026-06-25",
       "date": "2026-06-28",
       "time": "",
       "additionalInfo": {
@@ -112,6 +119,7 @@
     {
       "idtrack": "Estonia.WRC",
       "name": "Rally Estonia",
+      "startDate": "2026-07-16",
       "date": "2026-07-19",
       "time": "",
       "additionalInfo": {
@@ -122,6 +130,7 @@
     {
       "idtrack": "Finland.WRC",
       "name": "Rally Finland",
+      "startDate": "2026-07-30",
       "date": "2026-08-02",
       "time": "",
       "additionalInfo": {
@@ -132,6 +141,7 @@
     {
       "idtrack": "Paraguay.WRC",
       "name": "Rally del Paraguay",
+      "startDate": "2026-08-27",
       "date": "2026-08-30",
       "time": "",
       "additionalInfo": {
@@ -142,6 +152,7 @@
     {
       "idtrack": "Chile.WRC",
       "name": "Rally Chile",
+      "startDate": "2026-09-10",
       "date": "2026-09-13",
       "time": "",
       "additionalInfo": {
@@ -152,6 +163,7 @@
     {
       "idtrack": "Italia.WRC",
       "name": "Rally Italia Sardegna",
+      "startDate": "2026-10-01",
       "date": "2026-10-04",
       "time": "",
       "additionalInfo": {
@@ -162,6 +174,7 @@
     {
       "idtrack": "SaudiArabia.WRC",
       "name": "Rally Saudi Arabia",
+      "startDate": "2026-11-11",
       "date": "2026-11-14",
       "time": "",
       "additionalInfo": {

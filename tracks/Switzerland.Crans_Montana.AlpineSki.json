@@ -1,0 +1,10 @@
+{
+    "id": "Switzerland.Crans_Montana.AlpineSki",
+    "name": "Mont Lachaux",
+    "location": {
+        "city": "Crans-Montana",
+        "country": "Switzerland",
+        "circuit": "Mont Lachaux",
+        "timezone": "Europe/Zurich"
+    }
+}

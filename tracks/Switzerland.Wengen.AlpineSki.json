@@ -1,0 +1,10 @@
+{
+    "id": "Switzerland.Wengen.AlpineSki",
+    "name": "Lauberhorn",
+    "location": {
+        "city": "Wengen",
+        "country": "Switzerland",
+        "circuit": "Lauberhorn",
+        "timezone": "Europe/Zurich"
+    }
+}

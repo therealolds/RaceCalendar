@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Imola.WEC",
+    "name": "Autodromo Enzo e Dino Ferrari",
+    "location": {
+        "city": "Imola",
+        "country": "Italy",
+        "circuit": "Autodromo Enzo e Dino Ferrari",
+        "timezone": "Europe/Rome"
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "championship": "Norseman Xtreme Triathlon",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Norway.Eidfjord.Norseman",
+      "name": "Norseman Xtreme Triathlon",
+      "date": "2026-08-01",
+      "time": "05:00"
+    }
+  ]
+}

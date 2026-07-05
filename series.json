@@ -65,6 +65,19 @@
     "accent": "#dfa528"
   },
   {
+    "id": "mille_miglia",
+    "name": "1000 Miglia",
+    "shortName": "1000 Miglia",
+    "tag": "motorsport",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/mille_miglia.json",
+    "logo": "logos/mille_miglia.svg",
+    "background": "",
+    "site": "https://1000miglia.it/",
+    "accent": "#cf0a2c"
+  },
+  {
     "id": "americas_cup",
     "name": "America's Cup",
     "shortName": "America's Cup",
@@ -89,5 +102,83 @@
     "background": "",
     "site": "https://www.grandprixoffshorecittadicervia.it/",
     "accent": "#00b4d8"
+  },
+  {
+    "id": "giro",
+    "name": "Giro d'Italia",
+    "shortName": "Giro",
+    "tag": "cycling",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/giro.json",
+    "logo": "logos/giro.svg",
+    "background": "",
+    "site": "https://www.giroditalia.it/en/",
+    "accent": "#d94a8c"
+  },
+  {
+    "id": "tour_de_france",
+    "name": "Tour de France",
+    "shortName": "Tour de France",
+    "tag": "cycling",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/tour_de_france.json",
+    "logo": "logos/tour_de_france.svg",
+    "background": "",
+    "site": "https://www.letour.fr/en/",
+    "accent": "#d4a900"
+  },
+  {
+    "id": "ironman_italy",
+    "name": "IRONMAN Italy Emilia-Romagna",
+    "shortName": "IRONMAN Italy",
+    "tag": "athletic",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/ironman_italy.json",
+    "logo": "logos/ironman_italy.svg",
+    "background": "",
+    "site": "https://www.ironman.com/races/im-italy",
+    "accent": "#da291c"
+  },
+  {
+    "id": "norseman",
+    "name": "Norseman Xtreme Triathlon",
+    "shortName": "Norseman",
+    "tag": "athletic",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/norseman.json",
+    "logo": "logos/norseman.svg",
+    "background": "",
+    "site": "https://www.nxtri.com/",
+    "accent": "#2b3a4a"
+  },
+  {
+    "id": "alpine_skiing",
+    "name": "Alpine Skiing World Cup",
+    "shortName": "Alpine Ski",
+    "tag": "skiing",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/alpine_skiing.json",
+    "logo": "logos/alpine_skiing.svg",
+    "background": "",
+    "site": "https://www.fis-ski.com/alpine-skiing",
+    "accent": "#3b7bbf"
+  },
+  {
+    "id": "palio_siena",
+    "name": "Palio di Siena",
+    "shortName": "Palio",
+    "tag": "equestrian",
+    "featured": true,
+    "multiDay": false,
+    "calendar": "calendars/palio_siena.json",
+    "logo": "logos/palio_siena.svg",
+    "background": "",
+    "site": "https://www.ilpalio.org/",
+    "accent": "#882d17"
   }
 ]

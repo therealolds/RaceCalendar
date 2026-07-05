@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Kronplatz.AlpineSki",
+    "name": "Erta",
+    "location": {
+        "city": "Kronplatz",
+        "country": "Italy",
+        "circuit": "Erta",
+        "timezone": "Europe/Rome"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Schladming.AlpineSki",
+    "name": "Planai",
+    "location": {
+        "city": "Schladming",
+        "country": "Austria",
+        "circuit": "Planai",
+        "timezone": "Europe/Vienna"
+    }
+}

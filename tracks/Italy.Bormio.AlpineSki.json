@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Bormio.AlpineSki",
+    "name": "Stelvio",
+    "location": {
+        "city": "Bormio",
+        "country": "Italy",
+        "circuit": "Stelvio",
+        "timezone": "Europe/Rome"
+    }
+}

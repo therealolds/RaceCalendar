@@ -1,0 +1,10 @@
+{
+    "id": "Canada.Tremblant.AlpineSki",
+    "name": "Flying Mile",
+    "location": {
+        "city": "Mont-Tremblant, Quebec",
+        "country": "Canada",
+        "circuit": "Flying Mile",
+        "timezone": "America/Toronto"
+    }
+}

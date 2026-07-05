@@ -1,17 +1,55 @@
 {
-  "championship": "WEC",
+  "championship": "FIA World Endurance Championship",
+  "year": 2026,
   "races": [
     {
-      "name": "WEC",
-      "date": "2025-11-03",
-      "time": "12:50",
-      "idtrack": "",
-      "additionalInfo": {
-        "sessions": [
-          { "name": "Practice", "date": "2025-05-08", "time": "12:00" },
-          { "name": "Racing", "date": "2025-11-03", "time": "12:50" }
-        ]
-      }
+      "idtrack": "Qatar.Lusail_International_Circuit.F1",
+      "name": "Qatar 1812km",
+      "date": "2026-03-28",
+      "time": ""
+    },
+    {
+      "idtrack": "Italy.Imola.WEC",
+      "name": "6 Hours of Imola",
+      "date": "2026-04-19",
+      "time": ""
+    },
+    {
+      "idtrack": "Belgium.Spa-Francorchamps.F1",
+      "name": "6 Hours of Spa-Francorchamps",
+      "date": "2026-05-09",
+      "time": ""
+    },
+    {
+      "idtrack": "France.Le_Mans.WEC",
+      "name": "24 Hours of Le Mans",
+      "startDate": "2026-06-13",
+      "date": "2026-06-14",
+      "time": ""
+    },
+    {
+      "idtrack": "Brazil.Autodromo_Jose_Carlos_Pace_(AKA_Interlagos).F1",
+      "name": "6 Hours of São Paulo",
+      "date": "2026-07-12",
+      "time": ""
+    },
+    {
+      "idtrack": "USA.Austin.COTA.F1",
+      "name": "Lone Star Le Mans",
+      "date": "2026-09-06",
+      "time": ""
+    },
+    {
+      "idtrack": "Japan.Fuji.WEC",
+      "name": "6 Hours of Fuji",
+      "date": "2026-09-27",
+      "time": ""
+    },
+    {
+      "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
+      "name": "8 Hours of Bahrain",
+      "date": "2026-11-07",
+      "time": ""
     }
   ]
 }

@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Madonna_di_Campiglio.AlpineSki",
+    "name": "Canalone Miramonti",
+    "location": {
+        "city": "Madonna di Campiglio",
+        "country": "Italy",
+        "circuit": "Canalone Miramonti",
+        "timezone": "Europe/Rome"
+    }
+}

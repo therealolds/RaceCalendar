@@ -1,0 +1,10 @@
+{
+    "id": "Tour_de_France.2026",
+    "name": "Tour de France 2026 route",
+    "location": {
+        "city": "Barcelona → Paris",
+        "country": "Spain / France",
+        "circuit": "Tour de France 2026 route",
+        "timezone": "Europe/Paris"
+    }
+}

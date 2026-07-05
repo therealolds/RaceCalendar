@@ -1,0 +1,10 @@
+{
+    "id": "Slovakia.Jasna.AlpineSki",
+    "name": "Lúčky",
+    "location": {
+        "city": "Jasná",
+        "country": "Slovakia",
+        "circuit": "Lúčky",
+        "timezone": "Europe/Bratislava"
+    }
+}

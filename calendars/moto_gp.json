@@ -57,24 +57,6 @@
       }
     },
     {
-      "idtrack": "Qatar.Lusail_International_Circuit.MotoGP",
-      "name": "Qatar",
-      "date": "2026-04-12",
-      "time": "20:00",
-      "additionalInfo": {
-        "sessions": [
-          { "name": "Free Practice Nr. 1", "date": "2026-04-10", "time": "15:45" },
-          { "name": "Practice", "date": "2026-04-10", "time": "20:00" },
-          { "name": "Free Practice Nr. 2", "date": "2026-04-11", "time": "15:00" },
-          { "name": "Qualifying Nr. 1 ", "date": "2026-04-11", "time": "15:40" },
-          { "name": "Qualifying Nr. 2", "date": "2026-04-11", "time": "16:05" },
-          { "name": "Sprint", "date": "2026-04-11", "time": "20:00" },
-          { "name": "Warm Up", "date": "2026-04-12", "time": "15:40" },
-          { "name": "Grand Prix", "date": "2026-04-12", "time": "20:00" }
-        ]
-      }
-    },
-    {
       "idtrack": "Spain.Jerez.MotoGP",
       "name": "Spain",
       "date": "2026-04-26",
@@ -165,6 +147,96 @@
         "sessions": [
         ]
       }
+    },
+    {
+      "idtrack": "Netherlands.Assen.MotoGP",
+      "name": "Netherlands",
+      "date": "2026-06-28",
+      "time": ""
+    },
+    {
+      "idtrack": "Germany.Sachsenring.MotoGP",
+      "name": "Germany",
+      "date": "2026-07-12",
+      "time": ""
+    },
+    {
+      "idtrack": "UK.Circuit_Silverstone.F1",
+      "name": "Great Britain",
+      "date": "2026-08-09",
+      "time": ""
+    },
+    {
+      "idtrack": "Spain.Motorland_Aragon.MotoGP",
+      "name": "Aragon",
+      "date": "2026-08-30",
+      "time": ""
+    },
+    {
+      "idtrack": "San_Marino.Misano.MotoGP",
+      "name": "San Marino",
+      "date": "2026-09-13",
+      "time": ""
+    },
+    {
+      "idtrack": "Austria.Circuit_Red_Bull_Ring.F1",
+      "name": "Austria",
+      "date": "2026-09-20",
+      "time": ""
+    },
+    {
+      "idtrack": "Japan.Motegi.MotoGP",
+      "name": "Japan",
+      "date": "2026-10-04",
+      "time": ""
+    },
+    {
+      "idtrack": "Indonesia.Mandalika.MotoGP",
+      "name": "Indonesia",
+      "date": "2026-10-11",
+      "time": ""
+    },
+    {
+      "idtrack": "Australia.Phillip_Island.MotoGP",
+      "name": "Australia",
+      "date": "2026-10-25",
+      "time": ""
+    },
+    {
+      "idtrack": "Malaysia.Sepang.MotoGP",
+      "name": "Malaysia",
+      "date": "2026-11-01",
+      "time": ""
+    },
+    {
+      "idtrack": "Qatar.Lusail_International_Circuit.MotoGP",
+      "name": "Qatar",
+      "date": "2026-11-08",
+      "time": "20:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice Nr. 1", "date": "2026-11-06", "time": "15:45" },
+          { "name": "Practice", "date": "2026-11-06", "time": "20:00" },
+          { "name": "Free Practice Nr. 2", "date": "2026-11-07", "time": "15:00" },
+          { "name": "Qualifying Nr. 1 ", "date": "2026-11-07", "time": "15:40" },
+          { "name": "Qualifying Nr. 2", "date": "2026-11-07", "time": "16:05" },
+          { "name": "Sprint", "date": "2026-11-07", "time": "20:00" },
+          { "name": "Warm Up", "date": "2026-11-08", "time": "15:40" },
+          { "name": "Grand Prix", "date": "2026-11-08", "time": "20:00" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Portugal.Portimao.MotoGP",
+      "name": "Portugal",
+      "date": "2026-11-22",
+      "time": ""
+    },
+    {
+      "idtrack": "Spain.Ricardo_Tormo.MotoGP",
+      "name": "Valencia",
+      "date": "2026-11-29",
+      "time": ""
     }
   ]
 }

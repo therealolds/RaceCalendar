@@ -1,0 +1,10 @@
+{
+    "id": "Switzerland.Lenzerheide.AlpineSki",
+    "name": "Silvano Beltrametti",
+    "location": {
+        "city": "Lenzerheide",
+        "country": "Switzerland",
+        "circuit": "Silvano Beltrametti",
+        "timezone": "Europe/Zurich"
+    }
+}

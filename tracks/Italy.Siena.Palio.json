@@ -1,0 +1,10 @@
+{
+    "id": "Italy.Siena.Palio",
+    "name": "Piazza del Campo",
+    "location": {
+        "city": "Siena",
+        "country": "Italy",
+        "circuit": "Piazza del Campo",
+        "timezone": "Europe/Rome"
+    }
+}

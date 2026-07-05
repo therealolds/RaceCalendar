@@ -1,0 +1,10 @@
+{
+    "id": "Norway.Eidfjord.Norseman",
+    "name": "Norseman Xtreme Triathlon course",
+    "location": {
+        "city": "Eidfjord",
+        "country": "Norway",
+        "circuit": "Eidfjord – Gaustatoppen",
+        "timezone": "Europe/Oslo"
+    }
+}

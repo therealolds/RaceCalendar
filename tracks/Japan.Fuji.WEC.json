@@ -1,0 +1,10 @@
+{
+    "id": "Japan.Fuji.WEC",
+    "name": "Fuji Speedway",
+    "location": {
+        "city": "Oyama",
+        "country": "Japan",
+        "circuit": "Fuji Speedway",
+        "timezone": "Asia/Tokyo"
+    }
+}

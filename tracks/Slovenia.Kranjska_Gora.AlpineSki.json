@@ -1,0 +1,10 @@
+{
+    "id": "Slovenia.Kranjska_Gora.AlpineSki",
+    "name": "Podkoren",
+    "location": {
+        "city": "Kranjska Gora",
+        "country": "Slovenia",
+        "circuit": "Podkoren",
+        "timezone": "Europe/Ljubljana"
+    }
+}

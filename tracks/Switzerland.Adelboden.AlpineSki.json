@@ -1,0 +1,10 @@
+{
+    "id": "Switzerland.Adelboden.AlpineSki",
+    "name": "Chuenisbärgli",
+    "location": {
+        "city": "Adelboden",
+        "country": "Switzerland",
+        "circuit": "Chuenisbärgli",
+        "timezone": "Europe/Zurich"
+    }
+}

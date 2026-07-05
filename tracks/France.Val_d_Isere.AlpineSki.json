@@ -1,0 +1,10 @@
+{
+    "id": "France.Val_d_Isere.AlpineSki",
+    "name": "Face de Bellevarde",
+    "location": {
+        "city": "Val d'Isère",
+        "country": "France",
+        "circuit": "Face de Bellevarde",
+        "timezone": "Europe/Paris"
+    }
+}

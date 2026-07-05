@@ -1,0 +1,10 @@
+{
+    "id": "Austria.Flachau.AlpineSki",
+    "name": "Hermann Maier Weltcupstrecke",
+    "location": {
+        "city": "Flachau",
+        "country": "Austria",
+        "circuit": "Hermann Maier Weltcupstrecke",
+        "timezone": "Europe/Vienna"
+    }
+}

@@ -6,7 +6,7 @@
       "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
       "name": "Testing - Round 1",
       "date": "2026-02-13",
-      "starDate": "2026-02-11",
+      "startDate": "2026-02-11",
       "time": "",
       "additionalInfo": {
         "sessions": [
@@ -20,7 +20,7 @@
       "idtrack": "Bahrain.Bahrain_International_Circuit.F1",
       "name": "Testing - Round 2",
       "date": "2026-02-20",
-      "starDate": "2026-02-18",
+      "startDate": "2026-02-18",
       "time": "",
       "additionalInfo": {
         "sessions": [
@@ -302,7 +302,7 @@
     },
     {
       "idtrack": "Brazil.Autodromo_Jose_Carlos_Pace_(AKA_Interlagos).F1",
-      "name": "Braszil GP",
+      "name": "Brazil GP",
       "date": "2026-11-08",
       "time": "14:00",
       "additionalInfo": {
