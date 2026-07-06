@@ -1,4 +1,4 @@
-const CACHE = 'racecalendar-v15';
+const CACHE = 'racecalendar-v19';
 
 // Static app shell. Calendars, logos and backgrounds are added dynamically
 // from series.json, so adding a series never requires touching this file.
@@ -14,6 +14,7 @@ const SHELL = [
   './pitstop.html',
   './millemiglia.html',
   './more.html',
+  './preferences.html',
   './style.css',
   './fonts/fraunces-latin.woff2',
   './fonts/fraunces-latin-italic.woff2',
@@ -30,6 +31,7 @@ const SHELL = [
   './scripts/page-lightsout.js',
   './scripts/page-pitstop.js',
   './scripts/page-millemiglia.js',
+  './scripts/page-preferences.js',
 ];
 
 self.addEventListener('install', e => {

@@ -2,16 +2,17 @@
 
 import {
   loadSeriesList, loadAllCalendars, nextRaceEntry, activeOnDay,
-  toLocalDay, today, isFiniteDate
+  toLocalDay, today, isFiniteDate, favouriteIds
 } from './data.js';
 import {
   initShell, el, escapeHtml, sessionListEl,
-  fmtDayShort, fmtRange, timeLabel, relLabel, applyTheme
+  fmtDayShort, fmtRange, timeLabel, relLabel
 } from './ui.js';
 
 const state = {
   view: 'week',       // 'today' | 'week'
-  featuredOnly: true,
+  favouritesOnly: true,
+  favourites: new Set(),
   refDate: null,      // local-midnight Date when browsing another day; null = follow today
   cals: []
 };
@@ -44,7 +45,7 @@ function syncRangeControls() {
 // --- Collect what's happening on a given local day -----------------------------
 
 function pool() {
-  return state.featuredOnly ? state.cals.filter(c => c.series.featured) : state.cals;
+  return state.favouritesOnly ? state.cals.filter(c => state.favourites.has(c.series.id)) : state.cals;
 }
 
 function collectDay(day) {
@@ -250,26 +251,13 @@ function initControls() {
     render();
   });
 
-  const chip = document.getElementById('featured-chip');
+  const chip = document.getElementById('favourites-chip');
   chip.addEventListener('click', () => {
-    state.featuredOnly = !state.featuredOnly;
-    chip.classList.toggle('is-active', state.featuredOnly);
-    chip.setAttribute('aria-pressed', String(state.featuredOnly));
+    state.favouritesOnly = !state.favouritesOnly;
+    chip.classList.toggle('is-active', state.favouritesOnly);
+    chip.setAttribute('aria-pressed', String(state.favouritesOnly));
     render();
   });
-
-  const themeChip = document.getElementById('theme-chip');
-  const syncThemeChip = () => {
-    const vintage = document.documentElement.dataset.theme !== 'modern';
-    themeChip.classList.toggle('is-active', vintage);
-    themeChip.setAttribute('aria-pressed', String(vintage));
-  };
-  themeChip.addEventListener('click', () => {
-    const next = document.documentElement.dataset.theme === 'modern' ? 'vintage' : 'modern';
-    applyTheme(next, { save: true });
-    syncThemeChip();
-  });
-  syncThemeChip();
 }
 
 // --- Boot ---------------------------------------------------------------------------
@@ -279,6 +267,7 @@ async function main() {
   initControls();
   try {
     const seriesList = await loadSeriesList();
+    state.favourites = favouriteIds(seriesList);
     state.cals = await loadAllCalendars(seriesList);
     render();
     renderUpNext();

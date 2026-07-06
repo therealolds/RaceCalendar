@@ -32,6 +32,29 @@ export async function getSeries(id) {
   return list.find(s => s.id === id) || null;
 }
 
+// --- Favourites ------------------------------------------------------------
+// Which competitions the visitor cares about (home feed filter, tile stars).
+// series.json's `featured` flags are only the default; the visitor's own
+// picks (Preferences page) are stored in localStorage and win over them.
+
+const FAV_KEY = 'rc-favourites';
+
+export function favouriteIds(seriesList) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(FAV_KEY));
+    if (Array.isArray(saved)) {
+      return new Set(saved.filter(id => seriesList.some(s => s.id === id)));
+    }
+  } catch { /* nothing saved / storage unavailable → fall back to defaults */ }
+  return new Set(seriesList.filter(s => s.featured).map(s => s.id));
+}
+
+export function saveFavouriteIds(ids) {
+  try {
+    localStorage.setItem(FAV_KEY, JSON.stringify([...ids]));
+  } catch { /* private mode — selection still applies until the page closes */ }
+}
+
 // --- Tracks --------------------------------------------------------------
 
 const trackCache = new Map();

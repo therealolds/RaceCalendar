@@ -1,6 +1,6 @@
 /* Calendars page: all series grouped by category, with their next race. */
 
-import { loadSeriesList, loadSeriesCalendar, nextRaceEntry } from './data.js';
+import { loadSeriesList, loadSeriesCalendar, nextRaceEntry, favouriteIds } from './data.js';
 import { initShell, el, escapeHtml, fmtRange, relLabel } from './ui.js';
 
 const TAG_LABELS = {
@@ -20,7 +20,7 @@ function titleize(tag) {
     .replace(/\b\w/g, m => m.toUpperCase());
 }
 
-function seriesTile(s) {
+function seriesTile(s, favourites) {
   const tile = el('a', 'series-tile');
   tile.href = `series.html?id=${encodeURIComponent(s.id)}`;
   tile.style.setProperty('--sa', s.accent || 'var(--accent)');
@@ -30,7 +30,7 @@ function seriesTile(s) {
     tile.classList.add('series-tile--nobg');
   }
   tile.innerHTML = `
-    ${s.featured ? '<span class="series-tile__star" title="Featured">★</span>' : ''}
+    ${favourites.has(s.id) ? '<span class="series-tile__star" title="Favourite">★</span>' : ''}
     <div class="series-tile__content">
       <img class="series-tile__logo" src="${s.logo}" alt="" loading="lazy">
       <div class="series-tile__name">${escapeHtml(s.name)}</div>
@@ -61,6 +61,7 @@ async function main() {
   const root = document.getElementById('calendars-root');
   try {
     const seriesList = await loadSeriesList();
+    const favourites = favouriteIds(seriesList);
     root.innerHTML = '';
 
     const tags = [...new Set(seriesList.map(s => s.tag || 'other'))];
@@ -74,7 +75,7 @@ async function main() {
       if (!group.length) return;
       root.appendChild(el('h2', 'section-title', escapeHtml(TAG_LABELS[tag] || titleize(tag))));
       const grid = el('div', 'tile-grid');
-      group.forEach(s => grid.appendChild(seriesTile(s)));
+      group.forEach(s => grid.appendChild(seriesTile(s, favourites)));
       root.appendChild(grid);
     });
   } catch (err) {

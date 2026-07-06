@@ -17,6 +17,8 @@ const Z_NEAR = 130;       // perspective constant
 const Z_MAX = 2800;       // draw distance, world px
 const LS = 2.2;           // lateral screen scale at the bumper
 const CAR_AHEAD = 30;     // the car sits this far ahead of the camera
+const KERB_W = 9;         // kerb width, world px
+const CAR_HALF = 18;      // half the car's track width, world px (~40 screen px / LS)
 
 // period liveries for the traffic
 const TRAFFIC_COLORS = ['#2f5a9e', '#2e6b47', '#d9a441', '#b9b4a6', '#e8e2cf'];
@@ -250,7 +252,9 @@ function step(dt) {
   carX = clamp(carX + carVX * dt, 14, W - 14);
 
   const carIdx = Math.floor((s + CAR_AHEAD) / ROW);
-  if (Math.abs(carX - centerAt(carIdx)) > roadHalf - 15) {
+  // off the road only when every wheel is past the kerb's outer edge —
+  // riding the kerb with two wheels is part of the job
+  if (Math.abs(carX - centerAt(carIdx)) - CAR_HALF > roadHalf + KERB_W) {
     crash(slipT > 0 ? 'oil' : 'road');
     return;
   }
@@ -537,7 +541,7 @@ function drawFrame() {
     ctx.fillStyle = css(pal.tarmac, k);
     ctx.fillRect(xC - half, y, half * 2, 1);
     // kerbs, alternating red / cream
-    const kerbW = Math.max(1.5, 9 * scale);
+    const kerbW = Math.max(1.5, KERB_W * scale);
     ctx.fillStyle = css((Math.floor(worldS / 45) & 1) ? pal.kerbA : pal.kerbB, k);
     ctx.fillRect(xC - half - kerbW, y, kerbW, 1);
     ctx.fillRect(xC + half, y, kerbW, 1);

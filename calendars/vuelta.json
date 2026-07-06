@@ -1,0 +1,13 @@
+{
+  "championship": "Vuelta a España",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Vuelta.2026",
+      "name": "Vuelta a España",
+      "startDate": "2026-08-22",
+      "date": "2026-09-13",
+      "time": ""
+    }
+  ]
+}
