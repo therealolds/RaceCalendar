@@ -109,6 +109,10 @@ Reference the id from a calendar's `idtrack` and the track appears on the Tracks
 automatically (the list is derived from the calendars — there is no index file).
 `timezone` is what converts calendar times correctly, so set it for every track.
 
+Also add one line to **`track-index.json`** (`"<idtrack>": "<timezone>"`): it lets the
+calendar pages resolve every timezone with a single fetch instead of one per track.
+Forgetting it is harmless — the site falls back to reading the track's own file.
+
 ## ❓ Trivia
 
 Append to `trivia.json`:
@@ -130,6 +134,7 @@ then open <http://localhost:8000>. (`fetch()` doesn't work from `file://`.)
 Code layout:
 
 ```
+track-index.json      idtrack → timezone map (one line per track, see above)
 scripts/data.js       data loading + all date/timezone logic (no DOM)
 scripts/ui.js         app shell (bottom nav, offline banner) + shared widgets
 scripts/page-*.js     one small controller per page

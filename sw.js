@@ -1,4 +1,4 @@
-const CACHE = 'racecalendar-v19';
+const CACHE = 'racecalendar-v22';
 
 // Static app shell. Calendars, logos and backgrounds are added dynamically
 // from series.json, so adding a series never requires touching this file.
@@ -20,6 +20,7 @@ const SHELL = [
   './fonts/fraunces-latin-italic.woff2',
   './manifest.json',
   './series.json',
+  './track-index.json',
   './trivia.json',
   './scripts/data.js',
   './scripts/ui.js',
@@ -45,6 +46,18 @@ self.addEventListener('install', e => {
         .filter(Boolean)
         .map(p => './' + p);
       await Promise.allSettled(extra.map(url => cache.add(url)));
+      // every track file the calendars reference, so the tracks page and
+      // per-track timezone fallbacks work offline too
+      const ids = new Set();
+      await Promise.all(series.map(async s => {
+        try {
+          const res = await cache.match('./' + s.calendar) || await fetch('./' + s.calendar);
+          ((await res.json()).races || []).forEach(r => {
+            if (r.idtrack && String(r.idtrack).trim() !== '') ids.add(r.idtrack);
+          });
+        } catch { /* one bad calendar shouldn't stop the rest */ }
+      }));
+      await Promise.allSettled([...ids].map(id => cache.add(`./tracks/${id}.json`)));
     } catch {
       // offline install of extras is best-effort
     }

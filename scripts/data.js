@@ -72,6 +72,13 @@ export function extractTrackTimeZone(track) {
   return loc.timezoneIana || loc.timezone || null;
 }
 
+// track-index.json: one small idtrack → timezone map covering every track,
+// so calendar pages don't pay one fetch per track. A track missing from
+// the index silently falls back to its individual file.
+function loadTrackIndex() {
+  return fetchJSON('track-index.json').catch(() => ({}));
+}
+
 // --- Timezone-aware date parsing ------------------------------------------
 // Calendar times are written in the track's local timezone; we convert them
 // to real instants so the browser can display them in the user's timezone.
@@ -257,10 +264,16 @@ export function activeOnDay(race, series, timeZone, day) {
 // Loads a series' calendar and pre-resolves the timezone of every referenced
 // track. Returns { series, championship, year, races, timezones }.
 export async function loadSeriesCalendar(series) {
+  const indexPromise = loadTrackIndex();          // in parallel with the calendar
   const data = await fetchJSON(series.calendar);
   const ids = [...new Set((data.races || []).map(r => r.idtrack).filter(Boolean))];
   const timezones = new Map();
+  const index = await indexPromise;
   await Promise.all(ids.map(async id => {
+    if (Object.prototype.hasOwnProperty.call(index, id)) {
+      timezones.set(id, index[id] || null);
+      return;
+    }
     const track = await loadTrack(id);
     timezones.set(id, extractTrackTimeZone(track));
   }));
@@ -271,14 +284,6 @@ export async function loadSeriesCalendar(series) {
     races: data.races || [],
     timezones
   };
-}
-
-export async function loadAllCalendars(seriesList) {
-  const settled = await Promise.allSettled(seriesList.map(loadSeriesCalendar));
-  settled
-    .filter(s => s.status === 'rejected')
-    .forEach(s => console.warn('Calendar failed to load:', s.reason));
-  return settled.filter(s => s.status === 'fulfilled').map(s => s.value);
 }
 
 // --- "Next race" for a series -----------------------------------------------

@@ -249,12 +249,14 @@ function step(dt) {
   carVX += dir * 1050 * dt;
   carVX *= Math.exp(-(slipT > 0 ? 0.4 : 3) * dt);
   slipT = Math.max(0, slipT - dt);
-  carX = clamp(carX + carVX * dt, 14, W - 14);
+  // no screen-edge clamp: the road may run past the screen's world extent
+  // on narrow screens, and the off-road check below is the real boundary
+  carX += carVX * dt;
 
   const carIdx = Math.floor((s + CAR_AHEAD) / ROW);
-  // off the road only when every wheel is past the kerb's outer edge —
-  // riding the kerb with two wheels is part of the job
-  if (Math.abs(carX - centerAt(carIdx)) - CAR_HALF > roadHalf + KERB_W) {
+  // the kerb counts as road, the grass doesn't: you crash the moment the
+  // outer wheel pokes past the kerb's outer edge
+  if (Math.abs(carX - centerAt(carIdx)) + CAR_HALF > roadHalf + KERB_W) {
     crash(slipT > 0 ? 'oil' : 'road');
     return;
   }
