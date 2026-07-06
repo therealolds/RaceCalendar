@@ -1,7 +1,7 @@
 /* Home page: Today / This Week race feed + "Coming up" list. */
 
 import {
-  loadSeriesList, loadAllCalendars, nextRaceEntry, activeOnDay,
+  loadSeriesList, loadSeriesCalendar, nextRaceEntry, activeOnDay,
   toLocalDay, today, isFiniteDate, favouriteIds
 } from './data.js';
 import {
@@ -14,7 +14,8 @@ const state = {
   favouritesOnly: true,
   favourites: new Set(),
   refDate: null,      // local-midnight Date when browsing another day; null = follow today
-  cals: []
+  cals: [],
+  loading: true       // calendars still arriving: show placeholders, not empty states
 };
 
 const listEl = document.getElementById('race-list');
@@ -114,9 +115,11 @@ function renderToday() {
 
   const entries = collectDay(day);
   if (!entries.length) {
-    listEl.appendChild(emptyState(state.refDate
-      ? '<span class="empty__emoji">🍾</span>No racing on this day — you’re free.'
-      : '<span class="empty__emoji">😴</span>No racing today.<br>Check “This Week” or the list below.'));
+    listEl.appendChild(emptyState(state.loading
+      ? 'Loading calendars…'
+      : state.refDate
+        ? '<span class="empty__emoji">🍾</span>No racing on this day — you’re free.'
+        : '<span class="empty__emoji">😴</span>No racing today.<br>Check “This Week” or the list below.'));
     return;
   }
   const wrap = el('div', 'race-list');
@@ -156,9 +159,11 @@ function renderWeek() {
   }
 
   if (!any) {
-    listEl.appendChild(emptyState(state.refDate
-      ? '<span class="empty__emoji">🍾</span>No racing that week — you’re free.'
-      : '<span class="empty__emoji">😴</span>No racing this week.<br>See what’s coming up below.'));
+    listEl.appendChild(emptyState(state.loading
+      ? 'Loading calendars…'
+      : state.refDate
+        ? '<span class="empty__emoji">🍾</span>No racing that week — you’re free.'
+        : '<span class="empty__emoji">😴</span>No racing this week.<br>See what’s coming up below.'));
   }
 }
 
@@ -209,7 +214,7 @@ function renderUpNext() {
   });
 
   if (!rows.length) {
-    upNextEl.appendChild(emptyState('No calendars available.'));
+    upNextEl.appendChild(emptyState(state.loading ? 'Loading…' : 'No calendars available.'));
   }
 }
 
@@ -268,11 +273,35 @@ async function main() {
   try {
     const seriesList = await loadSeriesList();
     state.favourites = favouriteIds(seriesList);
-    state.cals = await loadAllCalendars(seriesList);
-    render();
-    renderUpNext();
+
+    // progressive load: paint the feed as each calendar lands rather than
+    // waiting for the slowest one; repaints are coalesced to one per frame
+    let scheduled = false;
+    const repaint = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        render();
+        renderUpNext();
+      });
+    };
+
+    const settled = await Promise.allSettled(seriesList.map(async series => {
+      const cal = await loadSeriesCalendar(series);
+      state.cals.push(cal);
+      repaint();
+    }));
+    settled
+      .filter(r => r.status === 'rejected')
+      .forEach(r => console.warn('Calendar failed to load:', r.reason));
+
+    state.loading = false;
+    if (!state.cals.length) throw new Error('no calendar could be loaded');
+    repaint();
   } catch (err) {
     console.error(err);
+    state.loading = false;
     listEl.innerHTML = '';
     listEl.appendChild(emptyState('Could not load calendars. Are you offline?'));
     upNextEl.innerHTML = '';
