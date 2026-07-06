@@ -15,7 +15,8 @@ from the JSON files in this repo.
 | `series.html?id=<id>` | One template page for *every* series: next race, weekend schedule, full season |
 | `tracks.html` | Every track referenced by any calendar (auto-generated list) |
 | `trivia.html` | Trivia questions from `trivia.json` |
-| `more.html` | Menu: Tracks, Trivia, about links |
+| `more.html` | Menu: Tracks, Games, Preferences, about links |
+| `preferences.html` | Preferences: theme (vintage / modern) + favourite competitions |
 
 ## 📅 Yearly update — the only routine job
 
@@ -78,7 +79,8 @@ No HTML, CSS or JS changes needed — the home page, calendars page, series page
 service-worker cache and tracks page all pick it up automatically.
 
 - `tag` groups series on the calendars page (`motorsport`, `nautical`, or any new tag).
-- `featured: true` shows the series in the home feed by default and stars its tile.
+- `featured: true` makes the series a *default* favourite: shown in the home feed and
+  starred on its tile. Visitors override this from Preferences (stored in localStorage).
 - `multiDay: true` marks stage-based events (rally-style) that span several days.
 - `accent` is the color used for the card stripe/badges.
 - `background` can be `""` — the tile falls back to a gradient built from `accent`.

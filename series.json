@@ -130,6 +130,19 @@
     "accent": "#d4a900"
   },
   {
+    "id": "vuelta",
+    "name": "Vuelta a España",
+    "shortName": "La Vuelta",
+    "tag": "cycling",
+    "featured": true,
+    "multiDay": true,
+    "calendar": "calendars/vuelta.json",
+    "logo": "logos/vuelta.svg",
+    "background": "",
+    "site": "https://www.lavuelta.es/en/",
+    "accent": "#e0261c"
+  },
+  {
     "id": "ironman_italy",
     "name": "IRONMAN Italy Emilia-Romagna",
     "shortName": "IRONMAN Italy",

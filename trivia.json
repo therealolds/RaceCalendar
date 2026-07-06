@@ -192,6 +192,30 @@
     "answer": "The last rider in the Tour's general classification — named after the red lantern once hung on the last carriage of a train. Finishing last in Paris carries its own cult prestige."
   },
   {
+    "id": "Vuelta.1",
+    "tag": "cycling",
+    "question": "When was the first Vuelta a España held?",
+    "answer": "In 1935, organised by the newspaper Informaciones — following the same publicity recipe as the Giro and the Tour. Belgium's Gustaaf Deloor won the first edition."
+  },
+  {
+    "id": "Vuelta.2",
+    "tag": "cycling",
+    "question": "What colour is the Vuelta a España leader's jersey?",
+    "answer": "Red — 'La Roja', introduced in 2010. Before that the leader wore a golden jersey, and in earlier decades yellow, orange and even white were used."
+  },
+  {
+    "id": "Vuelta.3",
+    "tag": "cycling",
+    "question": "Who shares the record for most Vuelta a España overall wins?",
+    "answer": "Roberto Heras and Primož Roglič, with four victories each."
+  },
+  {
+    "id": "Vuelta.4",
+    "tag": "cycling",
+    "question": "When in the season is the Vuelta a España held?",
+    "answer": "Late summer (August–September) — but only since 1995. For most of its history it was a spring race, run in April and May before the Giro."
+  },
+  {
     "id": "Cycling.1",
     "tag": "cycling",
     "question": "What are the three Grand Tours of cycling?",

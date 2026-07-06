@@ -1453,6 +1453,35 @@ details.past-fold:not([open]) { border-bottom: none; }
 
 .menu-item__chevron { color: var(--muted); width: 18px; height: 18px; }
 
+/* Preferences page: favourite competitions picker */
+.pref-note {
+  margin: -6px 0 12px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.fav-item {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fav-item__logo {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.fav-item__star {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.fav-item.is-fav .fav-item__star { color: var(--accent); }
+
 /* ------------------------------------------------------------
    12. Empty states, footer, offline banner, bottom nav
    ------------------------------------------------------------ */

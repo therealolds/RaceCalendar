@@ -1,0 +1,10 @@
+{
+    "id": "Vuelta.2026",
+    "name": "Vuelta a España 2026 route",
+    "location": {
+        "city": "Monaco → Madrid",
+        "country": "Monaco / Spain",
+        "circuit": "Vuelta a España 2026 route",
+        "timezone": "Europe/Madrid"
+    }
+}

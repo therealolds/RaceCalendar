@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Preferences — RaceCalendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("rc-theme")==="modern"?"modern":"vintage"}catch(e){}</script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfcf8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1d1c19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RaceCalendar">
+  <link rel="apple-touch-icon" href="icons/app-icon.svg">
+</head>
+
+<body>
+  <header class="page-head">
+    <a href="more.html" class="page-head__back" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+    <span class="page-head__title">Preferences</span>
+  </header>
+
+  <main class="wrap" style="padding-top:16px">
+    <h2 class="section-title">Themes</h2>
+    <div class="seg" id="theme-seg" data-active="0" role="group" aria-label="Theme">
+      <span class="seg__thumb"></span>
+      <button class="seg__btn is-active" type="button" data-theme="vintage" aria-pressed="true">♠ Vintage</button>
+      <button class="seg__btn" type="button" data-theme="modern" aria-pressed="false">Modern</button>
+    </div>
+
+    <h2 class="section-title">Favourites</h2>
+    <p class="pref-note">Starred competitions are the ones shown on the home feed when “★ Favourites” is on.</p>
+    <div class="menu-list" id="fav-list" role="group" aria-label="Favourite competitions">
+      <div class="empty">Loading competitions…</div>
+    </div>
+
+    <footer class="page-footer">Preferences are saved on this device.</footer>
+  </main>
+
+  <script type="module" src="scripts/page-preferences.js"></script>
+</body>
+
+</html>
