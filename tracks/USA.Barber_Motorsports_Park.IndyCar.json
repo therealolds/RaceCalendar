@@ -1,0 +1,9 @@
+{
+  "id": "USA.Barber_Motorsports_Park.IndyCar",
+  "name": "Barber Motorsports Park",
+  "location": {
+    "city": "Birmingham",
+    "country": "USA - Alabama",
+    "timezone": "America/Chicago"
+  }
+}

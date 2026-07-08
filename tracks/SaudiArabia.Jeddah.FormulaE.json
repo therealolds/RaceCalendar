@@ -1,0 +1,9 @@
+{
+  "id": "SaudiArabia.Jeddah.FormulaE",
+  "name": "Jeddah Corniche Circuit",
+  "location": {
+    "city": "Jeddah",
+    "country": "Saudi Arabia",
+    "timezone": "Asia/Riyadh"
+  }
+}

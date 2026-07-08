@@ -1,0 +1,9 @@
+{
+  "id": "Australia.Albert_Park_Circuit.F2",
+  "name": "Albert Park Circuit",
+  "location": {
+    "city": "Melbourne",
+    "country": "Australia",
+    "timezone": "Australia/Melbourne"
+  }
+}

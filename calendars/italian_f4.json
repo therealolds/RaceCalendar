@@ -1,0 +1,13 @@
+{
+  "championship": "Italian F4 Championship",
+  "year": 2026,
+  "races": [
+    { "idtrack": "Italy.Misano.F4", "name": "Round 1 - Misano (4 races)", "startDate": "2026-05-09", "date": "2026-05-10", "time": "" },
+    { "idtrack": "Italy.Vallelunga.F4", "name": "Round 2 - Vallelunga (4 races)", "startDate": "2026-05-23", "date": "2026-05-24", "time": "" },
+    { "idtrack": "Italy.Monza.F4", "name": "Round 3 - Monza (4 races)", "startDate": "2026-06-20", "date": "2026-06-21", "time": "" },
+    { "idtrack": "Italy.Mugello.F4", "name": "Round 4 - Mugello (3 races)", "startDate": "2026-07-24", "date": "2026-07-26", "time": "" },
+    { "idtrack": "Italy.Imola.F4", "name": "Round 5 - Imola (3 races)", "startDate": "2026-09-04", "date": "2026-09-06", "time": "" },
+    { "idtrack": "Italy.Misano.F4", "name": "Round 6 - Misano (3 races)", "startDate": "2026-09-18", "date": "2026-09-20", "time": "" },
+    { "idtrack": "Italy.Mugello.F4", "name": "Round 7 - Mugello (3 races)", "startDate": "2026-10-30", "date": "2026-11-01", "time": "" }
+  ]
+}

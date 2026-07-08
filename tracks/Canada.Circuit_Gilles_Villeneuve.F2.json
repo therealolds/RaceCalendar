@@ -1,0 +1,9 @@
+{
+  "id": "Canada.Circuit_Gilles_Villeneuve.F2",
+  "name": "Circuit Gilles Villeneuve",
+  "location": {
+    "city": "Montreal",
+    "country": "Canada",
+    "timezone": "America/Toronto"
+  }
+}

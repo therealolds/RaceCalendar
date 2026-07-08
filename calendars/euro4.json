@@ -1,0 +1,9 @@
+{
+  "championship": "Euro 4 Championship",
+  "year": 2026,
+  "races": [
+    { "idtrack": "Italy.Vallelunga.E4", "name": "Round 1 - Vallelunga (3 races)", "startDate": "2026-07-03", "date": "2026-07-05", "time": "" },
+    { "idtrack": "France.Paul_Ricard.E4", "name": "Round 2 - Paul Ricard (3 races)", "startDate": "2026-07-17", "date": "2026-07-19", "time": "" },
+    { "idtrack": "Italy.Monza.E4", "name": "Round 3 - Monza (3 races)", "startDate": "2026-10-09", "date": "2026-10-11", "time": "" }
+  ]
+}

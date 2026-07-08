@@ -1,0 +1,9 @@
+{
+  "id": "USA.New_Hampshire_Motor_Speedway.NASCAR",
+  "name": "New Hampshire Motor Speedway",
+  "location": {
+    "city": "Loudon",
+    "country": "USA - New Hampshire",
+    "timezone": "America/New_York"
+  }
+}

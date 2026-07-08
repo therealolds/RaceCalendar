@@ -1,0 +1,12 @@
+{
+  "championship": "Maratona del Golfo Capri-Napoli",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Italy.Capri_Napoli.Swim",
+      "name": "Capri-Napoli international marathon swim (36 km)",
+      "date": "2026-09-05",
+      "time": ""
+    }
+  ]
+}

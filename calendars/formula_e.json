@@ -1,0 +1,23 @@
+{
+  "championship": "ABB FIA Formula E World Championship",
+  "year": 2026,
+  "races": [
+    { "idtrack": "Brazil.Sao_Paulo.FormulaE", "name": "São Paulo ePrix", "date": "2025-12-06", "time": "" },
+    { "idtrack": "Mexico.Autodromo_Hermanos_Rodriguez.FormulaE", "name": "Mexico City ePrix", "date": "2026-01-10", "time": "" },
+    { "idtrack": "USA_Miami.Miami_International_Autodrome.FormulaE", "name": "Miami ePrix", "date": "2026-01-31", "time": "" },
+    { "idtrack": "SaudiArabia.Jeddah.FormulaE", "name": "Jeddah ePrix - Race 1", "date": "2026-02-13", "time": "" },
+    { "idtrack": "SaudiArabia.Jeddah.FormulaE", "name": "Jeddah ePrix - Race 2", "date": "2026-02-14", "time": "" },
+    { "idtrack": "Spain.Jarama.FormulaE", "name": "Madrid ePrix (Jarama)", "date": "2026-03-21", "time": "" },
+    { "idtrack": "Germany.Berlin_Tempelhof.FormulaE", "name": "Berlin ePrix - Race 1", "date": "2026-05-02", "time": "" },
+    { "idtrack": "Germany.Berlin_Tempelhof.FormulaE", "name": "Berlin ePrix - Race 2", "date": "2026-05-03", "time": "" },
+    { "idtrack": "Monaco.Monte_Carlo.FormulaE", "name": "Monaco ePrix - Race 1", "date": "2026-05-16", "time": "" },
+    { "idtrack": "Monaco.Monte_Carlo.FormulaE", "name": "Monaco ePrix - Race 2", "date": "2026-05-17", "time": "" },
+    { "idtrack": "China.Sanya.FormulaE", "name": "Sanya ePrix", "date": "2026-06-20", "time": "" },
+    { "idtrack": "China.Shanghai_International_Racing_Circuit.FormulaE", "name": "Shanghai ePrix - Race 1", "date": "2026-07-04", "time": "" },
+    { "idtrack": "China.Shanghai_International_Racing_Circuit.FormulaE", "name": "Shanghai ePrix - Race 2", "date": "2026-07-05", "time": "" },
+    { "idtrack": "Japan.Tokyo.FormulaE", "name": "Tokyo ePrix - Race 1", "date": "2026-07-25", "time": "" },
+    { "idtrack": "Japan.Tokyo.FormulaE", "name": "Tokyo ePrix - Race 2", "date": "2026-07-26", "time": "" },
+    { "idtrack": "UK.London_ExCeL.FormulaE", "name": "London ePrix - Race 1", "date": "2026-08-15", "time": "" },
+    { "idtrack": "UK.London_ExCeL.FormulaE", "name": "London ePrix - Race 2", "date": "2026-08-16", "time": "" }
+  ]
+}

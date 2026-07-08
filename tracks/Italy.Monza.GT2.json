@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Monza.GT2",
+  "name": "Monza Circuit",
+  "location": {
+    "city": "Monza",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

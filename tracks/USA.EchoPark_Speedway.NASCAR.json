@@ -1,0 +1,9 @@
+{
+  "id": "USA.EchoPark_Speedway.NASCAR",
+  "name": "EchoPark Speedway",
+  "location": {
+    "city": "Hampton",
+    "country": "USA - Georgia",
+    "timezone": "America/New_York"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "championship": "Formula Regional European Championship by Alpine",
+  "year": 2026,
+  "races": [
+    { "idtrack": "Austria.Red_Bull_Ring.FRECA", "name": "Round 1 - Red Bull Ring (3 races)", "startDate": "2026-04-25", "date": "2026-04-26", "time": "" },
+    { "idtrack": "Netherlands.Zandvoort.FRECA", "name": "Round 2 - Zandvoort (2 races)", "startDate": "2026-05-23", "date": "2026-05-24", "time": "" },
+    { "idtrack": "Belgium.Spa-Francorchamps.FRECA", "name": "Round 3 - Spa-Francorchamps (3 races)", "startDate": "2026-05-30", "date": "2026-05-31", "time": "" },
+    { "idtrack": "Italy.Monza.FRECA", "name": "Round 4 - Monza (3 races)", "startDate": "2026-06-20", "date": "2026-06-21", "time": "" },
+    { "idtrack": "Hungary.Hungaroring.FRECA", "name": "Round 5 - Hungaroring (2 races)", "startDate": "2026-07-04", "date": "2026-07-05", "time": "" },
+    { "idtrack": "France.Paul_Ricard.FRECA", "name": "Round 6 - Paul Ricard (2 races)", "startDate": "2026-07-17", "date": "2026-07-19", "time": "" },
+    { "idtrack": "Italy.Imola.FRECA", "name": "Round 7 - Imola (3 races)", "startDate": "2026-09-04", "date": "2026-09-06", "time": "" },
+    { "idtrack": "Germany.Hockenheimring.FRECA", "name": "Round 8 - Hockenheimring (2 races)", "startDate": "2026-09-11", "date": "2026-09-13", "time": "" }
+  ]
+}

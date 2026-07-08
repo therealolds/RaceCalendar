@@ -1,0 +1,9 @@
+{
+  "id": "USA.Pocono_Raceway.NASCAR",
+  "name": "Pocono Raceway",
+  "location": {
+    "city": "Long Pond",
+    "country": "USA - Pennsylvania",
+    "timezone": "America/New_York"
+  }
+}

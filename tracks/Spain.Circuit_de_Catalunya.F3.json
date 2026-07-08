@@ -1,0 +1,9 @@
+{
+  "id": "Spain.Circuit_de_Catalunya.F3",
+  "name": "Circuit de Barcelona-Catalunya",
+  "location": {
+    "city": "Montmelo",
+    "country": "Spain",
+    "timezone": "Europe/Madrid"
+  }
+}

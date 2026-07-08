@@ -1,0 +1,9 @@
+{
+  "id": "USA.Indianapolis_Motor_Speedway.IndyCar",
+  "name": "Indianapolis Motor Speedway",
+  "location": {
+    "city": "Speedway",
+    "country": "USA - Indiana",
+    "timezone": "America/Indiana/Indianapolis"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Imola.F4",
+  "name": "Imola Circuit",
+  "location": {
+    "city": "Imola",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

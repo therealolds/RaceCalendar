@@ -1,0 +1,9 @@
+{
+  "id": "China.Shanghai_International_Racing_Circuit.FormulaE",
+  "name": "Shanghai International Circuit",
+  "location": {
+    "city": "Shanghai",
+    "country": "China",
+    "timezone": "Asia/Shanghai"
+  }
+}

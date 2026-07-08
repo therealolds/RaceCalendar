@@ -1,0 +1,240 @@
+{
+  "championship": "NASCAR Cup Series",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "USA.Bowman_Gray_Stadium.NASCAR",
+      "name": "Cook Out Clash (exhibition)",
+      "date": "2026-02-04",
+      "time": "18:00"
+    },
+    {
+      "idtrack": "USA.Daytona_International_Speedway.NASCAR",
+      "name": "America 250 Florida Duels at Daytona (qualifying races)",
+      "date": "2026-02-12",
+      "time": "19:00"
+    },
+    {
+      "idtrack": "USA.Daytona_International_Speedway.NASCAR",
+      "name": "Daytona 500",
+      "date": "2026-02-15",
+      "time": "14:30"
+    },
+    {
+      "idtrack": "USA.EchoPark_Speedway.NASCAR",
+      "name": "Autotrader 400",
+      "date": "2026-02-22",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Austin.COTA.NASCAR",
+      "name": "DuraMAX Texas Grand Prix",
+      "date": "2026-03-01",
+      "time": "14:30"
+    },
+    {
+      "idtrack": "USA.Phoenix_Raceway.NASCAR",
+      "name": "Straight Talk Wireless 500",
+      "date": "2026-03-08",
+      "time": "12:30"
+    },
+    {
+      "idtrack": "USA.Las_Vegas_Motor_Speedway.NASCAR",
+      "name": "Pennzoil 400",
+      "date": "2026-03-15",
+      "time": "13:00"
+    },
+    {
+      "idtrack": "USA.Darlington_Raceway.NASCAR",
+      "name": "Goodyear 400",
+      "date": "2026-03-22",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Martinsville_Speedway.NASCAR",
+      "name": "Cook Out 400",
+      "date": "2026-03-29",
+      "time": "15:30"
+    },
+    {
+      "idtrack": "USA.Bristol_Motor_Speedway.NASCAR",
+      "name": "Food City 500",
+      "date": "2026-04-12",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Kansas_Speedway.NASCAR",
+      "name": "AdventHealth 400",
+      "date": "2026-04-19",
+      "time": "13:00"
+    },
+    {
+      "idtrack": "USA.Talladega_Superspeedway.NASCAR",
+      "name": "Jack Link's 500",
+      "date": "2026-04-26",
+      "time": "14:00"
+    },
+    {
+      "idtrack": "USA.Texas_Motor_Speedway.NASCAR",
+      "name": "Würth 400",
+      "date": "2026-05-03",
+      "time": "14:30"
+    },
+    {
+      "idtrack": "USA.Watkins_Glen.NASCAR",
+      "name": "Go Bowling at The Glen",
+      "date": "2026-05-10",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Dover_Motor_Speedway.NASCAR",
+      "name": "NASCAR All-Star Race (exhibition)",
+      "date": "2026-05-17",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Charlotte_Motor_Speedway.NASCAR",
+      "name": "Coca-Cola 600",
+      "date": "2026-05-24",
+      "time": "18:00"
+    },
+    {
+      "idtrack": "USA.Nashville_Superspeedway.NASCAR",
+      "name": "Cracker Barrel 400",
+      "date": "2026-05-31",
+      "time": "18:00"
+    },
+    {
+      "idtrack": "USA.Michigan_International_Speedway.NASCAR",
+      "name": "FireKeepers Casino 400",
+      "date": "2026-06-07",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Pocono_Raceway.NASCAR",
+      "name": "The Great American Getaway 400",
+      "date": "2026-06-14",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Coronado_Street_Course.NASCAR",
+      "name": "Anduril 250 (San Diego street race)",
+      "date": "2026-06-21",
+      "time": "13:00"
+    },
+    {
+      "idtrack": "USA.Sonoma_Raceway.NASCAR",
+      "name": "Toyota/Save Mart 350",
+      "date": "2026-06-28",
+      "time": "12:30"
+    },
+    {
+      "idtrack": "USA.Chicagoland_Speedway.NASCAR",
+      "name": "eero 400",
+      "date": "2026-07-05",
+      "time": "17:00"
+    },
+    {
+      "idtrack": "USA.EchoPark_Speedway.NASCAR",
+      "name": "Quaker State 400",
+      "date": "2026-07-12",
+      "time": "19:00"
+    },
+    {
+      "idtrack": "USA.North_Wilkesboro_Speedway.NASCAR",
+      "name": "Window World 450",
+      "date": "2026-07-19",
+      "time": "19:00"
+    },
+    {
+      "idtrack": "USA.Indianapolis_Motor_Speedway.NASCAR",
+      "name": "Brickyard 400",
+      "date": "2026-07-26",
+      "time": ""
+    },
+    {
+      "idtrack": "USA.Iowa_Speedway.NASCAR",
+      "name": "Iowa Corn 350",
+      "date": "2026-08-09",
+      "time": "14:30"
+    },
+    {
+      "idtrack": "USA.Richmond_Raceway.NASCAR",
+      "name": "Cook Out 400",
+      "date": "2026-08-15",
+      "time": "19:00"
+    },
+    {
+      "idtrack": "USA.New_Hampshire_Motor_Speedway.NASCAR",
+      "name": "Dollar Tree 301",
+      "date": "2026-08-23",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Daytona_International_Speedway.NASCAR",
+      "name": "Coke Zero Sugar 400",
+      "date": "2026-08-29",
+      "time": "19:30"
+    },
+    {
+      "idtrack": "USA.Darlington_Raceway.NASCAR",
+      "name": "Cook Out Southern 500",
+      "date": "2026-09-06",
+      "time": "17:00"
+    },
+    {
+      "idtrack": "USA.World_Wide_Technology_Raceway.NASCAR",
+      "name": "Enjoy Illinois 300",
+      "date": "2026-09-13",
+      "time": "14:00"
+    },
+    {
+      "idtrack": "USA.Bristol_Motor_Speedway.NASCAR",
+      "name": "Bass Pro Shops Night Race",
+      "date": "2026-09-19",
+      "time": "19:30"
+    },
+    {
+      "idtrack": "USA.Kansas_Speedway.NASCAR",
+      "name": "Hollywood Casino 400",
+      "date": "2026-09-27",
+      "time": "14:00"
+    },
+    {
+      "idtrack": "USA.Las_Vegas_Motor_Speedway.NASCAR",
+      "name": "South Point 400",
+      "date": "2026-10-04",
+      "time": "14:30"
+    },
+    {
+      "idtrack": "USA.Charlotte_Motor_Speedway.NASCAR",
+      "name": "Bank of America 400",
+      "date": "2026-10-11",
+      "time": "15:00"
+    },
+    {
+      "idtrack": "USA.Phoenix_Raceway.NASCAR",
+      "name": "Freeway Insurance 500",
+      "date": "2026-10-18",
+      "time": "12:00"
+    },
+    {
+      "idtrack": "USA.Talladega_Superspeedway.NASCAR",
+      "name": "YellaWood 500",
+      "date": "2026-10-25",
+      "time": "13:00"
+    },
+    {
+      "idtrack": "USA.Martinsville_Speedway.NASCAR",
+      "name": "Xfinity 500",
+      "date": "2026-11-01",
+      "time": "14:00"
+    },
+    {
+      "idtrack": "USA.Homestead_Miami_Speedway.NASCAR",
+      "name": "Straight Talk Wireless 400 (Championship)",
+      "date": "2026-11-08",
+      "time": "15:00"
+    }
+  ]
+}

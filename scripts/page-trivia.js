@@ -2,28 +2,13 @@
    again (or tapping the card) reveals the answer, then deals the next. */
 
 import { fetchJSON } from './data.js';
-import { initShell, el, escapeHtml } from './ui.js';
-
-const TAG_LABELS = {
-  motorsport: 'Motorsport',
-  nautical: 'Sailing & Nautical',
-  cycling: 'Cycling',
-  athletic: 'Athletics & Endurance',
-  equestrian: 'Equestrian',
-  skiing: 'Skiing'
-};
+import { initShell, el, escapeHtml, tagLabel } from './ui.js';
 
 const TAG_ORDER = ['motorsport', 'nautical', 'cycling', 'athletic', 'equestrian', 'skiing'];
 
-function titleize(tag) {
-  return String(tag || 'Other')
-    .replace(/[_-]+/g, ' ')
-    .replace(/\b\w/g, m => m.toUpperCase());
-}
-
 function categorySection(tag, items) {
   const group = el('section', 'trivia-group');
-  group.appendChild(el('h2', 'section-title', escapeHtml(TAG_LABELS[tag] || titleize(tag))));
+  group.appendChild(el('h2', 'section-title', escapeHtml(tagLabel(tag))));
 
   const btn = el('button', 'trivia-draw', 'Draw a question');
   btn.type = 'button';

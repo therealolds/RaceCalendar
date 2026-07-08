@@ -1,0 +1,9 @@
+{
+  "id": "USA.Coronado_Street_Course.NASCAR",
+  "name": "Naval Base Coronado Street Course",
+  "location": {
+    "city": "San Diego",
+    "country": "USA - California",
+    "timezone": "America/Los_Angeles"
+  }
+}

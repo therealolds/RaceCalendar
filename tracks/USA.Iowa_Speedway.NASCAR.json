@@ -1,0 +1,9 @@
+{
+  "id": "USA.Iowa_Speedway.NASCAR",
+  "name": "Iowa Speedway",
+  "location": {
+    "city": "Newton",
+    "country": "USA - Iowa",
+    "timezone": "America/Chicago"
+  }
+}

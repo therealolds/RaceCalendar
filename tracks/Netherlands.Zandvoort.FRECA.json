@@ -1,0 +1,9 @@
+{
+  "id": "Netherlands.Zandvoort.FRECA",
+  "name": "Circuit Zandvoort",
+  "location": {
+    "city": "Zandvoort",
+    "country": "Netherlands",
+    "timezone": "Europe/Amsterdam"
+  }
+}

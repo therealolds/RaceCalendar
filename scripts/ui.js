@@ -25,6 +25,25 @@ export function escapeHtml(value) {
     .replaceAll('"', '&quot;');
 }
 
+// --- Series categories -----------------------------------------------------------
+// Display names for series.json `tag` values; unknown tags get title-cased.
+
+const TAG_LABELS = {
+  motorsport: 'Motorsport',
+  nautical: 'Sailing & Nautical',
+  cycling: 'Cycling',
+  athletic: 'Athletics & Endurance',
+  swimming: 'Swimming',
+  equestrian: 'Equestrian',
+  skiing: 'Skiing'
+};
+
+export function tagLabel(tag) {
+  return TAG_LABELS[tag] || String(tag || 'Other')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, m => m.toUpperCase());
+}
+
 // --- Date/time formatting ------------------------------------------------------
 
 const dayShortFmt = new Intl.DateTimeFormat(undefined, { weekday: 'short', day: 'numeric', month: 'short' });

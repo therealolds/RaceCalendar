@@ -1,0 +1,9 @@
+{
+  "id": "USA.Texas_Motor_Speedway.NASCAR",
+  "name": "Texas Motor Speedway",
+  "location": {
+    "city": "Fort Worth",
+    "country": "USA - Texas",
+    "timezone": "America/Chicago"
+  }
+}

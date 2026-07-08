@@ -1,0 +1,9 @@
+{
+  "id": "China.Sanya.FormulaE",
+  "name": "Sanya Street Circuit",
+  "location": {
+    "city": "Sanya",
+    "country": "China",
+    "timezone": "Asia/Shanghai"
+  }
+}

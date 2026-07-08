@@ -1,0 +1,9 @@
+{
+  "id": "USA.Bowman_Gray_Stadium.NASCAR",
+  "name": "Bowman Gray Stadium",
+  "location": {
+    "city": "Winston-Salem",
+    "country": "USA - North Carolina",
+    "timezone": "America/New_York"
+  }
+}

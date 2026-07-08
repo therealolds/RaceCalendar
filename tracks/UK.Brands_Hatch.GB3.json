@@ -1,0 +1,9 @@
+{
+  "id": "UK.Brands_Hatch.GB3",
+  "name": "Brands Hatch",
+  "location": {
+    "city": "West Kingsdown",
+    "country": "UK",
+    "timezone": "Europe/London"
+  }
+}

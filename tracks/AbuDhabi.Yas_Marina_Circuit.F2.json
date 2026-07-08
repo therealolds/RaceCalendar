@@ -1,0 +1,9 @@
+{
+  "id": "AbuDhabi.Yas_Marina_Circuit.F2",
+  "name": "Yas Marina Circuit",
+  "location": {
+    "city": "Abu Dhabi",
+    "country": "UAE",
+    "timezone": "Asia/Dubai"
+  }
+}

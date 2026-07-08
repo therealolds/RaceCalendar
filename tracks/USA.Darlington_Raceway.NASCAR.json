@@ -1,0 +1,9 @@
+{
+  "id": "USA.Darlington_Raceway.NASCAR",
+  "name": "Darlington Raceway",
+  "location": {
+    "city": "Darlington",
+    "country": "USA - South Carolina",
+    "timezone": "America/New_York"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Canada.Markham.IndyCar",
+  "name": "Streets of Markham",
+  "location": {
+    "city": "Markham",
+    "country": "Canada - Ontario",
+    "timezone": "America/Toronto"
+  }
+}

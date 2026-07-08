@@ -1,0 +1,9 @@
+{
+  "id": "USA.Detroit.IndyCar",
+  "name": "Streets of Detroit",
+  "location": {
+    "city": "Detroit",
+    "country": "USA - Michigan",
+    "timezone": "America/Detroit"
+  }
+}

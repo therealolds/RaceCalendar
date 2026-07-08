@@ -1,0 +1,9 @@
+{
+  "id": "USA.Las_Vegas_Motor_Speedway.NASCAR",
+  "name": "Las Vegas Motor Speedway",
+  "location": {
+    "city": "Las Vegas",
+    "country": "USA - Nevada",
+    "timezone": "America/Los_Angeles"
+  }
+}

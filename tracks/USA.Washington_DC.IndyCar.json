@@ -1,0 +1,9 @@
+{
+  "id": "USA.Washington_DC.IndyCar",
+  "name": "Streets of Washington, D.C.",
+  "location": {
+    "city": "Washington, D.C.",
+    "country": "USA",
+    "timezone": "America/New_York"
+  }
+}

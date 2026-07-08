@@ -1,0 +1,9 @@
+{
+  "id": "Portugal.Portimao.GT2",
+  "name": "Algarve International Circuit",
+  "location": {
+    "city": "Portimao",
+    "country": "Portugal",
+    "timezone": "Europe/Lisbon"
+  }
+}

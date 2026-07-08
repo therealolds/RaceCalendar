@@ -1,0 +1,9 @@
+{
+  "id": "USA.Richmond_Raceway.NASCAR",
+  "name": "Richmond Raceway",
+  "location": {
+    "city": "Richmond",
+    "country": "USA - Virginia",
+    "timezone": "America/New_York"
+  }
+}

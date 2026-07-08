@@ -1,0 +1,9 @@
+{
+  "id": "Portugal.Setubal.OpenWater",
+  "name": "Setubal",
+  "location": {
+    "city": "Setubal",
+    "country": "Portugal",
+    "timezone": "Europe/Lisbon"
+  }
+}

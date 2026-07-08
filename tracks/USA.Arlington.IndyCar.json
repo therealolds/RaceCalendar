@@ -1,0 +1,9 @@
+{
+  "id": "USA.Arlington.IndyCar",
+  "name": "Streets of Arlington",
+  "location": {
+    "city": "Arlington",
+    "country": "USA - Texas",
+    "timezone": "America/Chicago"
+  }
+}

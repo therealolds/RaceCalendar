@@ -1,0 +1,9 @@
+{
+  "id": "USA.St_Petersburg.IndyCar",
+  "name": "Streets of St. Petersburg",
+  "location": {
+    "city": "St. Petersburg",
+    "country": "USA - Florida",
+    "timezone": "America/New_York"
+  }
+}

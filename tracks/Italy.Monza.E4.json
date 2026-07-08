@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Monza.E4",
+  "name": "Monza Circuit",
+  "location": {
+    "city": "Monza",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

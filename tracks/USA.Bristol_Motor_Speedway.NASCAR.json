@@ -1,0 +1,9 @@
+{
+  "id": "USA.Bristol_Motor_Speedway.NASCAR",
+  "name": "Bristol Motor Speedway",
+  "location": {
+    "city": "Bristol",
+    "country": "USA - Tennessee",
+    "timezone": "America/New_York"
+  }
+}

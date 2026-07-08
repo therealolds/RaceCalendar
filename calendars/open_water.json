@@ -1,0 +1,46 @@
+{
+  "championship": "World Aquatics Open Water Swimming World Cup",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Egypt.Somabay.OpenWater",
+      "name": "World Cup - Somabay",
+      "startDate": "2026-03-27",
+      "date": "2026-03-28",
+      "time": ""
+    },
+    {
+      "idtrack": "Spain.Ibiza.OpenWater",
+      "name": "World Cup - Ibiza",
+      "startDate": "2026-04-24",
+      "date": "2026-04-25",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "10 km race", "date": "2026-04-24" },
+          { "name": "3 km Knockout Sprint", "date": "2026-04-25" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Italy.Golfo_Aranci.OpenWater",
+      "name": "World Cup - Golfo Aranci",
+      "startDate": "2026-05-01",
+      "date": "2026-05-02",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Individual events (4)", "date": "2026-05-01" },
+          { "name": "Mixed Team Relay", "date": "2026-05-02" }
+        ]
+      }
+    },
+    {
+      "idtrack": "Portugal.Setubal.OpenWater",
+      "name": "World Cup - Setubal",
+      "startDate": "2026-06-20",
+      "date": "2026-06-21",
+      "time": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "USA.Kansas_Speedway.NASCAR",
+  "name": "Kansas Speedway",
+  "location": {
+    "city": "Kansas City",
+    "country": "USA - Kansas",
+    "timezone": "America/Chicago"
+  }
+}

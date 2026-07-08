@@ -1,0 +1,9 @@
+{
+  "id": "Spain.Jarama.FormulaE",
+  "name": "Circuito del Jarama",
+  "location": {
+    "city": "Madrid",
+    "country": "Spain",
+    "timezone": "Europe/Madrid"
+  }
+}

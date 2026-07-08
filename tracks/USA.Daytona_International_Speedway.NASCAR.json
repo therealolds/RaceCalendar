@@ -1,0 +1,9 @@
+{
+  "id": "USA.Daytona_International_Speedway.NASCAR",
+  "name": "Daytona International Speedway",
+  "location": {
+    "city": "Daytona Beach",
+    "country": "USA - Florida",
+    "timezone": "America/New_York"
+  }
+}

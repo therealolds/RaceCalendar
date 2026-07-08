@@ -1,0 +1,9 @@
+{
+  "id": "Japan.Tokyo.FormulaE",
+  "name": "Tokyo Street Circuit",
+  "location": {
+    "city": "Tokyo",
+    "country": "Japan",
+    "timezone": "Asia/Tokyo"
+  }
+}

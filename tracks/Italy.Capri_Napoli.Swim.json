@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Capri_Napoli.Swim",
+  "name": "Gulf of Naples crossing",
+  "location": {
+    "city": "Capri - Naples",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

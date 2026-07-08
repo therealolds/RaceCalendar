@@ -1,0 +1,9 @@
+{
+  "id": "USA.Long_Beach.IndyCar",
+  "name": "Streets of Long Beach",
+  "location": {
+    "city": "Long Beach",
+    "country": "USA - California",
+    "timezone": "America/Los_Angeles"
+  }
+}

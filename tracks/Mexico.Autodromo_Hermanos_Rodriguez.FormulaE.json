@@ -1,0 +1,9 @@
+{
+  "id": "Mexico.Autodromo_Hermanos_Rodriguez.FormulaE",
+  "name": "Autodromo Hermanos Rodriguez",
+  "location": {
+    "city": "Mexico City",
+    "country": "Mexico",
+    "timezone": "America/Mexico_City"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "USA.World_Wide_Technology_Raceway.IndyCar",
+  "name": "World Wide Technology Raceway",
+  "location": {
+    "city": "Madison",
+    "country": "USA - Illinois",
+    "timezone": "America/Chicago"
+  }
+}
