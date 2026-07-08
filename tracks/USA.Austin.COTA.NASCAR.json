@@ -1,0 +1,9 @@
+{
+  "id": "USA.Austin.COTA.NASCAR",
+  "name": "Circuit of the Americas",
+  "location": {
+    "city": "Austin",
+    "country": "USA - Texas",
+    "timezone": "America/Chicago"
+  }
+}

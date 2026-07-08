@@ -1,0 +1,9 @@
+{
+  "id": "USA.Homestead_Miami_Speedway.NASCAR",
+  "name": "Homestead-Miami Speedway",
+  "location": {
+    "city": "Homestead",
+    "country": "USA - Florida",
+    "timezone": "America/New_York"
+  }
+}

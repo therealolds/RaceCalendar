@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Golfo_Aranci.OpenWater",
+  "name": "Golfo Aranci",
+  "location": {
+    "city": "Golfo Aranci, Sardinia",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

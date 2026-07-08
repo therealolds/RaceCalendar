@@ -1,0 +1,105 @@
+{
+  "championship": "FIA Formula 3 Championship",
+  "year": 2026,
+  "races": [
+    {
+      "idtrack": "Australia.Albert_Park_Circuit.F3",
+      "name": "Round 1 - Melbourne",
+      "startDate": "2026-03-07",
+      "date": "2026-03-08",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-03-07" },
+        { "name": "Feature Race", "date": "2026-03-08" }
+      ] }
+    },
+    {
+      "idtrack": "Monaco.Monte_Carlo.F3",
+      "name": "Round 2 - Monaco",
+      "startDate": "2026-06-06",
+      "date": "2026-06-07",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-06-06" },
+        { "name": "Feature Race", "date": "2026-06-07" }
+      ] }
+    },
+    {
+      "idtrack": "Spain.Circuit_de_Catalunya.F3",
+      "name": "Round 3 - Barcelona",
+      "startDate": "2026-06-13",
+      "date": "2026-06-14",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-06-13" },
+        { "name": "Feature Race", "date": "2026-06-14" }
+      ] }
+    },
+    {
+      "idtrack": "Austria.Red_Bull_Ring.F3",
+      "name": "Round 4 - Red Bull Ring",
+      "startDate": "2026-06-27",
+      "date": "2026-06-28",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-06-27" },
+        { "name": "Feature Race", "date": "2026-06-28" }
+      ] }
+    },
+    {
+      "idtrack": "UK.Silverstone.F3",
+      "name": "Round 5 - Silverstone",
+      "startDate": "2026-07-04",
+      "date": "2026-07-05",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-07-04" },
+        { "name": "Feature Race", "date": "2026-07-05" }
+      ] }
+    },
+    {
+      "idtrack": "Belgium.Spa-Francorchamps.F3",
+      "name": "Round 6 - Spa-Francorchamps",
+      "startDate": "2026-07-18",
+      "date": "2026-07-19",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-07-18" },
+        { "name": "Feature Race", "date": "2026-07-19" }
+      ] }
+    },
+    {
+      "idtrack": "Hungary.Hungaroring.F3",
+      "name": "Round 7 - Hungaroring",
+      "startDate": "2026-07-25",
+      "date": "2026-07-26",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-07-25" },
+        { "name": "Feature Race", "date": "2026-07-26" }
+      ] }
+    },
+    {
+      "idtrack": "Italy.Monza.F3",
+      "name": "Round 8 - Monza",
+      "startDate": "2026-09-05",
+      "date": "2026-09-06",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-09-05" },
+        { "name": "Feature Race", "date": "2026-09-06" }
+      ] }
+    },
+    {
+      "idtrack": "Spain.Madring.F3",
+      "name": "Round 9 - Madrid (Madring)",
+      "startDate": "2026-09-12",
+      "date": "2026-09-13",
+      "time": "",
+      "additionalInfo": { "sessions": [
+        { "name": "Sprint Race", "date": "2026-09-12" },
+        { "name": "Feature Race", "date": "2026-09-13" }
+      ] }
+    }
+  ]
+}

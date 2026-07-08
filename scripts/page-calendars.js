@@ -1,24 +1,9 @@
 /* Calendars page: all series grouped by category, with their next race. */
 
 import { loadSeriesList, loadSeriesCalendar, nextRaceEntry, favouriteIds } from './data.js';
-import { initShell, el, escapeHtml, fmtRange, relLabel } from './ui.js';
+import { initShell, el, escapeHtml, fmtRange, relLabel, tagLabel } from './ui.js';
 
-const TAG_LABELS = {
-  motorsport: 'Motorsport',
-  nautical: 'Sailing & Nautical',
-  cycling: 'Cycling',
-  athletic: 'Athletics & Endurance',
-  equestrian: 'Equestrian',
-  skiing: 'Skiing'
-};
-
-const TAG_ORDER = ['motorsport', 'nautical', 'cycling', 'athletic', 'equestrian', 'skiing'];
-
-function titleize(tag) {
-  return String(tag || 'Other')
-    .replace(/[_-]+/g, ' ')
-    .replace(/\b\w/g, m => m.toUpperCase());
-}
+const TAG_ORDER = ['motorsport', 'nautical', 'cycling', 'athletic', 'swimming', 'equestrian', 'skiing'];
 
 function seriesTile(s, favourites) {
   const tile = el('a', 'series-tile');
@@ -73,7 +58,7 @@ async function main() {
     tags.forEach(tag => {
       const group = seriesList.filter(s => (s.tag || 'other') === tag);
       if (!group.length) return;
-      root.appendChild(el('h2', 'section-title', escapeHtml(TAG_LABELS[tag] || titleize(tag))));
+      root.appendChild(el('h2', 'section-title', escapeHtml(tagLabel(tag))));
       const grid = el('div', 'tile-grid');
       group.forEach(s => grid.appendChild(seriesTile(s, favourites)));
       root.appendChild(grid);

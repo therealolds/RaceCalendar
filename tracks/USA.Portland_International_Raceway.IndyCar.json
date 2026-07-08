@@ -1,0 +1,9 @@
+{
+  "id": "USA.Portland_International_Raceway.IndyCar",
+  "name": "Portland International Raceway",
+  "location": {
+    "city": "Portland",
+    "country": "USA - Oregon",
+    "timezone": "America/Los_Angeles"
+  }
+}

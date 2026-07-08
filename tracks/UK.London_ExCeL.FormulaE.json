@@ -1,0 +1,9 @@
+{
+  "id": "UK.London_ExCeL.FormulaE",
+  "name": "ExCeL London Circuit",
+  "location": {
+    "city": "London",
+    "country": "UK",
+    "timezone": "Europe/London"
+  }
+}

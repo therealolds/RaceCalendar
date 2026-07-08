@@ -1,0 +1,9 @@
+{
+  "id": "USA.Chicagoland_Speedway.NASCAR",
+  "name": "Chicagoland Speedway",
+  "location": {
+    "city": "Joliet",
+    "country": "USA - Illinois",
+    "timezone": "America/Chicago"
+  }
+}

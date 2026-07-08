@@ -1,0 +1,9 @@
+{
+  "id": "USA.Road_America.IndyCar",
+  "name": "Road America",
+  "location": {
+    "city": "Elkhart Lake",
+    "country": "USA - Wisconsin",
+    "timezone": "America/Chicago"
+  }
+}

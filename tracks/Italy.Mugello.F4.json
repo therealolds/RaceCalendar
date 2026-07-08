@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Mugello.F4",
+  "name": "Mugello Circuit",
+  "location": {
+    "city": "Scarperia",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Monaco.Monte_Carlo.FormulaE",
+  "name": "Circuit de Monaco",
+  "location": {
+    "city": "Monte Carlo",
+    "country": "Monaco",
+    "timezone": "Europe/Monaco"
+  }
+}

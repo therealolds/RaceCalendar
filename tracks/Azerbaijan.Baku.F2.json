@@ -1,0 +1,9 @@
+{
+  "id": "Azerbaijan.Baku.F2",
+  "name": "Baku City Circuit",
+  "location": {
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "timezone": "Asia/Baku"
+  }
+}

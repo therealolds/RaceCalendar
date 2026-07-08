@@ -1,0 +1,9 @@
+{
+  "id": "Germany.Hockenheimring.FRECA",
+  "name": "Hockenheimring",
+  "location": {
+    "city": "Hockenheim",
+    "country": "Germany",
+    "timezone": "Europe/Berlin"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "USA.North_Wilkesboro_Speedway.NASCAR",
+  "name": "North Wilkesboro Speedway",
+  "location": {
+    "city": "North Wilkesboro",
+    "country": "USA - North Carolina",
+    "timezone": "America/New_York"
+  }
+}

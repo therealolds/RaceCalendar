@@ -1,0 +1,9 @@
+{
+  "id": "Germany.Berlin_Tempelhof.FormulaE",
+  "name": "Tempelhof Airport Street Circuit",
+  "location": {
+    "city": "Berlin",
+    "country": "Germany",
+    "timezone": "Europe/Berlin"
+  }
+}

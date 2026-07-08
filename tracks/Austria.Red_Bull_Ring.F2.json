@@ -1,0 +1,9 @@
+{
+  "id": "Austria.Red_Bull_Ring.F2",
+  "name": "Red Bull Ring",
+  "location": {
+    "city": "Spielberg",
+    "country": "Austria",
+    "timezone": "Europe/Vienna"
+  }
+}

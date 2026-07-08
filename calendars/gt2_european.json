@@ -1,0 +1,11 @@
+{
+  "championship": "GT2 European Series",
+  "year": 2026,
+  "races": [
+    { "idtrack": "Italy.Monza.GT2", "name": "Round 1 - Monza (2 races)", "startDate": "2026-05-30", "date": "2026-05-31", "time": "" },
+    { "idtrack": "Belgium.Spa-Francorchamps.GT2", "name": "Round 2 - Spa-Francorchamps (2 races)", "startDate": "2026-06-20", "date": "2026-06-21", "time": "" },
+    { "idtrack": "Italy.Misano.GT2", "name": "Round 3 - Misano (2 races)", "startDate": "2026-07-18", "date": "2026-07-19", "time": "" },
+    { "idtrack": "Netherlands.Zandvoort.GT2", "name": "Round 4 - Zandvoort (2 races)", "startDate": "2026-09-19", "date": "2026-09-20", "time": "" },
+    { "idtrack": "Portugal.Portimao.GT2", "name": "Round 5 - Portimão (2 races)", "startDate": "2026-10-17", "date": "2026-10-18", "time": "" }
+  ]
+}

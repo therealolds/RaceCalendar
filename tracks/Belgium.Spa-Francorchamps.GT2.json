@@ -1,0 +1,9 @@
+{
+  "id": "Belgium.Spa-Francorchamps.GT2",
+  "name": "Circuit de Spa-Francorchamps",
+  "location": {
+    "city": "Stavelot",
+    "country": "Belgium",
+    "timezone": "Europe/Brussels"
+  }
+}

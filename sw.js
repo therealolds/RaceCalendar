@@ -1,4 +1,4 @@
-const CACHE = 'racecalendar-v22';
+const CACHE = 'racecalendar-v27';
 
 // Static app shell. Calendars, logos and backgrounds are added dynamically
 // from series.json, so adding a series never requires touching this file.

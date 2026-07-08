@@ -1,0 +1,9 @@
+{
+  "id": "USA.Milwaukee_Mile.IndyCar",
+  "name": "Milwaukee Mile",
+  "location": {
+    "city": "West Allis",
+    "country": "USA - Wisconsin",
+    "timezone": "America/Chicago"
+  }
+}

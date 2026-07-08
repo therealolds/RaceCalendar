@@ -1,0 +1,14 @@
+{
+  "championship": "GB3 Championship",
+  "year": 2026,
+  "races": [
+    { "idtrack": "UK.Silverstone.GB3", "name": "Round 1 - Silverstone (3 races)", "startDate": "2026-04-25", "date": "2026-04-26", "time": "" },
+    { "idtrack": "Belgium.Spa-Francorchamps.GB3", "name": "Round 2 - Spa-Francorchamps (3 races)", "startDate": "2026-05-30", "date": "2026-05-31", "time": "" },
+    { "idtrack": "Hungary.Hungaroring.GB3", "name": "Round 3 - Hungaroring (3 races)", "startDate": "2026-07-04", "date": "2026-07-05", "time": "" },
+    { "idtrack": "Austria.Red_Bull_Ring.GB3", "name": "Round 4 - Red Bull Ring (3 races)", "startDate": "2026-07-11", "date": "2026-07-12", "time": "" },
+    { "idtrack": "UK.Silverstone.GB3", "name": "Round 5 - Silverstone (3 races)", "startDate": "2026-08-01", "date": "2026-08-02", "time": "" },
+    { "idtrack": "UK.Donington_Park.GB3", "name": "Round 6 - Donington Park (3 races)", "startDate": "2026-09-05", "date": "2026-09-06", "time": "" },
+    { "idtrack": "UK.Brands_Hatch.GB3", "name": "Round 7 - Brands Hatch (3 races)", "startDate": "2026-09-26", "date": "2026-09-27", "time": "" },
+    { "idtrack": "Spain.Circuit_de_Catalunya.GB3", "name": "Round 8 - Barcelona-Catalunya (3 races)", "startDate": "2026-11-07", "date": "2026-11-08", "time": "" }
+  ]
+}

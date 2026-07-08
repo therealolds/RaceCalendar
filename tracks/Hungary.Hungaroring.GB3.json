@@ -1,0 +1,9 @@
+{
+  "id": "Hungary.Hungaroring.GB3",
+  "name": "Hungaroring",
+  "location": {
+    "city": "Mogyorod",
+    "country": "Hungary",
+    "timezone": "Europe/Budapest"
+  }
+}

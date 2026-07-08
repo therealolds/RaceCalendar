@@ -1,0 +1,9 @@
+{
+  "id": "UK.Silverstone.GB3",
+  "name": "Silverstone Circuit",
+  "location": {
+    "city": "Silverstone",
+    "country": "UK",
+    "timezone": "Europe/London"
+  }
+}

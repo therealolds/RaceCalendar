@@ -1,0 +1,9 @@
+{
+  "id": "USA.Laguna_Seca.IndyCar",
+  "name": "WeatherTech Raceway Laguna Seca",
+  "location": {
+    "city": "Monterey",
+    "country": "USA - California",
+    "timezone": "America/Los_Angeles"
+  }
+}

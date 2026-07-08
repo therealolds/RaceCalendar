@@ -1,0 +1,9 @@
+{
+  "id": "Netherlands.Zandvoort.GT2",
+  "name": "Circuit Zandvoort",
+  "location": {
+    "city": "Zandvoort",
+    "country": "Netherlands",
+    "timezone": "Europe/Amsterdam"
+  }
+}

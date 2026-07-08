@@ -1,0 +1,9 @@
+{
+  "id": "Qatar.Lusail_International_Circuit.F2",
+  "name": "Lusail International Circuit",
+  "location": {
+    "city": "Lusail",
+    "country": "Qatar",
+    "timezone": "Asia/Qatar"
+  }
+}

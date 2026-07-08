@@ -4,7 +4,7 @@
 import { loadSeriesList, fetchJSON, loadTrack } from './data.js';
 import { initShell, el, escapeHtml } from './ui.js';
 
-const KNOWN_GROUPS = ['F1', 'MotoGP', 'WRC', 'WEC'];
+const KNOWN_GROUPS = ['F1', 'MotoGP', 'WRC', 'WEC', 'NASCAR', 'IndyCar'];
 
 const state = { tracks: [], group: 'All', query: '' };
 

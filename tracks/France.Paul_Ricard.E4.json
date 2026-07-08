@@ -1,0 +1,9 @@
+{
+  "id": "France.Paul_Ricard.E4",
+  "name": "Circuit Paul Ricard",
+  "location": {
+    "city": "Le Castellet",
+    "country": "France",
+    "timezone": "Europe/Paris"
+  }
+}

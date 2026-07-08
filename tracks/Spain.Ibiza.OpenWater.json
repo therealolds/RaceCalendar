@@ -1,0 +1,9 @@
+{
+  "id": "Spain.Ibiza.OpenWater",
+  "name": "Ibiza",
+  "location": {
+    "city": "Ibiza",
+    "country": "Spain",
+    "timezone": "Europe/Madrid"
+  }
+}

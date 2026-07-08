@@ -1,0 +1,9 @@
+{
+  "id": "Brazil.Sao_Paulo.FormulaE",
+  "name": "Sao Paulo Street Circuit",
+  "location": {
+    "city": "Sao Paulo",
+    "country": "Brazil",
+    "timezone": "America/Sao_Paulo"
+  }
+}

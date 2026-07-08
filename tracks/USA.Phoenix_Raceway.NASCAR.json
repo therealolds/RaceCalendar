@@ -1,0 +1,9 @@
+{
+  "id": "USA.Phoenix_Raceway.NASCAR",
+  "name": "Phoenix Raceway",
+  "location": {
+    "city": "Avondale",
+    "country": "USA - Arizona",
+    "timezone": "America/Phoenix"
+  }
+}

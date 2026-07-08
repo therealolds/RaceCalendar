@@ -1,0 +1,9 @@
+{
+  "id": "USA.Talladega_Superspeedway.NASCAR",
+  "name": "Talladega Superspeedway",
+  "location": {
+    "city": "Lincoln",
+    "country": "USA - Alabama",
+    "timezone": "America/Chicago"
+  }
+}

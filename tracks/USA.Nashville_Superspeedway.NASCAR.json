@@ -1,0 +1,9 @@
+{
+  "id": "USA.Nashville_Superspeedway.NASCAR",
+  "name": "Nashville Superspeedway",
+  "location": {
+    "city": "Lebanon",
+    "country": "USA - Tennessee",
+    "timezone": "America/Chicago"
+  }
+}

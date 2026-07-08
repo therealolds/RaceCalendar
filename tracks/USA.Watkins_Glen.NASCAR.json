@@ -1,0 +1,9 @@
+{
+  "id": "USA.Watkins_Glen.NASCAR",
+  "name": "Watkins Glen International",
+  "location": {
+    "city": "Watkins Glen",
+    "country": "USA - New York",
+    "timezone": "America/New_York"
+  }
+}

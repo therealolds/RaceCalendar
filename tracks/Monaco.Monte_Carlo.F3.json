@@ -1,0 +1,9 @@
+{
+  "id": "Monaco.Monte_Carlo.F3",
+  "name": "Circuit de Monaco",
+  "location": {
+    "city": "Monte Carlo",
+    "country": "Monaco",
+    "timezone": "Europe/Monaco"
+  }
+}

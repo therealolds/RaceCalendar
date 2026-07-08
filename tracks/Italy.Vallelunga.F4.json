@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Vallelunga.F4",
+  "name": "Vallelunga Circuit",
+  "location": {
+    "city": "Campagnano di Roma",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

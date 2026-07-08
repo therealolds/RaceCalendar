@@ -1,0 +1,9 @@
+{
+  "id": "USA.Dover_Motor_Speedway.NASCAR",
+  "name": "Dover Motor Speedway",
+  "location": {
+    "city": "Dover",
+    "country": "USA - Delaware",
+    "timezone": "America/New_York"
+  }
+}

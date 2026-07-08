@@ -1,0 +1,9 @@
+{
+  "id": "USA.Sonoma_Raceway.NASCAR",
+  "name": "Sonoma Raceway",
+  "location": {
+    "city": "Sonoma",
+    "country": "USA - California",
+    "timezone": "America/Los_Angeles"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Italy.Misano.GT2",
+  "name": "Misano World Circuit",
+  "location": {
+    "city": "Misano Adriatico",
+    "country": "Italy",
+    "timezone": "Europe/Rome"
+  }
+}

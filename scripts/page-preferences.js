@@ -1,7 +1,7 @@
 /* Preferences page: theme picker (vintage / modern) + favourite competitions. */
 
 import { loadSeriesList, favouriteIds, saveFavouriteIds } from './data.js';
-import { initShell, el, escapeHtml, applyTheme, savedTheme } from './ui.js';
+import { initShell, el, escapeHtml, applyTheme, savedTheme, tagLabel } from './ui.js';
 
 // --- Theme ---------------------------------------------------------------
 
@@ -52,15 +52,36 @@ function favouriteRow(s, favourites) {
 }
 
 async function initFavourites() {
-  const list = document.getElementById('fav-list');
+  const root = document.getElementById('fav-list');
   try {
     const seriesList = await loadSeriesList();
     const favourites = favouriteIds(seriesList);
-    list.innerHTML = '';
-    seriesList.forEach(s => list.appendChild(favouriteRow(s, favourites)));
+
+    // One card per category: motorsport first, the rest alphabetically.
+    const groups = new Map();
+    seriesList.forEach(s => {
+      const tag = s.tag || 'other';
+      if (!groups.has(tag)) groups.set(tag, []);
+      groups.get(tag).push(s);
+    });
+    const tags = [...groups.keys()].sort((a, b) => {
+      if (a === 'motorsport') return -1;
+      if (b === 'motorsport') return 1;
+      return tagLabel(a).localeCompare(tagLabel(b));
+    });
+
+    root.innerHTML = '';
+    tags.forEach(tag => {
+      root.appendChild(el('h3', 'fav-group-title', escapeHtml(tagLabel(tag))));
+      const card = el('div', 'menu-list');
+      card.setAttribute('role', 'group');
+      card.setAttribute('aria-label', `${tagLabel(tag)} competitions`);
+      groups.get(tag).forEach(s => card.appendChild(favouriteRow(s, favourites)));
+      root.appendChild(card);
+    });
   } catch (err) {
     console.error(err);
-    list.innerHTML = '<div class="empty">Could not load competitions. Are you offline?</div>';
+    root.innerHTML = '<div class="empty">Could not load competitions. Are you offline?</div>';
   }
 }
 

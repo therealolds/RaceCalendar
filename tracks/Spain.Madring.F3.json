@@ -1,0 +1,9 @@
+{
+  "id": "Spain.Madring.F3",
+  "name": "Madring",
+  "location": {
+    "city": "Madrid",
+    "country": "Spain",
+    "timezone": "Europe/Madrid"
+  }
+}

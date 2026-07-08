@@ -1,0 +1,9 @@
+{
+  "id": "USA_Miami.Miami_International_Autodrome.FormulaE",
+  "name": "Miami International Autodrome",
+  "location": {
+    "city": "Miami",
+    "country": "USA - Florida",
+    "timezone": "America/New_York"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Egypt.Somabay.OpenWater",
+  "name": "Somabay (Red Sea)",
+  "location": {
+    "city": "Somabay",
+    "country": "Egypt",
+    "timezone": "Africa/Cairo"
+  }
+}

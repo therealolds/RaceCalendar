@@ -1,0 +1,9 @@
+{
+  "id": "USA.Mid-Ohio.IndyCar",
+  "name": "Mid-Ohio Sports Car Course",
+  "location": {
+    "city": "Lexington",
+    "country": "USA - Ohio",
+    "timezone": "America/New_York"
+  }
+}

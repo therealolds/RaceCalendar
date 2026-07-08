@@ -1,0 +1,9 @@
+{
+  "id": "USA.Michigan_International_Speedway.NASCAR",
+  "name": "Michigan International Speedway",
+  "location": {
+    "city": "Brooklyn",
+    "country": "USA - Michigan",
+    "timezone": "America/Detroit"
+  }
+}
