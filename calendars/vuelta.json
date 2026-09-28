@@ -1,13 +1,19 @@
 {
   "championship": "Vuelta a España",
-  "year": 2026,
+  "year": 2027,
   "races": [
     {
-      "idtrack": "Vuelta.2026",
+      "idtrack": "Vuelta.2027",
       "name": "Vuelta a España",
-      "startDate": "2026-08-22",
-      "date": "2026-09-13",
-      "time": ""
+      "startDate": "2027-09-04",
+      "date": "2027-09-26",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Stage 1: start in Santiago de Compostela", "date": "2027-09-04", "time": "" },
+          { "name": "Final stage: Madrid", "date": "2027-09-26", "time": "" }
+        ]
+      }
     }
   ]
 }

@@ -1,20 +1,21 @@
 {
   "championship": "1000 Miglia",
-  "year": 2026,
+  "year": 2027,
   "races": [
     {
-      "idtrack": "Mille_Miglia.2026",
-      "name": "1000 Miglia",
-      "startDate": "2026-06-09",
-      "date": "2026-06-13",
+      "idtrack": "Mille_Miglia.2027",
+      "name": "1000 Miglia (centenary edition)",
+      "startDate": "2027-05-24",
+      "date": "2027-05-29",
       "time": "",
       "additionalInfo": {
         "sessions": [
-          { "name": "Stage 1", "date": "2026-06-09", "time": "" },
-          { "name": "Stage 2 (Modena lunch stop)", "date": "2026-06-10", "time": "" },
-          { "name": "Stage 3 (Rome)", "date": "2026-06-11", "time": "" },
-          { "name": "Stage 4", "date": "2026-06-12", "time": "" },
-          { "name": "Stage 5 (finish in Brescia)", "date": "2026-06-13", "time": "" }
+          { "name": "Stage 1: Brescia > Parma", "date": "2027-05-24", "time": "" },
+          { "name": "Stage 2: Parma > Florence", "date": "2027-05-25", "time": "" },
+          { "name": "Stage 3: Florence > Rome", "date": "2027-05-26", "time": "" },
+          { "name": "Stage 4: Rome > Cervia", "date": "2027-05-27", "time": "" },
+          { "name": "Stage 5: Cervia > Verona", "date": "2027-05-28", "time": "" },
+          { "name": "Stage 6: Verona > Brescia", "date": "2027-05-29", "time": "" }
         ]
       }
     }

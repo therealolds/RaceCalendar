@@ -1,0 +1,10 @@
+{
+    "id": "Vuelta.2027",
+    "name": "Vuelta a España 2027 route",
+    "location": {
+        "city": "Santiago de Compostela → Madrid",
+        "country": "Spain",
+        "circuit": "Vuelta a España 2027 route",
+        "timezone": "Europe/Madrid"
+    }
+}

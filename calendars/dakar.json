@@ -1,29 +1,30 @@
 {
   "championship": "Dakar",
-  "year": 2026,
+  "year": 2027,
   "races": [
     {
       "name": "Dakar",
-      "date": "2026-01-16",
-      "startDate": "2026-01-03",
+      "date": "2027-01-15",
+      "startDate": "2027-01-01",
       "time": "",
-      "idtrack": "Dakar.2026",
+      "idtrack": "Dakar.2027",
       "additionalInfo": {
         "sessions": [
-          { "name": "YANBU > YANBU", "date": "2026-01-04", "time": "" },
-          { "name": "YANBU > YANBU", "date": "2026-01-04", "time": "" },
-          { "name": "YANBU > ALULA", "date": "2026-01-05", "time": "" },
-          { "name": "ALULA > ALULA", "date": "2026-01-06", "time": "" },
-          { "name": "ALULA > ALULA (MARATHON)", "date": "2026-01-07", "time": "" },
-          { "name": "ALULA (MARATHON) > HAIL", "date": "2026-01-08", "time": "" },
-          { "name": "HAIL > RIYADH", "date": "2026-01-09", "time": "" },
-          { "name": "Rest", "date": "2026-01-10", "time": "" },
-          { "name": "RIYADH > WADI AD DAWASIR", "date": "2026-01-11", "time": "" },
-          { "name": "WADI AD DAWASIR > WADI AD DAWASIR", "date": "2026-01-12", "time": "" },
-          { "name": "WADI AD DAWASIR > BISHA (MARATHON)", "date": "2026-01-13", "time": "" },
-          { "name": "BISHA (MARATHON) > BISHA", "date": "2026-01-14", "time": "" },
-          { "name": "BISHA > AL HENAKIYAH", "date": "2026-01-15", "time": "" },
-          { "name": "AL HENAKIYAH > YANBU", "date": "2026-01-16", "time": "" }
+          { "name": "Prologue: KAEC > KAEC", "date": "2027-01-01", "time": "" },
+          { "name": "Stage 1: KAEC > Yanbu", "date": "2027-01-02", "time": "" },
+          { "name": "Stage 2: Yanbu > AlUla", "date": "2027-01-03", "time": "" },
+          { "name": "Stage 3: AlUla > Hail", "date": "2027-01-04", "time": "" },
+          { "name": "Stage 4: Hail > Hail", "date": "2027-01-05", "time": "" },
+          { "name": "Stage 5: Hail > Al Duwadimi", "date": "2027-01-06", "time": "" },
+          { "name": "Stage 6: Al Duwadimi > Marathon refuge", "date": "2027-01-07", "time": "" },
+          { "name": "Stage 7: Marathon refuge > Bisha", "date": "2027-01-08", "time": "" },
+          { "name": "Rest day (Bisha)", "date": "2027-01-09", "time": "" },
+          { "name": "Stage 8: Bisha > Bisha", "date": "2027-01-10", "time": "" },
+          { "name": "Stage 9: Bisha > Wadi Ad-Dawasir", "date": "2027-01-11", "time": "" },
+          { "name": "Stage 10: Wadi Ad-Dawasir > Bisha", "date": "2027-01-12", "time": "" },
+          { "name": "Stage 11: Bisha > Al Bahah (marathon)", "date": "2027-01-13", "time": "" },
+          { "name": "Stage 12: Al Bahah (marathon) > KAEC", "date": "2027-01-14", "time": "" },
+          { "name": "Stage 13: KAEC > KAEC", "date": "2027-01-15", "time": "" }
         ]
       }
     }

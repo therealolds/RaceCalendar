@@ -1,13 +1,21 @@
 {
   "championship": "Tour de France",
-  "year": 2026,
+  "year": 2027,
   "races": [
     {
-      "idtrack": "Tour_de_France.2026",
+      "idtrack": "Tour_de_France.2027",
       "name": "Tour de France",
-      "startDate": "2026-07-04",
-      "date": "2026-07-26",
-      "time": ""
+      "startDate": "2027-07-02",
+      "date": "2027-07-25",
+      "time": "",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Stage 1: Edinburgh > Carlisle", "date": "2027-07-02", "time": "" },
+          { "name": "Stage 2: Keswick > Liverpool", "date": "2027-07-03", "time": "" },
+          { "name": "Stage 3: Welshpool > Cardiff", "date": "2027-07-04", "time": "" },
+          { "name": "Final stage: Paris", "date": "2027-07-25", "time": "" }
+        ]
+      }
     }
   ]
 }
