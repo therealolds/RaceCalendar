@@ -681,7 +681,10 @@ function crash(reason) {
 }
 
 function frame(t) {
-  const dt = Math.min((t - lastT) / 1000, 0.05);
+  // Firefox may stamp the first frame with the start of the tick the tap
+  // landed in, i.e. before start()'s performance.now(); a negative dt would
+  // push skyDist below zero and palette() off the start of SKY_KEYS
+  const dt = clamp((t - lastT) / 1000, 0, 0.05);
   lastT = t;
   step(dt);
   if (phase === 'run') {     // step() may have crashed us

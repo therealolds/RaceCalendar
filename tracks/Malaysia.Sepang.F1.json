@@ -1,0 +1,12 @@
+{
+    "id": "Malaysia.Sepang.F1",
+    "name": "Petronas Sepang International Circuit",
+    "length_km": 5.543,
+    "turns": 15,
+    "location": {
+        "city": "Sepang",
+        "country": "Malaysia",
+        "circuit": "Petronas Sepang International Circuit",
+        "timezone": "Asia/Kuala_Lumpur"
+    }
+}

@@ -256,6 +256,21 @@
       }
     },
     {
+      "idtrack": "Malaysia.Sepang.F1",
+      "name": "Bahrain GP (Sepang)",
+      "date": "2026-10-04",
+      "time": "15:00",
+      "additionalInfo": {
+        "sessions": [
+          { "name": "Free Practice 1", "date": "2026-10-02", "time": "12:30" },
+          { "name": "Free Practice 2", "date": "2026-10-02", "time": "16:00" },
+          { "name": "Free Practice 3", "date": "2026-10-03", "time": "12:30" },
+          { "name": "Qualifying", "date": "2026-10-03", "time": "16:00" },
+          { "name": "Race", "date": "2026-10-04", "time": "15:00" }
+        ]
+      }
+    },
+    {
       "idtrack": "Singapore.Marina_Bay_circuit.F1",
       "name": "Singapore GP",
       "date": "2026-10-11",
